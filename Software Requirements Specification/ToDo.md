@@ -10,14 +10,14 @@ https://docs.google.com/document/d/1lSTHos747Mq--TxF5WO26HnIF-eN8osSb2H4JvYLkqg/
 | - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
 | - 1.4 REFERENCES|-|-|
 | - 1.5 OVERVIEW|-|-|
-||-|-|
+||||
 | 2. GENERAL DESCRIPTION|-|-|
 | - 2.1 PRODUCT PERSPECTIVE|-|-|
 | - 2.2 PRODUCT FUNCTIONS|-|-|
 | - 2.3 USER CHARACTERISTICS|-|-|
 | - 2.4 GENERAL CONSTRAINTS|-|-|
 | - 2.5 ASSUMPTIONS AND DEPENDENCIES|-|-|
-||-|-|
+||||
 | 3. SPECIFIC REQUIREMENTS|-||
 | - 3.1 EXTERNAL INTERFACE REQUIREMENTS|-|-|
 | - 3.1.1 User Interfaces|-|-|
@@ -38,7 +38,7 @@ https://docs.google.com/document/d/1lSTHos747Mq--TxF5WO26HnIF-eN8osSb2H4JvYLkqg/
 | - 3.5 DESIGN CONSTRAINTS|-|-|
 | - 3.6 LOGICAL DATABASE REQUIREMENTS|-|-|
 | - 3.7 OTHER REQUIREMENTS|-|-|
-||-|-|
+||||
 | 4. USE CASE DIAGRAMS|-||
 | - 4.1 USE CASES|-|-|
 | - 4.1.1 Use Case #1|-|-|
@@ -49,7 +49,7 @@ https://docs.google.com/document/d/1lSTHos747Mq--TxF5WO26HnIF-eN8osSb2H4JvYLkqg/
 | - 4.3 SEQUENCE DIAGRAMS|-|-|
 | - 4.4 DATA FLOW DIAGRAMS (DFD)|-|-|
 | - 4.5 STATE-TRANSITION DIAGRAMS (STD)|-|-|
-||-|-|
+||||
 | A. APPENDICES|-||
 | - A.1 APPENDIX 1|-|-|
 | - A.2 APPENDIX 2f|-|-|
