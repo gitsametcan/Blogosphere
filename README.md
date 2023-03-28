@@ -1,3 +1,3 @@
 # Blogosphere
 
-Go RSD folder for Homework-3
+Go Software Requirements Specification folder for Homework-3
