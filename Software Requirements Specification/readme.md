@@ -5,7 +5,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 |Head                                               |Situation|Contributers|
 |---------------------------------------------------|---------|------------|
 |1. INTRODUCTION|-||
-| - 1.1 PURPOSE|-|-|
+| - 1.1 PURPOSE|Review|Samet|
 | - 1.2 SCOPE|-|-|
 | - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
 | - 1.4 REFERENCES|-|-|
