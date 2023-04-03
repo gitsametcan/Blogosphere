@@ -4,40 +4,40 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 
 |Head                                               |Situation|Contributers|
 |---------------------------------------------------|---------|------------|
-|1. INTRODUCTION|-||
+|1. INTRODUCTION|-|Hakan|
 | - 1.1 PURPOSE|Review|Samet|
 | - 1.2 SCOPE|Review|Samet|
 | - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
 | - 1.4 REFERENCES|-|-|
-| - 1.5 OVERVIEW|-|-|
+| - 1.5 OVERVIEW|-|Ali|
 ||||
-| 2. GENERAL DESCRIPTION|-|-|
-| - 2.1 PRODUCT PERSPECTIVE|-|-|
-| - 2.2 PRODUCT FUNCTIONS|-|-|
-| - 2.3 USER CHARACTERISTICS|-|-|
-| - 2.4 GENERAL CONSTRAINTS|-|-|
-| - 2.5 ASSUMPTIONS AND DEPENDENCIES|-|-|
+| 2. GENERAL DESCRIPTION|-|Berkkan|
+| - 2.1 PRODUCT PERSPECTIVE|-|Ela|
+| - 2.2 PRODUCT FUNCTIONS|-|Berk|
+| - 2.3 USER CHARACTERISTICS|-|Murat|
+| - 2.4 GENERAL CONSTRAINTS|-|Samet|
+| - 2.5 ASSUMPTIONS AND DEPENDENCIES|-|Hakan|
 ||||
-| 3. SPECIFIC REQUIREMENTS|-||
-| - 3.1 EXTERNAL INTERFACE REQUIREMENTS|-|-|
-| - - 3.1.1 User Interfaces|-|-|
-| - - 3.1.2 Hardware Interfaces|-|-|
-| - - 3.1.3 Software Interfaces|-|-|
-| - - 3.1.4 Communications Interfaces|-|-|
+| 3. SPECIFIC REQUIREMENTS|-|Ali|
+| - 3.1 EXTERNAL INTERFACE REQUIREMENTS|-|Murat|
+| - - 3.1.1 User Interfaces|-|Berkkan|
+| - - 3.1.2 Hardware Interfaces|-|Ela|
+| - - 3.1.3 Software Interfaces|-|Berk|
+| - - 3.1.4 Communications Interfaces|-|Murat|
 | - 3.2 FUNCTIONAL REQUIREMENTS|-|-|
-| - - 3.2.1 <Functional Requirement or Feature #1>|-|-|
-| - - 3.2.2 <Functional Requirement or Feature #2>|-|-|
-| - 3.3 NON-FUNCTIONAL REQUIREMENTS|-|-|
-| - - 3.3.1 Performance|-|-|
-| - - 3.3.2 Reliability|-|-|
-| - - 3.3.3 Availability|-|-|
-| - - 3.3.4 Security|-|-|
-| - - 3.3.5 Maintainability|-|-|
-| - - 3.3.6 Portability|-|-|
-| - 3.4 INVERSE REQUIREMENTS|-|-|
-| - 3.5 DESIGN CONSTRAINTS|-|-|
-| - 3.6 LOGICAL DATABASE REQUIREMENTS|-|-|
-| - 3.7 OTHER REQUIREMENTS|-|-|
+| - - 3.2.1 <Functional Requirement or Feature #1>|-|Samet|
+| - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
+| - 3.3 NON-FUNCTIONAL REQUIREMENTS|-|Ali|
+| - - 3.3.1 Performance|-|Berkkan|
+| - - 3.3.2 Reliability|-|Ela|
+| - - 3.3.3 Availability|-|Berk|
+| - - 3.3.4 Security|-|Murat|
+| - - 3.3.5 Maintainability|-|Samet|
+| - - 3.3.6 Portability|-|Ali|
+| - 3.4 INVERSE REQUIREMENTS|-|Hakan|
+| - 3.5 DESIGN CONSTRAINTS|-|Berkkan|
+| - 3.6 LOGICAL DATABASE REQUIREMENTS|-|Ela|
+| - 3.7 OTHER REQUIREMENTS|-|Berk|
 ||||
 | 4. USE CASE DIAGRAMS|-||
 | - 4.1 USE CASES|-|-|
