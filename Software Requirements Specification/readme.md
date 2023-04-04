@@ -29,7 +29,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
 | - 3.3 NON-FUNCTIONAL REQUIREMENTS|-|Ali|
 | - - 3.3.1 Performance|In Review|Berkkan|
-| - - 3.3.2 Reliability|-|Ela|
+| - - 3.3.2 Reliability|In Review|Ela|
 | - - 3.3.3 Availability|-|Berk|
 | - - 3.3.4 Security|-|Murat|
 | - - 3.3.5 Maintainability|Review|Samet|
