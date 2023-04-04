@@ -21,7 +21,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | 3. SPECIFIC REQUIREMENTS|-|Ali|
 | - 3.1 EXTERNAL INTERFACE REQUIREMENTS|-|Murat|
 | - - 3.1.1 User Interfaces|-|Berkkan|
-| - - 3.1.2 Hardware Interfaces|-|Ela|
+| - - 3.1.2 Hardware Interfaces|Finished|Ela|
 | - - 3.1.3 Software Interfaces|-|Berk|
 | - - 3.1.4 Communications Interfaces|-|Murat|
 | - 3.2 FUNCTIONAL REQUIREMENTS|-|-|
