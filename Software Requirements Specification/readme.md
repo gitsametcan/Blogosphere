@@ -11,7 +11,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 1.4 REFERENCES|-|-|
 | - 1.5 OVERVIEW|-|Ali|
 ||||
-| 2. GENERAL DESCRIPTION|In Review|Berkkan|
+| 2. GENERAL DESCRIPTION|Finished|Berkkan|
 | - 2.1 PRODUCT PERSPECTIVE|In Review|Ela|
 | - 2.2 PRODUCT FUNCTIONS|-|Berk|
 | - 2.3 USER CHARACTERISTICS|-|Murat|
@@ -20,7 +20,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 ||||
 | 3. SPECIFIC REQUIREMENTS|-|Ali|
 | - 3.1 EXTERNAL INTERFACE REQUIREMENTS|-|Murat|
-| - - 3.1.1 User Interfaces|-|Berkkan|
+| - - 3.1.1 User Interfaces|Finished|Berkkan|
 | - - 3.1.2 Hardware Interfaces|Finished|Ela|
 | - - 3.1.3 Software Interfaces|-|Berk|
 | - - 3.1.4 Communications Interfaces|-|Murat|
@@ -28,14 +28,14 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.2.1 <Functional Requirement or Feature #1>|Not Finish|Samet|
 | - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
 | - 3.3 NON-FUNCTIONAL REQUIREMENTS|-|Ali|
-| - - 3.3.1 Performance|In Review|Berkkan|
+| - - 3.3.1 Performance|Finished|Berkkan|
 | - - 3.3.2 Reliability|In Review|Ela|
 | - - 3.3.3 Availability|-|Berk|
 | - - 3.3.4 Security|-|Murat|
 | - - 3.3.5 Maintainability|Review|Samet|
 | - - 3.3.6 Portability|-|Ali|
 | - 3.4 INVERSE REQUIREMENTS|-|Hakan|
-| - 3.5 DESIGN CONSTRAINTS|In Review|Berkkan|
+| - 3.5 DESIGN CONSTRAINTS|Finished|Berkkan|
 | - 3.6 LOGICAL DATABASE REQUIREMENTS|-|Ela|
 | - 3.7 OTHER REQUIREMENTS|-|Berk|
 ||||
