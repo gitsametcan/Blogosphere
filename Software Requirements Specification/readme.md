@@ -5,7 +5,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 |Head                                               |Situation|Contributers|
 |---------------------------------------------------|---------|------------|
 |1. INTRODUCTION|-|Hakan|
-| - 1.1 PURPOSE| - [x] |Samet|
+| - 1.1 PURPOSE| - [x] |Samet| - [x] - [ ]
 | - 1.2 SCOPE|Review|Samet|
 | - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
 | - 1.4 REFERENCES|-|-|
