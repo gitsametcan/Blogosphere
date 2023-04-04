@@ -5,8 +5,8 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 |Head                                               |Situation|Contributers|
 |---------------------------------------------------|---------|------------|
 |1. INTRODUCTION|-|Hakan|
-| - 1.1 PURPOSE| - [x] |Samet| - [x] - [ ]
-| - 1.2 SCOPE|Review|Samet|
+| - 1.1 PURPOSE|In Review|Samet|
+| - 1.2 SCOPE|In Review|Samet|
 | - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
 | - 1.4 REFERENCES|-|-|
 | - 1.5 OVERVIEW|-|Ali|
@@ -15,7 +15,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 2.1 PRODUCT PERSPECTIVE|-|Ela|
 | - 2.2 PRODUCT FUNCTIONS|-|Berk|
 | - 2.3 USER CHARACTERISTICS|-|Murat|
-| - 2.4 GENERAL CONSTRAINTS|- [ ]|Samet|
+| - 2.4 GENERAL CONSTRAINTS|-|Samet|
 | - 2.5 ASSUMPTIONS AND DEPENDENCIES|-|Hakan|
 ||||
 | 3. SPECIFIC REQUIREMENTS|-|Ali|
