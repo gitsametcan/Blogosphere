@@ -32,7 +32,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.3.2 Reliability|-|Ela|
 | - - 3.3.3 Availability|-|Berk|
 | - - 3.3.4 Security|-|Murat|
-| - - 3.3.5 Maintainability|-|Samet|
+| - - 3.3.5 Maintainability|Review|Samet|
 | - - 3.3.6 Portability|-|Ali|
 | - 3.4 INVERSE REQUIREMENTS|-|Hakan|
 | - 3.5 DESIGN CONSTRAINTS|-|Berkkan|
