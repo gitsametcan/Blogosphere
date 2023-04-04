@@ -25,7 +25,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.1.3 Software Interfaces|-|Berk|
 | - - 3.1.4 Communications Interfaces|-|Murat|
 | - 3.2 FUNCTIONAL REQUIREMENTS|-|-|
-| - - 3.2.1 <Functional Requirement or Feature #1>|-|Samet|
+| - - 3.2.1 <Functional Requirement or Feature #1>|Not Finish|Samet|
 | - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
 | - 3.3 NON-FUNCTIONAL REQUIREMENTS|-|Ali|
 | - - 3.3.1 Performance|-|Berkkan|
