@@ -12,7 +12,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 1.5 OVERVIEW|-|Ali|
 ||||
 | 2. GENERAL DESCRIPTION|In Review|Berkkan|
-| - 2.1 PRODUCT PERSPECTIVE|-|Ela|
+| - 2.1 PRODUCT PERSPECTIVE|In Review|Ela|
 | - 2.2 PRODUCT FUNCTIONS|-|Berk|
 | - 2.3 USER CHARACTERISTICS|-|Murat|
 | - 2.4 GENERAL CONSTRAINTS|-|Samet|
