@@ -14,7 +14,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | 2. GENERAL DESCRIPTION|Finished|Berkkan|
 | - 2.1 PRODUCT PERSPECTIVE|In Review|Ela|
 | - 2.2 PRODUCT FUNCTIONS|In Review|Berk|
-| - 2.3 USER CHARACTERISTICS|-|Murat|
+| - 2.3 USER CHARACTERISTICS|Finished|Murat|
 | - 2.4 GENERAL CONSTRAINTS|In Review|Samet|
 | - 2.5 ASSUMPTIONS AND DEPENDENCIES|Finished|Hakan|
 ||||
