@@ -15,7 +15,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 2.1 PRODUCT PERSPECTIVE|In Review|Ela|
 | - 2.2 PRODUCT FUNCTIONS|In Review|Berk|
 | - 2.3 USER CHARACTERISTICS|-|Murat|
-| - 2.4 GENERAL CONSTRAINTS|-|Samet|
+| - 2.4 GENERAL CONSTRAINTS|In Review|Samet|
 | - 2.5 ASSUMPTIONS AND DEPENDENCIES|-|Hakan|
 ||||
 | 3. SPECIFIC REQUIREMENTS|-|Ali|
@@ -32,7 +32,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.3.2 Reliability|In Review|Ela|
 | - - 3.3.3 Availability|-|Berk|
 | - - 3.3.4 Security|-|Murat|
-| - - 3.3.5 Maintainability|Review|Samet|
+| - - 3.3.5 Maintainability|In Review|Samet|
 | - - 3.3.6 Portability|-|Ali|
 | - 3.4 INVERSE REQUIREMENTS|-|Hakan|
 | - 3.5 DESIGN CONSTRAINTS|Finished|Berkkan|
