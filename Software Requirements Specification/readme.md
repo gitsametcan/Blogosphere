@@ -36,7 +36,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.3.6 Portability|Finished|Ali|
 | - 3.4 INVERSE REQUIREMENTS|-|Hakan|
 | - 3.5 DESIGN CONSTRAINTS|Finished|Berkkan|
-| - 3.6 LOGICAL DATABASE REQUIREMENTS|-|Ela|
+| - 3.6 LOGICAL DATABASE REQUIREMENTS|In Review|Ela|
 | - 3.7 OTHER REQUIREMENTS|-|Berk|
 ||||
 | 4. USE CASE DIAGRAMS|-||
