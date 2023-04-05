@@ -23,7 +23,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.1.1 User Interfaces|Finished|Berkkan|
 | - - 3.1.2 Hardware Interfaces|Finished|Ela|
 | - - 3.1.3 Software Interfaces|-|Berk|
-| - - 3.1.4 Communications Interfaces|-|Murat|
+| - - 3.1.4 Communications Interfaces|Finished|Murat|
 | - 3.2 FUNCTIONAL REQUIREMENTS|-|-|
 | - - 3.2.1 <Functional Requirement or Feature #1>|Not Finish|Samet|
 | - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
