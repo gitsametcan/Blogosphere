@@ -30,7 +30,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 3.3 NON-FUNCTIONAL REQUIREMENTS|Finished|Ali|
 | - - 3.3.1 Performance|Finished|Berkkan|
 | - - 3.3.2 Reliability|In Review|Ela|
-| - - 3.3.3 Availability|-|Berk|
+| - - 3.3.3 Availability|In Review|Berk|
 | - - 3.3.4 Security|In Review|Murat|
 | - - 3.3.5 Maintainability|In Review|Samet|
 | - - 3.3.6 Portability|Finished|Ali|
