@@ -41,12 +41,20 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 ||||
 | 4. USE CASE DIAGRAMS|-||
 | - 4.1 USE CASES|-|-|
-| - - 4.1.1 Use Case #1|-|-|
-| - - 4.1.2 Use Case #2|-|-|
+| - - 4.1.1 Use Case Ziyaretci|-|E-B-S|
+| - - 4.1.2 Use Case Uye|-|E-B-S|
+| - - 4.1.3 Use Case Yazar|-|B-M|
+| - - 4.1.4 Use Case Admin|-|A-H|
 | - 4.2 CLASSES / OBJECTS|-|-|
-| - - 4.2.1 <Class / Object #1>|-|-|
-| - - 4.2.2 <Class / Object #2>|-|-|
+| - - 4.2.1 <Class / Object Kullanıcı>|-|-|
+| - - 4.2.2 <Class / Object İçerik>|-|-|
+| - - 4.2.3 <Class / Object Yorum>|-|-|
+| - - 4.2.4 <Class / Object Begeni>|-|-|
 | - 4.3 SEQUENCE DIAGRAMS|-|-|
+| - - 4.3.1 Squence Diagram Ziyaretci|-|-|
+| - - 4.3.2 Squence Diagram Uye|-|-|
+| - - 4.3.3 Squence Diagram Yazar|-|-|
+| - - 4.3.4 Squence Diagram Admin|-|-|
 | - 4.4 DATA FLOW DIAGRAMS (DFD)|-|-|
 | - 4.5 STATE-TRANSITION DIAGRAMS (STD)|-|-|
 ||||
