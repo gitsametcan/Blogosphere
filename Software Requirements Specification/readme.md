@@ -7,9 +7,8 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 |1. INTRODUCTION|Finished|Hakan|
 | - 1.1 PURPOSE|In Review|Samet|
 | - 1.2 SCOPE|In Review|Samet|
-| - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|-|-|
-| - 1.4 REFERENCES|-|-|
-| - 1.5 OVERVIEW|Finished|Ali|
+| - 1.3 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS|In Review|Berk|
+| - 1.4 OVERVIEW|Finished|Ali|
 ||||
 | 2. GENERAL DESCRIPTION|Finished|Berkkan|
 | - 2.1 PRODUCT PERSPECTIVE|In Review|Ela|
@@ -37,7 +36,6 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 3.4 INVERSE REQUIREMENTS|Finished|Hakan|
 | - 3.5 DESIGN CONSTRAINTS|Finished|Berkkan|
 | - 3.6 LOGICAL DATABASE REQUIREMENTS|In Review|Ela|
-| - 3.7 OTHER REQUIREMENTS|-|Berk|
 ||||
 | 4. USE CASE DIAGRAMS|-||
 | - 4.1 USE CASES|-|-|
