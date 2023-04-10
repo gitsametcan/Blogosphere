@@ -26,7 +26,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - - 3.1.4 Communications Interfaces|Finished|Murat|
 | - 3.2 FUNCTIONAL REQUIREMENTS|-|-|
 | - - 3.2.1 <Functional Requirement or Feature #1>|Not Finish|Samet|
-| - - 3.2.2 <Functional Requirement or Feature #2>|-|Hakan|
+| - - 3.2.2 <Functional Requirement or Feature #2>|Finished|Hakan|
 | - 3.3 NON-FUNCTIONAL REQUIREMENTS|Finished|Ali|
 | - - 3.3.1 Performance|Finished|Berkkan|
 | - - 3.3.2 Reliability|In Review|Ela|
