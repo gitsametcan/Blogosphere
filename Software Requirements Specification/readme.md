@@ -39,7 +39,7 @@ common doc: https://docs.google.com/document/d/16I0CcM40By7ei5UtTfTc8VzdjVfxOKfp
 | - 3.6 LOGICAL DATABASE REQUIREMENTS|In Review|Ela|
 ||||
 | 4. USE CASE DIAGRAMS|-||
-| - 4.1 USE CASES|-|-|
+| - 4.1 USE CASES|Finished|Ela|
 | - - 4.1.1 Use Case Ziyaretci|-|E-B-S|
 | - - 4.1.2 Use Case Uye|-|E-B-S|
 | - - 4.1.3 Use Case Yazar|-|B-M|
