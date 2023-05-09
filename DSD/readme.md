@@ -5,19 +5,19 @@ common doc: https://docs.google.com/document/d/17kF3fBW1_ykR2WGCQrZVhJHMtw0WTI35
 |Head                                               |Situation|Contributers|
 |---------------------------------------------------|---------|------------|
 |1. INTRODUCTION|||
-| - 1.1 Purpose|||
-| - 1.2 Statement of SCOPE|||
-| - 1.3 Software context|||
-| - 1.4 Major Constraints|||
-| - 1.5 Definitions|||
+| - 1.1 Purpose||Ela Nur|
+| - 1.2 Statement of SCOPE||Ela Nur|
+| - 1.3 Software context||Ela Nur|
+| - 1.4 Major Constraints||Berk|
+| - 1.5 Definitions||Hakan|
 | - 1.6 Acronyms and Abbreviations|||
 | - 1.7 References|||
 ||||
 | 2. DESIGN CONSIDERATION|||
-| - 2.1 Design Assumption and Dependencies|||
-| - 2.2 General Constraints|||
-| - 2.3 System Environment|||
-| - 2.4 Development Methods|||
+| - 2.1 Design Assumption and Dependencies||Berkkan|
+| - 2.2 General Constraints||Samet|
+| - 2.3 System Environment||Murat|
+| - 2.4 Development Methods||Ali|
 ||||
 | 3. ARCHITECTURAL and COMPONENT-LEVEL DESIGN|||
 | - 3.1 System Structure|||
