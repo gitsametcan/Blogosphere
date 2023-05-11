@@ -15,7 +15,7 @@ common doc: https://docs.google.com/document/d/17kF3fBW1_ykR2WGCQrZVhJHMtw0WTI35
 ||||
 | 2. DESIGN CONSIDERATION|||
 | - 2.1 Design Assumption and Dependencies|Finished|Berkkan|
-| - 2.2 General Constraints|Samet Finished|
+| - 2.2 General Constraints|Samet|Finished|
 | - 2.3 System Environment||Murat|
 | - 2.4 Development Methods||Ali|
 ||||
