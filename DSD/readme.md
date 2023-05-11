@@ -7,7 +7,7 @@ common doc: https://docs.google.com/document/d/17kF3fBW1_ykR2WGCQrZVhJHMtw0WTI35
 |1. INTRODUCTION|||
 | - 1.1 Purpose|Finished|Ela Nur|
 | - 1.2 Statement of SCOPE||Ela Nur|
-| - 1.3 Software context||Ela Nur|
+| - 1.3 Software context|Finished|Ela Nur|
 | - 1.4 Major Constraints|In Review|Berk|
 | - 1.5 Definitions||Hakan|
 | - 1.6 Acronyms and Abbreviations|||
