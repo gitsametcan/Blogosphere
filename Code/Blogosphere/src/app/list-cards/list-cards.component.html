@@ -1,58 +1,4 @@
-<header class="header fixed-top d-flex align-items-center header-css">
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img
-          src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQFwQ63MkvKpXRTe0UdOpspLfllPhBNaIw9EvMvDrqXIJBB8nAf"
-          alt="">
-        <span class="d-none d-lg-block">Blogosphere</span>
-      </a>
-    </div><!-- End Logo -->
-  
-    <div class="d-flex justify-content-around align-items-center">
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Trends</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Categories</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Contact</a>
-      </div>
-    </div>
-    <div class="search-bar" id="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><img
-            src="https://thumbs.dreamstime.com/b/outline-search-icon-vector-illustration-isolated-transparent-background-sign-symbol-black-white-style-207070400.jpg"
-            alt="" id="search-icon"></button>
-      </form>
-    </div><!-- End Search Bar -->
-  
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-  
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <button id="btn-search-r" onclick="searchButton()">
-              <img
-                src="https://thumbs.dreamstime.com/b/outline-search-icon-vector-illustration-isolated-transparent-background-sign-symbol-black-white-style-207070400.jpg"
-                alt="" id="search-icon-r">
-            </button>
-  
-          </a>
-        </li>
-      </ul>
-    </nav><!-- End Search Icon-->
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">SignIn</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">SignUp</a>
-      </div>
-    </div>
-  
-  </header>
+<app-top-bar></app-top-bar>
   
   <main>
     <div style="background-color: #D6D6D6">
@@ -166,15 +112,5 @@
       </div>
     </section>
   </main>
-  <!-- Start Footer -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Blogosphere</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      Designed by <a href="index.html">Blogosphere</a>
-    </div>
-  </footer>
-  
-  
-  <!-- End Footer -->
+
+  <app-bottom-bar></app-bottom-bar>
