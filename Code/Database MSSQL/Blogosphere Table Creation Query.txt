@@ -1,0 +1,94 @@
+use master
+go
+
+create database BLOGOSPHERE
+go
+
+use BLOGOSPHERE
+go
+
+create table Users (
+	UserID int identity(1,1),
+	UserName nvarchar(50) not null unique,
+	EMail nvarchar(100) not null unique,
+	Password nvarchar(100) not null,
+	Blocked int not null,
+	UserType nvarchar(10) not null,
+	primary key (UserID)
+)
+go
+
+create table Categories (
+	CategoryID int identity(1,1),
+	CategoryTitle nvarchar(50) not null,
+	CategoryDescription nvarchar(200),
+	primary key (CategoryID)
+)
+go
+
+create table Comments (
+	CommentID int identity(1,1),
+	PosterID int not null,
+	ContentID int not null,
+	CommentContent nvarchar(255) not null,
+	primary key (CommentID)
+)
+go
+
+create table Contents (
+	ContentID int identity(1,1),
+	Title nvarchar(100) not null,
+	PublishDate datetime not null,
+	Content ntext not null,
+	ImagePath nvarchar(500),
+	AuthorID int not null,
+	CategoryID int,
+	Visibility int not null,
+	primary key (ContentID)
+)
+go
+
+create table Likes (
+	LikeID int identity(1,1),
+	UserID int not null,
+	LikedContentID int not null,
+	Dislike int not null,
+	primary key (LikeID)
+)
+go
+
+create table Sessions (
+	SessionID int identity(1,1),
+	UserID int not null,
+	SessionKey nvarchar(50) not null,
+	primary key (SessionID)
+)
+go
+
+alter table Likes
+add foreign key (UserID) references Users(UserID) on delete cascade
+go
+
+alter table Likes
+add foreign key (LikedContentID) references Contents(ContentID)
+go
+
+alter table Sessions
+add foreign key (UserID) references Users(UserID)
+go
+
+alter table Comments
+add foreign key (PosterID) references Users(UserID)
+go
+
+alter table Comments
+add foreign key (ContentID) references Contents(ContentID) on delete cascade
+go
+
+alter table Contents
+add foreign key (AuthorID) references Users(UserID)
+go
+
+alter table Contents
+add foreign key (CategoryID) references Categories(CategoryID)
+go
