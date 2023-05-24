@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { ContentDetailsComponent } from './content-details/content-details.component';
+import { ProfilPageComponent } from './profil-page/profil-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ContentDetailsComponent } from './content-details/content-details.compo
     TopBarComponent,
     BottomBarComponent,
     ContentDetailsComponent,
+    ProfilPageComponent,
   ],
   imports: [
     BrowserModule,
