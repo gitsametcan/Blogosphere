@@ -125,4 +125,6 @@ public class TempDatabase {
             commentContent = "OLAMAZ MAVİ DEĞİLMİŞ!"
         }
     };
+
+    public static List<Session> SessionList = new List<Session>();
 }
