@@ -1,17 +1,21 @@
 .b-card{
-    border-radius: 25px;
+  border-radius: 25px;
 }
 
-  .navbar-content{
-    margin-top: 60px;
-    background-color:#D6D6D6;
-  }
+.navbar-content{
+  margin-top: 60px;
+  background-color:#D6D6D6;
+}
 
-  .card{
-    padding: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.card{
+  padding: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container{
+margin-top: 60px;
 }
 

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
+  categories=[
+    {id: 0 , type: "Environment"},
+    {id: 1 , type: "Pollution"},
+    {id: 2 , type: "Forest Fire"},
+    {id: 3 , type: "Earthquake"},
+  ]
+
 }

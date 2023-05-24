@@ -1,55 +1,46 @@
-<header class="header fixed-top d-flex align-items-center header-css">
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img
-          src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQFwQ63MkvKpXRTe0UdOpspLfllPhBNaIw9EvMvDrqXIJBB8nAf"
-          alt="">
-        <span class="d-none d-lg-block">Blogosphere</span>
-      </a>
-    </div><!-- End Logo -->
-  
-    <div class="d-flex justify-content-around align-items-center">
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Trends</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Categories</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">Contact</a>
-      </div>
-    </div>
-    <div class="search-bar" id="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><img
-            src="https://thumbs.dreamstime.com/b/outline-search-icon-vector-illustration-isolated-transparent-background-sign-symbol-black-white-style-207070400.jpg"
-            alt="" id="search-icon"></button>
-      </form>
-    </div><!-- End Search Bar -->
-  
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-  
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <button id="btn-search-r" onclick="searchButton()">
-              <img
-                src="https://thumbs.dreamstime.com/b/outline-search-icon-vector-illustration-isolated-transparent-background-sign-symbol-black-white-style-207070400.jpg"
-                alt="" id="search-icon-r">
-            </button>
-  
-          </a>
-        </li>
+<header>
+  <input type="checkbox" name="" id="checkbox1">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img
+        src="../../assets/img/logo.png"
+        alt="">
+      <span class="d-none d-lg-block">Blogosphere</span>
+    </a>
+  </div>
+  <div class="search-box">
+    <form action="">
+      <input type="text" name="search" id="search-bar" placeholder="Search">
+      <button type="submit"><img src="../../assets/img/loupe.png" alt=""></button>
+    </form>
+  </div>
+  <ul class="nav-bar">
+    <li><a href="#">Trends</a></li>
+    <li>
+      <a href="#">Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
+      <ul class="dropdown">
+        <div *ngFor="let item of categories">
+          <li><a href="">{{item.type}}</a></li>
+        </div>
       </ul>
-    </nav><!-- End Search Icon-->
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">SignIn</a>
-      </div>
-      <div class="top-bar-a">
-        <a href="#" class="text-secondary">SignUp</a>
-      </div>
-    </div>
+    </li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="menu">
+    <label for="checkbox1">
+      <img src="../../assets/img/meat.png" alt="">
+    </label>
+  </div>
+  <ul class="profile">
+    <li>
+      <a href="#" class="mr-50"><img src="../../assets/img/user.png" alt="" class="profile-img" id></a>
+      <ul>
+        <li><a href="">Sign In</a></li>
+        <li><a href="">Sign Up</a></li>
+        <li><a href="">Sign Out</a></li>
+      </ul>
+    </li>
+  </ul>
   
-  </header>
+  
+</header>

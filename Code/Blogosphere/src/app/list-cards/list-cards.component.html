@@ -1,116 +1,20 @@
-
-  
-  <main>
-<!--     <div style="background-color: #D6D6D6">
+<main>
+  <section>
+    <div class="cards-container" style="background-color: #E3E3E3;">
       <div class="container">
-        <div class="navbar-content row align-items-top">
-          <div class="col-sm mx-auto my-auto d-flex justify-content-around">
-            <a href="#" class="text-secondary">Trends</a>
-          </div>
-          <div class="col-sm mx-auto my-auto d-flex justify-content-around">
-            <a href="#" class="text-secondary">Categories</a>
-          </div>
-          <div class="col-sm mx-auto my-auto d-flex justify-content-around">
-            <a href="#" class="text-secondary">Contact</a>
-          </div>
-          <div class="col-sm mx-auto my-auto d-flex justify-content-around">
-            <a href="#" class="text-secondary">SignIn</a>
-          </div>
-          <div class="col-sm mx-auto my-auto d-flex justify-content-around">
-            <a href="#" class="text-secondary">SignUp</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  
-    <section>
-      <div style="background-color: #E3E3E3; margin-top: 60px;">
-        <div class="container">
-          <div class="row align-items-top">
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-top">
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card col-sm">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-top">
-            <div class="card col-sm" *ngFor="let item of news">
-              <img src="https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg" alt="img"
-                class="b-card py-2">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let item of news">
+            <div class="card shadow-lg">
+              <img src={{item.image}} alt="img" class="b-card py-2">
               <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
-                <p class="card-text">{{item.text}}
-                </p>
+                <p class="card-text">{{item.text}}</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
- 
+    </div>
+  </section>
+</main>
