@@ -1,0 +1,89 @@
+/**
+* Template Name: NiceAdmin - v2.3.1
+* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+/* Adjust the logo padding */
+/* Adjust the logo margin */
+.logo {
+    margin-top: -50px;
+  }
+  
+  :root {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Times New Roman", sans-serif bold;
+    background: #f6f9ff;
+    color: #2b2b2b;
+  }
+  
+  a {
+    color: #4167f1;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #155d12;
+    text-decoration: none;
+  }
+  
+  .btn-green {
+    background-color: rgb(62, 188, 62);
+  }
+  .btn-green:hover {
+    background-color: rgb(72, 148, 72);
+  }
+
+  .submit-button {
+    background-color: rgb(62, 188, 62);
+  }
+  
+  .submit-button:hover {
+    background-color: rgb(40, 121, 40); /* Use the same color as the button background color */
+  }
+
+  .submit-button:active,
+  .submit-button:focus {
+    background-color: rgb(62, 188, 62);
+  }
+  .submit-button:hover {
+    background-color: rgb(40, 121, 40); /* Use the same color as the button background color */
+  }
+  
+  body {
+    background-image: url("/assets/img/s.jpg");
+    background-size: 100% 100%;
+  }
+  
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  .logo {
+    line-height: 1;
+  }
+  
+  @media (min-width: 1100px) {
+    .logo {
+      width: 280px;
+    }
+  }
+  
+  .logo img {
+    max-height: 150px;
+    margin-right: 15px;
+  }
+  
+  .logo span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #017035;
+    font-family: "Nunito", sans-serif bold;
+  }
