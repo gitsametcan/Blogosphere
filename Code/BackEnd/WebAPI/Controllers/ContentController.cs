@@ -11,20 +11,26 @@ public class ContentController : ControllerBase {
     
     [HttpGet("GetAll")]
     public List<Content> GetAll() {
-        var commentList = TempDatabase.ContentList.OrderBy(x => x.contentId).ToList<Content>();
+        var commentList = TempDatabase.ContentList
+                .OrderBy(x => x.contentId)
+                .ToList<Content>();
         return commentList;
     }
 
     [HttpGet("GetById/{id}")]
-    public Content GetById(int id) {
-        var content = TempDatabase.ContentList.Where(t => t.contentId == id).SingleOrDefault();
+    public Content? GetById(int id) {
+        var content = TempDatabase.ContentList
+                .Where(t => t.contentId == id)
+                .SingleOrDefault();
         return content;
     }
 
     [HttpGet("GetByUser/{Id}")]
     public List<Content> FindByUserId(int Id) {
-        var content = TempDatabase.ContentList.Where(t => t.authorId == Id).ToList<Content>();
-        return content; 
+        var contents = TempDatabase.ContentList
+                .Where(t => t.authorId == Id)
+                .ToList<Content>();
+        return contents; 
     }
 
     [HttpGet("FindLikedByUser")]

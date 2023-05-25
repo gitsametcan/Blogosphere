@@ -9,39 +9,27 @@ namespace WebAPI.Controllers;
 public class UserController : ControllerBase {
     
     [HttpGet("GetAll")]
-    public IActionResult GetAll() {
+    public List<User> GetAll() {
         var userList = TempDatabase.UserList.OrderBy(x => x.userId).ToList<User>();
-        if (userList is null) {
-            return NotFound();
-        }
-        return Ok(userList);
+        return userList;
     }
 
     [HttpGet("GetById/{id}")]
-    public IActionResult GetById(int id) {
+    public User? GetById(int id) {
         var user = TempDatabase.UserList.Where(t => t.userId == id).SingleOrDefault();
-        if (user is null) {
-            return NotFound();
-        }
-        return Ok(user); 
+        return user; 
     }
 
     [HttpGet("GetByUsername/{username}")]
-    public IActionResult GetByUsername(string username) {
+    public User? GetByUsername(string username) {
         var user = TempDatabase.UserList.Where(t => t.username.Equals(username)).SingleOrDefault();
-        if (user is null) {
-            return NotFound();
-        }
-        return Ok(user);
+        return user;
     }
 
     [HttpGet("GetByEmail/{email}")]
-    public IActionResult GetByEmail(string email) {
+    public User? GetByEmail(string email) {
         var user = TempDatabase.UserList.Where(t => t.email.Equals(email)).SingleOrDefault();
-        if (user is null) {
-            return NotFound();
-        }
-        return Ok(user);
+        return user;
     }
 
     [HttpPost("RegisterUser")]
