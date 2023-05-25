@@ -42,4 +42,12 @@ public class ContentController : ControllerBase {
         var contents = TempDatabase.ContentList.Where(t => likedContentIds.Contains(t.contentId)).ToList<Content>();
         return contents; 
     }
+
+    [HttpGet("GetByCategory/{categoryId}")]
+    public List<Content> GetByCategory(int categoryId) {
+        var contents = TempDatabase.ContentList
+                .Where(t => t.categoryId == categoryId)
+                .ToList<Content>();
+        return contents;
+    }
 }
