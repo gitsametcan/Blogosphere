@@ -1,170 +1,119 @@
- 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <body>
-    <main id="main" class="main">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   
-  
-      <section class="section profile">
-        <div class="row">
+
+<div class="row">
           
-          <div class="col-xl-8">
+<div class="col-xl-8">
+
+  <div class="card">
+    <div class="card-body pt-3">
+
+      <ul class="nav nav-tabs side_nav" role="tablist">
+        <li class="nav-item" *ngFor="let tab of tabs; let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
+          <a class="nav-link" (click)="selectedtab = tab" aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
+        </li>
+      </ul>
+      
+      <div class="tab-content">
+        <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active" id="two">
+          <!-- Change Password Form -->
+          <form>
   
-            <div class="card">
-              <div class="card-body pt-3">
-                <!-- Bordered Tabs -->
-                <ul class="nav nav-tabs nav-tabs-bordered">
-  
-                  <li class="nav-item">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#informations">Informations</button>				 
-                  </li>
-                  
-                  <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#new-password">New Password </button>
-                  </li>
-  
-                  <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#contents">My Contents</button>
-                  </li>
-  
-                  <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#comments">My Comments</button>
-                  </li>
-                  
-                  <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#impressions">My Impressions</button>
-                  </li>
-  
-                  
-  
-                </ul>
-                <div class="tab-content pt-2">
-  
-                  <div class="tab-pane fade show active informations" id="informations">
-                    <h5 class="card-title">Profile Details</h5>
-  
-                    <div class="row">
-                      <div class="col-lg-3 col-md-4 label ">Username</div>
-                      <div class="col-lg-9 col-md-8">come from database</div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                        <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
-                        <div class="col-md-8 col-lg-9">
-                          <input name="username" type="text" class="form-control" id="username">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-lg-3 col-md-4 label ">Email</div>
-                      <div class="col-lg-9 col-md-8">come from database</div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                        <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                        <div class="col-md-8 col-lg-9">
-                          <input name="email" type="text" class="form-control" id="email">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-lg-3 col-md-4 label ">Authorization</div>
-                      <div class="col-lg-9 col-md-8">come from database</div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                    <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
-                    <div class="col-md-8 col-lg-9">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Member</option>
-                        <option value="1">Editor</option>
-                        <option value="2">Admin</option>
-                      </select>
-                    </div>
-                  </div>
-                    
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                     </div>
-                     
-                     <div class="text-center">
-                        <button type="submit" class="btn btn-danger">Block</button>
-                      </div>
-                      
-  
-                  </div>
-  
-                  <div class="tab-pane fade pt-3" id="new-password">
-  
-                    <!-- Change Password Form -->
-                    <form>
-  
-                      <div class="row mb-3">
-                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                        <div class="col-md-8 col-lg-9">
-                          <input name="password" type="password" class="form-control" id="currentPassword">
-                        </div>
-                      </div>
-  
-                      <div class="row mb-3">
-                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                        <div class="col-md-8 col-lg-9">
-                          <input name="newpassword" type="password" class="form-control" id="newPassword">
-                        </div>
-                      </div>
-  
-                      <div class="row mb-3">
-                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                        <div class="col-md-8 col-lg-9">
-                          <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                        </div>
-                      </div>
-  
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Change Password</button>
-                      </div>
-                      
-                    </form><!-- End Change Password Form -->
-  
-                  </div>
-  
-                  <div class="tab-pane fade pt-3" id="contents">
-  
-                    <form>
-                      LİST WİLL COME HERE
-                    </form>
-  
-                  </div>
-                  
-                  <div class="tab-pane fade pt-3" id="comments">
-  
-                    <form>
-                      LİST WİLL COME HERE
-                    </form>
-  
-                  </div>
-                  
-                  <div class="tab-pane fade pt-3" id="impressions">
-  
-                    <form>
-                      LİST WİLL COME HERE
-                    </form>
-  
-                  </div>
-  
-  
-                </div>
-  
+            <div class="row mb-3">
+              <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+              <div class="col-md-8 col-lg-9">
+                <input name="password" type="password" class="form-control" id="currentPassword">
               </div>
             </div>
-  
+
+            <div class="row mb-3">
+              <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+              <div class="col-md-8 col-lg-9">
+                <input name="newpassword" type="password" class="form-control" id="newPassword">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+              <div class="col-md-8 col-lg-9">
+                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </div>
+            
+          </form><!-- End Change Password Form -->
+
+        </div>
+        <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active" id="one">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Username</div>
+            <div class="col-lg-9 col-md-8">come from database</div>
+          </div>
+          
+          <div class="row mb-3">
+              <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+              <div class="col-md-8 col-lg-9">
+                <input name="username" type="text" class="form-control" id="username">
+              </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Email</div>
+            <div class="col-lg-9 col-md-8">come from database</div>
+          </div>
+          
+          <div class="row mb-3">
+              <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+              <div class="col-md-8 col-lg-9">
+                <input name="email" type="text" class="form-control" id="email">
+              </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Authorization</div>
+            <div class="col-lg-9 col-md-8">come from database</div>
+          </div>
+          
+          <div class="row mb-3">
+          <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
+          <div class="col-md-8 col-lg-9">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Member</option>
+              <option value="1">Editor</option>
+              <option value="2">Admin</option>
+            </select>
           </div>
         </div>
-      </section>
-  
-    </main>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  
-    
-  </body>
-  
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+       </div>
+       
+       <div class="text-center">
+          <button type="submit" class="btn btn-danger">Block</button>
+        </div>
+        
+        </div>
+        <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active" id="three">
+          List Will Come Here About my Contents
+        
+        </div>
+        <div *ngIf="selectedtab === tabs[3]" role="tabpanel" class="tab-pane active" id="four">
+          List Will Come Here About my Comments
+        
+        </div>
+        <div *ngIf="selectedtab === tabs[4]" role="tabpanel" class="tab-pane active" id="five">
+          List Will Come Here About my Impressions
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+ 
