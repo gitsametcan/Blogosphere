@@ -83,25 +83,29 @@ public class TempDatabase {
             likeId = 1,
             userId = 1,
             likedContentId = 1,
-            dislike = 0
+            dislike = 0,
+            likeDate = new DateTime(2023, 5, 23, 23, 50, 10),
         },
         new Like {
             likeId = 2,
             userId = 1,
             likedContentId = 2,
-            dislike = 0
+            dislike = 0,
+            likeDate = new DateTime(2023, 5, 23, 23, 50, 10),
         },
         new Like {
             likeId = 3,
             userId = 1,
             likedContentId = 3,
-            dislike = 0
+            dislike = 0,
+            likeDate = new DateTime(2023, 5, 23, 23, 50, 10),
         },
         new Like {
             likeId = 4,
             userId = 2,
             likedContentId = 1,
-            dislike = 0
+            dislike = 0,
+            likeDate = new DateTime(2023, 5, 23, 23, 50, 10),
         },
     };
 
@@ -110,19 +114,22 @@ public class TempDatabase {
             commentId = 1,
             posterId = 1,
             contentId = 1,
-            commentContent = "PANDALAR ÖLMESİN!"
+            commentContent = "PANDALAR ÖLMESİN!",
+            publishDate = new DateTime(2023, 5, 23, 23, 50, 10)
         },
         new Comment {
             commentId = 2,
             posterId = 2,
             contentId = 2,
-            commentContent = "NASIL OLUR?? DAHA DÜN DÜŞÜYOR DİYORDUNUZ!!!"
+            commentContent = "NASIL OLUR?? DAHA DÜN DÜŞÜYOR DİYORDUNUZ!!!",
+            publishDate = new DateTime(2023, 5, 23, 23, 50, 10)
         },
         new Comment {
             commentId = 3,
             posterId = 2,
             contentId = 3,
-            commentContent = "OLAMAZ MAVİ DEĞİLMİŞ!"
+            commentContent = "OLAMAZ MAVİ DEĞİLMİŞ!",
+            publishDate = new DateTime(2023, 5, 23, 23, 50, 10)
         }
     };
 
