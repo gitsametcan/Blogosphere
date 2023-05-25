@@ -15,7 +15,7 @@ public class CategoryController : ControllerBase {
     }
 
     [HttpGet("GetById/{id}")]
-    public Category GetById(int id) {
+    public Category? GetById(int id) {
         var comment = TempDatabase.CategoryList.Where(book => book.categoryId == id).SingleOrDefault();
         return comment; 
     }

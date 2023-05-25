@@ -50,4 +50,16 @@ public class ContentController : ControllerBase {
                 .ToList<Content>();
         return contents;
     }
+
+    [HttpGet("SearchContainsInTitle")]
+    public List<Content> SearchContainsInTitle([FromQuery]string keyword) {
+        var contents = TempDatabase.ContentList.Where(t => t.title.Contains(keyword)).ToList<Content>();
+        return contents;
+    }
+
+    [HttpGet("SearchContainsInText")]
+    public List<Content> SearchContainsInText(string keyword) {
+        var contents = TempDatabase.ContentList.Where(t => t.content.Contains(keyword)).ToList<Content>();
+        return contents;
+    }
 }
