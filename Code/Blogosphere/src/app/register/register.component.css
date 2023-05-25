@@ -18,6 +18,10 @@
   :root {
     scroll-behavior: smooth;
   }
+
+  .show{
+    margin-top: 60px;
+  }
   
   body {
     font-family: "Times New Roman", sans-serif bold;
