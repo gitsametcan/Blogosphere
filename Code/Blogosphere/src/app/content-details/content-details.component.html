@@ -2,34 +2,135 @@
     <section>
         <div style="background-color: #E3E3E3; margin-top: 60px;">
             <div class="container">
-              <div class="row align-items-top">
-                <div class="card align-items-center">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">CONTENT TITLE CONTENT TITLE</h5>
-                    </div>
-                    <img src="../../assets/img/foto.jpg" class="card-img-bottom content-img w-75" alt="...">
-                    <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                    </div>
-                    <div class="card">
+                <div class="row align-items-top">
+                    <div class="card align-items-center">
                         <div class="card-body">
-                          <h5 class="card-title">Quill Editor Default</h5>
-            
-                          <!-- Quill Editor Default -->
-                          <div class="quill-editor-default q1-container q1-snow">
-                            <p>Hello World!</p>
-                            <p>This is Quill <strong>default</strong> editor</p>
-                          </div>
-                          <!-- End Quill Editor Default -->
-            
+                            <h5 class="card-title text-center">CONTENT TITLE CONTENT TITLE</h5>
                         </div>
-                      </div>
-              </div>
+                        <img src="../../assets/img/foto.jpg" class="card-img-bottom content-img w-75" alt="...">
+                        <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                            Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one
+                            of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
+                            the cites of the word in classical literature, discovered the undoubtable source. Lorem
+                            Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+                            Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
+                            theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem
+                            ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                            interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
+                            also reproduced in their exact original form, accompanied by English versions from the 1914
+                            translation by H. Rackham.
+                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+                            of
+                            classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+                            Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+                            Latin
+                            words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+                            classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                            1.10.32
+                            and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                            written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+                            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a
+                            line in
+                            section 1.10.32.
+
+                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                            interested.
+                            Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+                            reproduced
+                            in their exact original form, accompanied by English versions from the 1914 translation by
+                            H.
+                            Rackham.</p>
+                    </div>
+
+                    
+                    <!-- LIKE PART!!! -->
+                    <div class="like-card d-flex justify-content-end border border-dark rounded ">
+                        <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                        <button class="btn btn-lg" id="green" onclick="
+                          var btn2 = document.querySelector('#red');
+                          if (btn2.classList.contains('red')) {
+                            btn2.classList.remove('red');
+                            } 
+                          this.classList.toggle('green');">
+                            <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn btn-lg" id="red" onclick="
+                        var btn1 = document.querySelector('#green');
+                        if (btn1.classList.contains('green')) {
+                        btn1.classList.remove('green');
+                          }
+                        this.classList.toggle('red');">
+                            <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+                        </button>
+                    </div> <!--Ending LIKE PART!!! -->
+
+
+
+                    <div class="container mt-5 mb-5"> <!-- Comment Part!!!-->
+                        <div class="d-flex justify-content-center row">
+                            <div class="d-flex flex-column col-md-8">
+                                <div
+                                    class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+                                    <div class="d-flex flex-column ml-3">
+                                        <div class="d-flex flex-row post-title">
+                                            <h5>Comments</h5><span class="ml-2"> (User Name)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coment-bottom bg-white p-2 px-4">
+                                    <div class="d-flex flex-row add-comment-section mt-4 mb-4"><img
+                                            class="img-fluid img-responsive rounded-circle mr-2"
+                                            src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text"
+                                            class="form-control mr-3" placeholder="Add comment"><button
+                                            class="btn btn-primary" type="button">Comment</button></div>
+                                    <div class="commented-section mt-2">
+                                        <div class="d-flex flex-row align-items-center commented-user">
+                                            <h5 class="mr-2">Corey oates</h5><span class="dot mb-1"></span><span
+                                                class="mb-1 ml-2">4 hours ago</span>
+                                        </div>
+                                        <div class="comment-text-sm"><span>Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                                laboris nisi ut aliquip ex ea commodo consequat.</span></div>
+                                    </div><br>
+
+                                    <div class="commented-section mt-2">
+                                        <div class="d-flex flex-row align-items-center commented-user">
+                                            <h5 class="mr-2">Samoya Johns</h5><span class="dot mb-1"></span><span
+                                                class="mb-1 ml-2">5 hours ago</span>
+                                        </div>
+                                        <div class="comment-text-sm"><span>Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                                magna aliqua..</span></div>
+                                    </div> <br>
+
+                                    <div class="commented-section mt-2">
+                                        <div class="d-flex flex-row align-items-center commented-user">
+                                            <h5 class="mr-2">Makhaya andrew</h5><span class="dot mb-1"></span><span
+                                                class="mb-1 ml-2">10 hours ago</span>
+                                        </div>
+                                        <div class="comment-text-sm"><span>Nunc sed id semper risus in hendrerit gravida
+                                                rutrum. Non odio euismod lacinia at quis risus sed. Commodo ullamcorper
+                                                a lacus vestibulum sed arcu non odio euismod. Enim facilisis gravida
+                                                neque convallis a. In mollis nunc sed id. Adipiscing elit pellentesque
+                                                habitant morbi tristique senectus et netus. Ultrices mi tempus imperdiet
+                                                nulla malesuada pellentesque.</span></div>
+                                    </div> <br>
+
+                                </div> <!-- Comment Part!!!   End-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
-          </div>
+        </div>
+
     </section>
 </main>
