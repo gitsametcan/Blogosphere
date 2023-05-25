@@ -44,4 +44,21 @@ public class UserController : ControllerBase {
         return Ok();
     }
 
+    [HttpPut("UpdateUser/{Id}")]
+    public IActionResult UpdateUser(int Id, [FromBody] User updatedUser) {
+        var tempUser = TempDatabase.UserList.SingleOrDefault(t => t.userId == Id);
+        if (tempUser is null) {
+            return NotFound("User not found: " + Id);
+        }
+        
+        tempUser.userId     = updatedUser.userId    != default ? updatedUser.userId     : tempUser.userId;
+        tempUser.username   = updatedUser.username  != default ? updatedUser.username   : tempUser.username;
+        tempUser.email      = updatedUser.email     != default ? updatedUser.email      : tempUser.email;
+        tempUser.password   = updatedUser.password  != default ? updatedUser.password   : tempUser.password;
+        tempUser.userType   = updatedUser.userType  != default ? updatedUser.userType   : tempUser.userType;
+        tempUser.blocked    = updatedUser.blocked   != default ? updatedUser.blocked    : tempUser.blocked;
+
+        return Ok();
+    }
+
 }
