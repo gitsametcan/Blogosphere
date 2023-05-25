@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class ProfilPageComponent {
 
 
-  tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
+  tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
 selectedtab = this.tabs[0];
 }
