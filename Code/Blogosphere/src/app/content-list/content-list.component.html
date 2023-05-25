@@ -1,9 +1,9 @@
-<div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-      The current button
-    </button>
-    <button type="button" class="list-group-item list-group-item-action">A second item</button>
-    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+<div class="list-group" *ngFor="let item of contents">
+    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{item.title}}</h5>
+        <h6 class="mb-1">{{item.editor}}</h6>
+        <small class="text-muted">{{item.date}}</small>
+      </div>
+    </a>
 </div>
