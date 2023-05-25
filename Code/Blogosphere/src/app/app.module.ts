@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContentListComponent } from './content-list/content-list.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     ProfilPageComponent,
     LoginComponent,
     RegisterComponent,
+    ContentListComponent,
   ],
   imports: [
     BrowserModule,
