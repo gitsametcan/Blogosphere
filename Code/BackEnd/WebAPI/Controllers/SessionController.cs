@@ -40,4 +40,14 @@ public class SessionController : ControllerBase {
         TempDatabase.SessionList.Add(session);
         return Ok();
     }
+
+    [HttpDelete("DeleteSession")]
+    public IActionResult DeleteSession([FromQuery] string SessionKey) {
+        var session = TempDatabase.SessionList.SingleOrDefault(t => t.sessionKey == SessionKey);
+        if (session is null) {
+            return NotFound("User with given session key (" + SessionKey + ") not found.");
+        }
+        TempDatabase.SessionList.Remove(session);
+        return Ok();
+    }
 }
