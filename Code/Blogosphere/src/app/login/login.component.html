@@ -30,7 +30,7 @@
                       <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required
-                          [(ngModel)]="loginObj.userName" #username="ngModel">
+                          [(ngModel)]="loginObj.username" #username="ngModel">
                         <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid-feedback">
                           <div *ngIf="username.errors?.['required']">
                             Please enter your username.
