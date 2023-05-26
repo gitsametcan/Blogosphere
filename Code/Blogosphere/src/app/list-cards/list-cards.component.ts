@@ -32,6 +32,10 @@ export class ListCardsComponent implements OnInit{
     visibility: 0
   };
 
+  setContentDetail(ID:number): void{
+    this.shared.setWhichContent(ID);
+  }
+
   news=[
     {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
     {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},

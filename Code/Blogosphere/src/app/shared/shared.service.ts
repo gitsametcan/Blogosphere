@@ -13,4 +13,12 @@ export class SharedService {
   getWhichCategory(){
     return Number(localStorage.getItem('categoryID'));
   }
+
+  setWhichContent(data: number){
+    localStorage.setItem('contentID', data.toString());
+  }
+
+  getWhichContent(){
+    return Number(localStorage.getItem('contentID'));
+  }
 }
