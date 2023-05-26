@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentListComponent } from './content-list/content-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ContentListComponent } from './content-list/content-list.component';
     LoginComponent,
     RegisterComponent,
     ContentListComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,

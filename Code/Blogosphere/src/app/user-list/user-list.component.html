@@ -1,0 +1,9 @@
+<div *ngFor="let item of users" [class]="{ 'bg-primary':item.activicy}" [class.bg-warning]="!item.activicy">
+    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{item.username}}</h5>
+        <!-- <h6 class="mb-1">{{item.editor}}</h6> -->
+        <small class="text-muted">{{item.activicy}}</small>
+      </div>
+    </a>
+</div>
