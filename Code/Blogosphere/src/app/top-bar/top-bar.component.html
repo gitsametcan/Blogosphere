@@ -1,7 +1,7 @@
 <header>
   <input type="checkbox" name="" id="checkbox1">
   <div class="d-flex align-items-center justify-content-between">
-    <button class="btn" (click)='changeCategory(0)'>
+    <button class="button-top-bar-logo" (click)='changeCategory(0)'>
       <a href="/home" class="logo d-flex align-items-center">
         <img
           src="../../assets/img/as.png"
@@ -23,7 +23,7 @@
       <a href="#">Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
       <ul class="dropdown">
         <div *ngFor="let item of categoriess">
-          <li><button class="btn" (click)='changeCategory(item.categoryId)'><a href="">{{item.categoryTitle}}</a> </button></li>
+          <li><button class="button-top-bar" (click)='changeCategory(item.categoryId)'><a href="">{{item.categoryTitle}}</a> </button></li>
         </div>
       </ul>
     </li>

@@ -31,6 +31,16 @@ header{
   line-height: 2;
 }
 
+.button-top-bar-logo{
+  background-color:white;
+  border: none;
+}
+
+.button-top-bar{
+  background-color:#E3E3E3;
+  border: none;
+}
+
 @media (min-width: 1200px) {
   .logo {
     width: 280px;
@@ -136,7 +146,7 @@ ul li ul.dropdown a{
 }
 
 ul li ul.dropdown{
-  width: 200px;
+  width: 250px;
   background: #E3E3E3;
   border: 2px solid white;
   border-radius: 10px;
@@ -225,7 +235,7 @@ header .menu{
   }
 
   ul li ul.dropdown{
-    width: 200px;
+    width: 250px;
     height: 170px;
     margin-top: -70px;
     background: #E3E3E3;
@@ -277,7 +287,7 @@ header .menu{
   }
 
   ul li ul.dropdown{
-    width: 200px;
+    width: 250px;
     height: 170px;
     background: #E3E3E3;
     border: 2px solid white;
