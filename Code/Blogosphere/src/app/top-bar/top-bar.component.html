@@ -1,12 +1,15 @@
 <header>
   <input type="checkbox" name="" id="checkbox1">
   <div class="d-flex align-items-center justify-content-between">
-    <a href="/home" class="logo d-flex align-items-center">
-      <img
-        src="../../assets/img/as.png"
-        alt="">
-      <span class="d-none d-lg-block">Blogosphere</span>
-    </a>
+    <button class="btn" (click)='changeCategory(0)'>
+      <a href="/home" class="logo d-flex align-items-center">
+        <img
+          src="../../assets/img/as.png"
+          alt="">
+        <span class="d-none d-lg-block">Blogosphere</span>
+      </a>
+    </button>
+    
   </div>
   <div class="search-box">
     <form action="">
@@ -19,8 +22,8 @@
     <li>
       <a href="#">Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
       <ul class="dropdown">
-        <div *ngFor="let item of categories">
-          <li><a href="">{{item.type}}</a></li>
+        <div *ngFor="let item of categoriess">
+          <li><button class="btn" (click)='changeCategory(item.categoryId)'><a href="">{{item.categoryTitle}}</a> </button></li>
         </div>
       </ul>
     </li>
@@ -41,6 +44,4 @@
       </ul>
     </li>
   </ul>
-  
-  
 </header>
