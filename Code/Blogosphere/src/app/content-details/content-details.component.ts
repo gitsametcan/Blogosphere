@@ -1,5 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service'
+import { urlencoded } from 'body-parser';
+import { RequestService } from '../request.service';
+import { response } from 'express';
 
 interface ContentDetail{
   contentId: 0,
@@ -20,7 +23,7 @@ interface ContentDetail{
 })
 export class ContentDetailsComponent implements OnInit{
   
-  constructor(private shared:SharedService){}
+  constructor(private shared:SharedService, private requestService: RequestService){}
 
   contentObj: ContentDetail = {
     contentId: 0,
@@ -35,16 +38,14 @@ export class ContentDetailsComponent implements OnInit{
 
   content!: ContentDetail;
 
-  getContentsByID(ID:number): void {
-    fetch('http://localhost:5204/api/Contents/GetById/'+ID)
-      .then(response => response.json())
-      .then(data => {
-        this.content = data;
-        console.log('ContentsByID:', this.content);
+  getContentsByID(ID:number):void {
+    this.requestService.sendRequest('api/Contents/GetById/'+ID,'GET')
+      .then(response => {
+        this.content = response;
       })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      .catch(err => {
+        console.error("Error: " + err);
+      })
   }
 
   ngOnInit(): void { 

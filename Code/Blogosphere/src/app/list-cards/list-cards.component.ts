@@ -1,5 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service'
+import { urlencoded } from 'body-parser';
+import { RequestService } from '../request.service';
+import { response } from 'express';
+
 
 interface Content{
   contentId: 0,
@@ -19,7 +23,7 @@ interface Content{
 })
 export class ListCardsComponent implements OnInit{
 
-  constructor(private shared:SharedService){}
+  constructor(private shared:SharedService,private requestService: RequestService){}
 
   contentObj: Content = {
     contentId: 0,
@@ -48,30 +52,38 @@ export class ListCardsComponent implements OnInit{
   ];
 
   contents: Content[] = [];
+  // getContentsByID(ID:number): void {
+  //   fetch('http://localhost:5204/api/Contents/GetByCategory/'+ID)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.contents = data;
+  //       console.log('ContentsByID:', this.contents);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     });
+  // }
+
   getContents(): void {
-    
-    fetch('http://localhost:5204/api/Contents/GetAll')
-      .then(response => response.json())
-      .then(data => {
-        this.contents = data;
-        console.log('Contents:', this.contents);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    this.requestService.sendRequest('api/Contents/GetAll','GET')
+    .then(response => {
+      this.contents = response;
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
   }
 
   getContentsByID(ID:number): void {
-    fetch('http://localhost:5204/api/Contents/GetByCategory/'+ID)
-      .then(response => response.json())
-      .then(data => {
-        this.contents = data;
-        console.log('ContentsByID:', this.contents);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    this.requestService.sendRequest('api/Contents/GetByCategory'+ID,'GET')
+    .then(response => {
+      this.contents = response;
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
   }
+
 
   ngOnInit(): void { 
     if(this.shared.getWhichCategory()>0){

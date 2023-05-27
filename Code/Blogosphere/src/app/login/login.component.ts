@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { urlencoded } from 'body-parser';
+import { RequestService } from '../request.service';
+import { response } from 'express';
 
 interface User {
   userId: number;
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
     return !this.loginObj.username && !this.loginObj.password;
   }
 
-  constructor(private router: Router, private modalService: NgbModal) {}
+  constructor(private router: Router, private modalService: NgbModal,private requestService: RequestService) {}
 
   onLogin(): void {
     this.formSubmitted = true;
@@ -89,16 +92,26 @@ export class LoginComponent implements OnInit {
   }
 
   users: User[] = [];
+  // getUsers(): void {
+  //   fetch('http://localhost:5204/api/Users/GetAll')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.users = data;
+  //       console.log('Users:', this.users);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     });
+  // }
+
   getUsers(): void {
-    fetch('http://localhost:5204/api/Users/GetAll')
-      .then(response => response.json())
-      .then(data => {
-        this.users = data;
-        console.log('Users:', this.users);
+    this.requestService.sendRequest('api/Users/GetAll','GET')
+      .then(response => {
+        this.users = response;
       })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      .catch(err => {
+        console.error("Error: " + err);
+      })
   }
 
   ngOnInit(): void { 

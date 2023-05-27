@@ -36,26 +36,19 @@ export class TopBarComponent implements OnInit {
   ]
 
   categoriess: Category[] = [];
-  // getCategories(): void {
-  //   fetch('http://localhost:5204/api/Categorys/GetAll')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.categoriess = data;
-  //       console.log('Categories:', this.categoriess);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //     });
-  // }
-  ngOnInit(): void { 
-      //this.getCategories();
-      this.requestService.sendRequest('api/Comments/GetAll','GET')
+  getCategories():void {
+    this.requestService.sendRequest('api/Categorys/GetAll','GET')
       .then(response => {
-        console.log( "Servis: " + JSON.stringify(response));
+        this.categoriess = response;
       })
       .catch(err => {
         console.error("Error: " + err);
       })
+  }
+
+  ngOnInit(): void { 
+      this.getCategories();
+      
   }
 
 }
