@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service'
+import { urlencoded } from 'body-parser';
+import { RequestService } from '../request.service';
+import { response } from 'express';
 
 interface Category{
   categoryId: 0,
@@ -24,7 +27,7 @@ export class TopBarComponent implements OnInit {
     this.shared.setWhichCategory(ID);
   }
 
-  constructor(private shared: SharedService){}
+  constructor(private shared: SharedService, private requestService: RequestService){}
   categories=[
     {id: 0 , type: "Environment"},
     {id: 1 , type: "Pollution"},
@@ -33,19 +36,26 @@ export class TopBarComponent implements OnInit {
   ]
 
   categoriess: Category[] = [];
-  getCategories(): void {
-    fetch('http://localhost:5204/api/Categorys/GetAll')
-      .then(response => response.json())
-      .then(data => {
-        this.categoriess = data;
-        console.log('Categories:', this.categoriess);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }
+  // getCategories(): void {
+  //   fetch('http://localhost:5204/api/Categorys/GetAll')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.categoriess = data;
+  //       console.log('Categories:', this.categoriess);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error:', error);
+  //     });
+  // }
   ngOnInit(): void { 
-      this.getCategories();
+      //this.getCategories();
+      this.requestService.sendRequest('api/Comments/GetAll','GET')
+      .then(response => {
+        console.log( "Servis: " + JSON.stringify(response));
+      })
+      .catch(err => {
+        console.error("Error: " + err);
+      })
   }
 
 }

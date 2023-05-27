@@ -1,33 +1,66 @@
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\appsettings.Development.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\appsettings.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\WebAPI.exe
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\WebAPI.deps.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\WebAPI.runtimeconfig.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\WebAPI.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\WebAPI.pdb
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.csproj.AssemblyReference.cache
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.AssemblyInfoInputs.cache
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.AssemblyInfo.cs
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.csproj.CoreCompileInputs.cache
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.build.WebAPI.props
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets.build.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\staticwebassets.development.json
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\scopedcss\bundle\WebAPI.styles.css
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.csproj.CopyComplete
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\refint\WebAPI.dll
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.pdb
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.genruntimeconfig.cache
-C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\ref\WebAPI.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/appsettings.Development.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/appsettings.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.exe
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.deps.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.runtimeconfig.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.pdb
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CoreCompileInputs.cache
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.build.WebAPI.props
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.WebAPI.props
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.WebAPI.props
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.build.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.development.json
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/scopedcss/bundle/WebAPI.styles.css
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CopyComplete
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.pdb
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.genruntimeconfig.cache
+C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/refint/WebAPI.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.pdb
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/appsettings.Development.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/appsettings.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.deps.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.runtimeconfig.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/WebAPI.pdb
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.AssemblyReference.cache
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfoInputs.cache
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.AssemblyInfo.cs
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CoreCompileInputs.cache
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.MvcApplicationPartsAssemblyInfo.cs
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.MvcApplicationPartsAssemblyInfo.cache
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.build.WebAPI.props
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.WebAPI.props
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.WebAPI.props
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.pack.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.build.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/staticwebassets.development.json
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/scopedcss/bundle/WebAPI.styles.css
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CopyComplete
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.genruntimeconfig.cache
+/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll

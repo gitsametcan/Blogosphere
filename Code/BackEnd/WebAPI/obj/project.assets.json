@@ -460,26 +460,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ykadi\\.nuget\\packages\\": {}
+    "/Users/hakanuz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Blogosphere\\Code\\BackEnd\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Projects\\Blogosphere\\Code\\BackEnd\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\ykadi\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Blogosphere\\Code\\BackEnd\\WebAPI\\obj\\",
+      "projectPath": "/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/WebAPI.csproj",
+      "packagesPath": "/Users/hakanuz/.nuget/packages/",
+      "outputPath": "/Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ykadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/hakanuz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
+        "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -526,7 +526,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }
