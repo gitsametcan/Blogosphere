@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.DataManagement;
-using WebAPI.Entities;
+using Microsoft.EntityFrameworkCore;
+using WebAPI.Business.Managers;
+using WebAPI.Business.Services;
+using WebAPI.Core.Result;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers;
 
@@ -8,43 +11,38 @@ namespace WebAPI.Controllers;
 [Route("api/[controller]s")]
 public class CategoryController : ControllerBase {
     
+    private readonly ICategoryService _service;
+    public CategoryController(BlogosphereContext context) {
+        _service = new CategoryManager(context);
+    }
+
     [HttpGet("GetAll")]
-    public List<Category> GetAll() {
-        var commentList = TempDatabase.CategoryList.OrderBy(x => x.categoryId).ToList<Category>();
-        return commentList;
+    public DataResult<List<Category>> GetAll() {
+        return new DataResult<List<Category>>(true, _service.GetAll());
     }
 
     [HttpGet("GetById/{id}")]
-    public Category? GetById(int id) {
-        var comment = TempDatabase.CategoryList.Where(t => t.categoryId == id).SingleOrDefault();
-        return comment; 
+    public DataResult<Category> GetById(int id) {
+        return new DataResult<Category>(true, _service.GetById(id)); 
     }
 
     [HttpGet("FindByName/{name}")]
-    public List<Category> FindByName(string name) {
-        var commentList = TempDatabase.CategoryList.Where(t => t.categoryTitle.Contains(name)).ToList<Category>();
-        return commentList;
+    public DataResult<List<Category>> FindByName(string name) {
+        return new DataResult<List<Category>>(true, _service.FindByName(name));
     }
 
     [HttpPost("NewCategory")]
-    public IActionResult NewCategory([FromBody] Category category) {
-        TempDatabase.CategoryList.Add(category);
-        return Ok();
+    public Result NewCategory([FromBody] Category category) {
+        return _service.NewCategory(category);
     }
 
-    [HttpPut("UpdateCategory")]
-    public IActionResult UpdateCategory([FromBody] Category category) {
-        TempDatabase.CategoryList.Add(category);
-        return Ok();
+    [HttpPut("UpdateCategory/{id}")]
+    public Result UpdateCategory(int id, [FromBody] Category category) {
+        return _service.UpdateCategory(id, category);
     }
 
     [HttpDelete("DeleteCategory/{categoryId}")]
-    public IActionResult DeleteCategory(int categoryId) {
-        var category = TempDatabase.CategoryList.SingleOrDefault(t => t.categoryId == categoryId);
-        if (category is null) {
-            return NotFound("Category with id " + categoryId + " not found.");
-        }
-        TempDatabase.CategoryList.Remove(category);
-        return Ok();
+    public Result DeleteCategory(int categoryId) {
+        return _service.DeleteCategory(categoryId);
     }
 }

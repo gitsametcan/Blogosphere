@@ -64,3 +64,13 @@ C:/Projects/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll
 /Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.csproj.CopyComplete
 /Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/WebAPI.genruntimeconfig.cache
 /Users/hakanuz/Desktop/Software Eng./Project/Blogosphere/Code/BackEnd/WebAPI/obj/Debug/net7.0/ref/WebAPI.dll
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.csproj.AssemblyReference.cache
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.AssemblyInfoInputs.cache
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.AssemblyInfo.cs
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.csproj.CoreCompileInputs.cache
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.dll
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\refint\WebAPI.dll
+C:\Projects\Blogosphere\Code\BackEnd\WebAPI\obj\Debug\net7.0\WebAPI.pdb

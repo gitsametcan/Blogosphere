@@ -1,17 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+// dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.5
+// dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.5
+// data source=KADIR-BERK\SQLEXPRESS;initial catalog=BLOGOSPHERE;trusted_connection=true
 
-string allowAllPolicy = "_AllowAll";
-/*
-builder.Services.AddCors(options => {
-        options.AddPolicy(name: allowAllPolicy, builder => {
-                builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials();
-            }
-        );
-    }
-);*/
+using WebAPI.Models;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -20,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<BlogosphereContext>();
 
 
 var app = builder.Build();
@@ -32,8 +26,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-//app.UseCors(allowAllPolicy);
 
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
