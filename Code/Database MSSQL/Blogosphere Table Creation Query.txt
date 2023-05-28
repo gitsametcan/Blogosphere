@@ -31,6 +31,7 @@ create table Comments (
 	PosterID int not null,
 	ContentID int not null,
 	CommentContent nvarchar(255) not null,
+	PublishDate datetime not null,
 	primary key (CommentID)
 )
 go
@@ -53,6 +54,7 @@ create table Likes (
 	UserID int not null,
 	LikedContentID int not null,
 	Dislike int not null,
+	LikeDate datetime not null,
 	primary key (LikeID)
 )
 go
