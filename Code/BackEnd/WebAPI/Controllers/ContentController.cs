@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using WebAPI.DataManagement;
-using WebAPI.Entities;
+using WebAPI.Business.Managers;
+using WebAPI.Business.Services;
+using WebAPI.Core.Result;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers;
 
@@ -9,57 +11,59 @@ namespace WebAPI.Controllers;
 [Route("api/[controller]s")]
 public class ContentController : ControllerBase {
     
+    private readonly IContentService _service;
+
+    public ContentController(BlogosphereContext context) {
+        _service = new ContentManager(context);
+    }
+
     [HttpGet("GetAll")]
-    public List<Content> GetAll() {
-        var commentList = TempDatabase.ContentList
-                .OrderBy(x => x.contentId)
-                .ToList<Content>();
-        return commentList;
+    public DataResult<List<Content>> GetAll() {
+        return new DataResult<List<Content>>(true, _service.GetAll());
     }
 
     [HttpGet("GetById/{id}")]
-    public Content? GetById(int id) {
-        var content = TempDatabase.ContentList
-                .Where(t => t.contentId == id)
-                .SingleOrDefault();
-        return content;
+    public DataResult<Content> GetById(int id) {
+        return new DataResult<Content>(true, _service.GetById(id));
     }
 
     [HttpGet("GetByUser/{Id}")]
-    public List<Content> FindByUserId(int Id) {
-        var contents = TempDatabase.ContentList
-                .Where(t => t.authorId == Id)
-                .ToList<Content>();
-        return contents; 
+    public DataResult<List<Content>> FindByUserId(int Id) {
+        return new DataResult<List<Content>>(true, _service.FindByUserId(Id)); 
     }
 
     [HttpGet("FindLikedByUser")]
-    public List<Content> FindLikedByUser([FromQuery, BindRequired] int Id) {
-        var likedContentIds = TempDatabase.LikeList
-                .Where(t => t.userId == Id).ToList<Like>()
-                .Select(t => t.likedContentId)
-                .ToList<int>();
-        var contents = TempDatabase.ContentList.Where(t => likedContentIds.Contains(t.contentId)).ToList<Content>();
-        return contents; 
+    public DataResult<List<Content>> FindLikedByUser([FromQuery, BindRequired] int Id) {
+        return new DataResult<List<Content>>(true, _service.FindLikedByUser(Id)); 
     }
 
     [HttpGet("GetByCategory/{categoryId}")]
-    public List<Content> GetByCategory(int categoryId) {
-        var contents = TempDatabase.ContentList
-                .Where(t => t.categoryId == categoryId)
-                .ToList<Content>();
-        return contents;
+    public DataResult<List<Content>> GetByCategory(int categoryId) {
+        return new DataResult<List<Content>>(true, _service.GetByCategory(categoryId));
     }
 
     [HttpGet("SearchContainsInTitle")]
-    public List<Content> SearchContainsInTitle([FromQuery]string keyword) {
-        var contents = TempDatabase.ContentList.Where(t => t.title.Contains(keyword)).ToList<Content>();
-        return contents;
+    public DataResult<List<Content>> SearchContainsInTitle([FromQuery] string keyword) {
+        return new DataResult<List<Content>>(true, _service.SearchContainsInTitle(keyword));
     }
 
     [HttpGet("SearchContainsInText")]
-    public List<Content> SearchContainsInText(string keyword) {
-        var contents = TempDatabase.ContentList.Where(t => t.content.Contains(keyword)).ToList<Content>();
-        return contents;
+    public DataResult<List<Content>> SearchContainsInText([FromQuery] string keyword) {
+        return new DataResult<List<Content>>(true, _service.SearchContainsInText(keyword));
+    }
+
+    [HttpPost("NewContent")]
+    public Result NewContent([FromBody] Content newContent) {
+        return _service.NewContent(newContent);
+    }
+
+    [HttpPut("UpdateContent")]
+    public Result UpdateContent(int id, [FromBody] Content updatedContent) {
+        return _service.UpdateContent(id, updatedContent);
+    }
+
+    [HttpDelete("DeleteContent")]
+    public Result DeleteContent(int id) {
+        return _service.DeleteContent(id);
     }
 }

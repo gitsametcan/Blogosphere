@@ -11,5 +11,5 @@ public partial class Session
 
     public string SessionKey { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    //public virtual User User { get; set; } = null!;
 }

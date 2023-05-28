@@ -17,11 +17,11 @@ public partial class User
 
     public string UserType { get; set; } = null!;
 
-    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+    //public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
-    public virtual ICollection<Content> Contents { get; set; } = new List<Content>();
+    //public virtual ICollection<Content> Contents { get; set; } = new List<Content>();
 
-    public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
+    //public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
 
-    public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
+    //public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 }

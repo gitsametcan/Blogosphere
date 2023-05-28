@@ -15,7 +15,7 @@ public partial class Comment
 
     public DateTime PublishDate { get; set; }
 
-    public virtual Content Content { get; set; } = null!;
+    //public virtual Content Content { get; set; } = null!;
 
-    public virtual User Poster { get; set; } = null!;
+    //public virtual User Poster { get; set; } = null!;
 }

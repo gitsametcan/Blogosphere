@@ -21,11 +21,11 @@ public partial class Content
 
     public int Visibility { get; set; }
 
-    public virtual User Author { get; set; } = null!;
+    //public virtual User Author { get; set; } = null!;
 
-    public virtual Category? Category { get; set; }
+    //public virtual Category? Category { get; set; }
 
-    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
+    //public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
-    public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
+    //public virtual ICollection<Like> Likes { get; set; } = new List<Like>();
 }

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Business.Managers;
 using WebAPI.Business.Services;
 using WebAPI.Core.Result;

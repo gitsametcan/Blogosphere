@@ -15,7 +15,7 @@ public partial class Like
 
     public DateTime LikeDate { get; set; }
 
-    public virtual Content LikedContent { get; set; } = null!;
+    //public virtual Content LikedContent { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    //public virtual User User { get; set; } = null!;
 }

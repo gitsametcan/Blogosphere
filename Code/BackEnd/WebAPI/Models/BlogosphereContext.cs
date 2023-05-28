@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Models.Utils;
 
 namespace WebAPI.Models;
 
@@ -28,7 +29,7 @@ public partial class BlogosphereContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=KADIR-BERK\\SQLEXPRESS;Database=BLOGOSPHERE;Trusted_Connection=true;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer(ConnectionString.ServerString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -51,14 +52,14 @@ public partial class BlogosphereContext : DbContext
             entity.Property(e => e.PosterId).HasColumnName("PosterID");
             entity.Property(e => e.PublishDate).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Content).WithMany(p => p.Comments)
+            /*entity.HasOne(d => d.Content).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.ContentId)
                 .HasConstraintName("FK__Comments__Conten__33D4B598");
 
             entity.HasOne(d => d.Poster).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.PosterId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Comments__Poster__32E0915F");
+                .HasConstraintName("FK__Comments__Poster__32E0915F");*/
         });
 
         modelBuilder.Entity<Content>(entity =>
@@ -75,14 +76,14 @@ public partial class BlogosphereContext : DbContext
             entity.Property(e => e.PublishDate).HasColumnType("datetime");
             entity.Property(e => e.Title).HasMaxLength(100);
 
-            entity.HasOne(d => d.Author).WithMany(p => p.Contents)
+            /*entity.HasOne(d => d.Author).WithMany(p => p.Contents)
                 .HasForeignKey(d => d.AuthorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Contents__Author__34C8D9D1");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Contents)
                 .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK__Contents__Catego__35BCFE0A");
+                .HasConstraintName("FK__Contents__Catego__35BCFE0A");*/
         });
 
         modelBuilder.Entity<Like>(entity =>
@@ -94,14 +95,14 @@ public partial class BlogosphereContext : DbContext
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.LikeDate).HasColumnType("datetime");
 
-            entity.HasOne(d => d.LikedContent).WithMany(p => p.Likes)
+            /*entity.HasOne(d => d.LikedContent).WithMany(p => p.Likes)
                 .HasForeignKey(d => d.LikedContentId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Likes__LikedCont__30F848ED");
 
             entity.HasOne(d => d.User).WithMany(p => p.Likes)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Likes__UserID__300424B4");
+                .HasConstraintName("FK__Likes__UserID__300424B4");*/
         });
 
         modelBuilder.Entity<Session>(entity =>
@@ -112,10 +113,10 @@ public partial class BlogosphereContext : DbContext
             entity.Property(e => e.SessionKey).HasMaxLength(50);
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Sessions)
+            /*entity.HasOne(d => d.User).WithMany(p => p.Sessions)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Sessions__UserID__31EC6D26");
+                .HasConstraintName("FK__Sessions__UserID__31EC6D26");*/
         });
 
         modelBuilder.Entity<User>(entity =>

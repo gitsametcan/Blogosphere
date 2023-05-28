@@ -15,7 +15,7 @@ public class CategoryManager : ICategoryService
     }
 
     public List<Category> GetAll() {
-        return _context.Categories.ToList();
+        return _context.Categories.ToList<Category>();
     }
     public Category GetById(int id) {
         var category = _context.Categories

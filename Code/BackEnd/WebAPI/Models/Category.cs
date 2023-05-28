@@ -11,5 +11,5 @@ public partial class Category
 
     public string? CategoryDescription { get; set; }
 
-    public virtual ICollection<Content> Contents { get; set; } = new List<Content>();
+    //public virtual ICollection<Content> Contents { get; set; } = new List<Content>();
 }

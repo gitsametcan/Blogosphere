@@ -1,64 +1,54 @@
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.DataManagement;
-using WebAPI.Entities;
+using WebAPI.Business.Services;
+using WebAPI.Business.Managers;
+using WebAPI.Models;
+using WebAPI.Core.Result;
 
 namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]s")]
 public class UserController : ControllerBase {
+
+    private readonly IUserService _service;
+
+    public UserController(BlogosphereContext context) {
+        _service = new UserManager(context);
+    }
     
     [HttpGet("GetAll")]
-    public List<User> GetAll() {
-        var userList = TempDatabase.UserList.OrderBy(x => x.userId).ToList<User>();
-        return userList;
+    public DataResult<List<User>> GetAll() {
+        return new DataResult<List<User>>(true, _service.GetAll());
     }
 
     [HttpGet("GetById/{id}")]
-    public User? GetById(int id) {
-        var user = TempDatabase.UserList.Where(t => t.userId == id).SingleOrDefault();
-        return user; 
+    public DataResult<User> GetById(int id) {
+        return _service.GetById(id); 
     }
 
     [HttpGet("GetByUsername/{username}")]
-    public User? GetByUsername(string username) {
-        var user = TempDatabase.UserList.Where(t => t.username.Equals(username)).SingleOrDefault();
-        return user;
+    public DataResult<User> GetByUsername(string username) {
+        return _service.GetByUsername(username);
     }
 
     [HttpGet("GetByEmail/{email}")]
-    public User? GetByEmail(string email) {
-        var user = TempDatabase.UserList.Where(t => t.email.Equals(email)).SingleOrDefault();
-        return user;
+    public DataResult<User> GetByEmail(string email) {
+        return _service.GetByEmail(email);
     }
 
     [HttpPost("RegisterUser")]
-    public IActionResult RegisterUser([FromBody] User user) {
-        var tempuser = TempDatabase.UserList
-            .Where(t => t.username == user.username || t.email == user.email || t.userId == user.userId)
-            .SingleOrDefault();
-        if (tempuser is not null) {
-            return BadRequest();
-        }
-        TempDatabase.UserList.Add(user);
-        return Ok();
+    public Result RegisterUser([FromBody] User user) {
+        return _service.RegisterUser(user);
     }
 
-    [HttpPut("UpdateUser/{Id}")]
-    public IActionResult UpdateUser(int Id, [FromBody] User updatedUser) {
-        var tempUser = TempDatabase.UserList.SingleOrDefault(t => t.userId == Id);
-        if (tempUser is null) {
-            return NotFound("User not found: " + Id);
-        }
-        
-        tempUser.userId     = updatedUser.userId    != default ? updatedUser.userId     : tempUser.userId;
-        tempUser.username   = updatedUser.username  != default ? updatedUser.username   : tempUser.username;
-        tempUser.email      = updatedUser.email     != default ? updatedUser.email      : tempUser.email;
-        tempUser.password   = updatedUser.password  != default ? updatedUser.password   : tempUser.password;
-        tempUser.userType   = updatedUser.userType  != default ? updatedUser.userType   : tempUser.userType;
-        tempUser.blocked    = updatedUser.blocked   != default ? updatedUser.blocked    : tempUser.blocked;
+    [HttpPut("UpdateUser/{id}")]
+    public Result UpdateUser(int id, [FromBody] User updatedUser) {
+        return _service.UpdateUser(id, updatedUser);
+    }
 
-        return Ok();
+    [HttpDelete("DeleteUser/{id}")]
+    public Result DeleteUser(int id) {
+        return _service.DeleteUser(id);
     }
 
 }
