@@ -37,9 +37,9 @@ public class ContentController : ControllerBase {
         return new DataResult<List<Content>>(true, _service.FindLikedByUser(Id)); 
     }
 
-    [HttpGet("GetByCategory/{categoryId}")]
-    public DataResult<List<Content>> GetByCategory(int categoryId) {
-        return new DataResult<List<Content>>(true, _service.GetByCategory(categoryId));
+    [HttpGet("GetByCategory/{CategoryId}")]
+    public DataResult<List<Content>> GetByCategory(int CategoryId) {
+        return new DataResult<List<Content>>(true, _service.GetByCategory(CategoryId));
     }
 
     [HttpGet("SearchContainsInTitle")]
@@ -50,6 +50,48 @@ public class ContentController : ControllerBase {
     [HttpGet("SearchContainsInText")]
     public DataResult<List<Content>> SearchContainsInText([FromQuery] string keyword) {
         return new DataResult<List<Content>>(true, _service.SearchContainsInText(keyword));
+    }
+
+    [HttpGet("GetTrendings")]
+    public DataResult<List<Content>> GetTrendings([FromQuery] int sinceDays) {
+        return new DataResult<List<Content>>(true, _service.GetTrendings(sinceDays));
+    }
+
+    [HttpGet("GetAllWithPages")]
+    public DataResult<List<Content>> GetAllWithPages([FromQuery]int PageSize, [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.GetAllWithPages(PageSize, PageNumber));
+    }
+
+    [HttpGet("GetByCategoryWithPages/{CategoryId}")]
+    public DataResult<List<Content>> GetByCategoryWithPages(
+            int CategoryId, 
+            [FromQuery] int PageSize, 
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.GetByCategoryWithPages(CategoryId, PageSize, PageNumber));
+    }
+
+    [HttpGet("SearchContainsInTitleWithPages")]
+    public DataResult<List<Content>> SearchContainsInTitleWithPages(
+            [FromQuery] string keyword,
+            [FromQuery] int PageSize,
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.SearchContainsInTitleWithPages(keyword, PageSize, PageNumber));
+    }
+
+    [HttpGet("SearchContainsInTextWithPages")]
+    public DataResult<List<Content>> SearchContainsInTextWithPages(
+            [FromQuery] string keyword,
+            [FromQuery] int PageSize,
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.SearchContainsInTextWithPages(keyword, PageSize, PageNumber));
+    }
+
+    [HttpGet("GetTrendingsWithPages")]
+    public DataResult<List<Content>> GetTrendingsWithPages(
+            [FromQuery] int sinceDays,
+            [FromQuery] int PageSize,
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.GetTrendingsWithPages(sinceDays, PageSize, PageNumber));
     }
 
     [HttpPost("NewContent")]

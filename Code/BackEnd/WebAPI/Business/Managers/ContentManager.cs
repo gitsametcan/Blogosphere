@@ -51,6 +51,43 @@ public class ContentManager : IContentService {
                 .ToList<Content>();
         return contents;
     }
+    public List<Content> GetTrendings(int sinceDays) {
+        var referenceDate = DateTime.Now.AddDays(-sinceDays);
+        var orderedList = _context.Contents
+                .OrderByDescending( t => LikeCountOfContent( t.ContentId, referenceDate ) )
+                .ToList();
+        return orderedList;
+    }
+
+    public List<Content> GetAllWithPages(int PageSize, int PageNumber) {
+        return PutIntoPages(GetAll(), PageSize, PageNumber);
+    }
+    public List<Content> GetByCategoryWithPages(int CategoryId, int PageSize, int PageNumber) {
+        return PutIntoPages(GetByCategory(CategoryId), PageSize, PageNumber);
+    }
+    public List<Content> SearchContainsInTitleWithPages(string keyword, int PageSize, int PageNumber) {
+        return PutIntoPages(SearchContainsInTitle(keyword), PageSize, PageNumber);
+    }
+    public List<Content> SearchContainsInTextWithPages(string keyword, int PageSize, int PageNumber) {
+        return PutIntoPages(SearchContainsInText(keyword), PageSize, PageNumber);
+    }
+    public List<Content> GetTrendingsWithPages(int sinceDays, int PageSize, int PageNumber) {
+        return GetTrendings(sinceDays).GetRange(PageNumber * PageSize, PageSize);
+    }
+
+    private List<Content> PutIntoPages(List<Content> contentList, int PageSize, int PageNumber) {
+        var orderedContentList = contentList.OrderBy(t => t.PublishDate).ToList();
+        var rangedContentList = orderedContentList.GetRange(PageNumber * PageSize, PageSize);
+        return rangedContentList;
+    }
+
+    private int LikeCountOfContent(int ContentId, DateTime since) {
+        int count = _context.Likes
+                .Select(t => t.LikedContentId == ContentId && t.LikeDate > since)
+                .Count();
+        return count;
+    }
+
     public Result NewContent(Content newContent) {
         _context.Contents.Add(newContent);
         _context.SaveChanges();
