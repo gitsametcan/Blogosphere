@@ -67,7 +67,7 @@ export class ListCardsComponent implements OnInit{
   getContents(): void {
     this.requestService.sendRequest('api/Contents/GetAll','GET')
     .then(response => {
-      this.contents = response;
+      this.contents = response.data;
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -75,9 +75,9 @@ export class ListCardsComponent implements OnInit{
   }
 
   getContentsByID(ID:number): void {
-    this.requestService.sendRequest('api/Contents/GetByCategory'+ID,'GET')
+    this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
     .then(response => {
-      this.contents = response;
+      this.contents = response.data;
     })
     .catch(err => {
       console.error("Error: " + err);

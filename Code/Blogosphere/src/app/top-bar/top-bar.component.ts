@@ -39,7 +39,7 @@ export class TopBarComponent implements OnInit {
   getCategories():void {
     this.requestService.sendRequest('api/Categorys/GetAll','GET')
       .then(response => {
-        this.categoriess = response;
+        this.categoriess = response.data;
       })
       .catch(err => {
         console.error("Error: " + err);
