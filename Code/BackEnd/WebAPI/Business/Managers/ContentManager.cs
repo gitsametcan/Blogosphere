@@ -74,8 +74,6 @@ public class ContentManager : IContentService {
     }
     public List<Content> GetTrendingsWithPages(int sinceDays, int PageSize, int PageNumber) {
         return GetTrendings(sinceDays).Skip(PageNumber * PageSize).Take(PageSize).ToList();
-        
-        //.GetRange(PageNumber * PageSize, PageSize);
     }
 
     private List<Content> PutIntoPages(List<Content> contentList, int PageSize, int PageNumber) {
@@ -86,7 +84,7 @@ public class ContentManager : IContentService {
 
     private int LikeCountOfContent(int ContentId, DateTime since) {
         int count = _context.Likes
-                .Select(t => t.LikedContentId == ContentId && t.LikeDate > since)
+                .Where(t => t.LikedContentId == ContentId && t.LikeDate > since)
                 .Count();
         return count;
     }
