@@ -59,7 +59,7 @@ public class ContentController : ControllerBase {
 
     [HttpGet("GetAllWithPages")]
     public DataResult<List<Content>> GetAllWithPages([FromQuery]int PageSize, [FromQuery] int PageNumber) {
-        return new DataResult<List<Content>>(true, _service.GetAllWithPages(PageSize, PageNumber));
+        return new DataResult<List<Content>>(true, "For PageSize: " + PageSize + ", Page: " + PageNumber, _service.GetAllWithPages(PageSize, PageNumber));
     }
 
     [HttpGet("GetByCategoryWithPages/{CategoryId}")]
@@ -67,7 +67,11 @@ public class ContentController : ControllerBase {
             int CategoryId, 
             [FromQuery] int PageSize, 
             [FromQuery] int PageNumber) {
-        return new DataResult<List<Content>>(true, _service.GetByCategoryWithPages(CategoryId, PageSize, PageNumber));
+        return new DataResult<List<Content>>(
+            true, 
+            "For PageSize: " + PageSize + ", Page: " + PageNumber, 
+            _service.GetByCategoryWithPages(CategoryId, PageSize, PageNumber)
+        );
     }
 
     [HttpGet("SearchContainsInTitleWithPages")]
@@ -75,7 +79,11 @@ public class ContentController : ControllerBase {
             [FromQuery] string keyword,
             [FromQuery] int PageSize,
             [FromQuery] int PageNumber) {
-        return new DataResult<List<Content>>(true, _service.SearchContainsInTitleWithPages(keyword, PageSize, PageNumber));
+        return new DataResult<List<Content>>(
+            true, 
+            "For PageSize: " + PageSize + ", Page: " + PageNumber, 
+            _service.SearchContainsInTitleWithPages(keyword, PageSize, PageNumber)
+        );
     }
 
     [HttpGet("SearchContainsInTextWithPages")]
@@ -83,7 +91,11 @@ public class ContentController : ControllerBase {
             [FromQuery] string keyword,
             [FromQuery] int PageSize,
             [FromQuery] int PageNumber) {
-        return new DataResult<List<Content>>(true, _service.SearchContainsInTextWithPages(keyword, PageSize, PageNumber));
+        return new DataResult<List<Content>>(
+            true, 
+            "For PageSize: " + PageSize + ", Page: " + PageNumber, 
+            _service.SearchContainsInTextWithPages(keyword, PageSize, PageNumber)
+        );
     }
 
     [HttpGet("GetTrendingsWithPages")]
@@ -91,7 +103,11 @@ public class ContentController : ControllerBase {
             [FromQuery] int sinceDays,
             [FromQuery] int PageSize,
             [FromQuery] int PageNumber) {
-        return new DataResult<List<Content>>(true, _service.GetTrendingsWithPages(sinceDays, PageSize, PageNumber));
+        return new DataResult<List<Content>>(
+            true, 
+            "For PageSize: " + PageSize + ", Page: " + PageNumber,
+            _service.GetTrendingsWithPages(sinceDays, PageSize, PageNumber)
+        );
     }
 
     [HttpPost("NewContent")]

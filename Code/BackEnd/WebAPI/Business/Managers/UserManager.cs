@@ -40,7 +40,7 @@ public class UserManager : IUserService {
     }
     public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber) {
         var userList = GetAllAlphabetically();
-        var userListWithPages = userList.GetRange(PageNumber * PageSize, PageSize);
+        var userListWithPages = userList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
         return userListWithPages;
     }
     public DataResult<int> VerifyByUsername(string UserName, string Password) {

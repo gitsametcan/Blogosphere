@@ -54,6 +54,7 @@ public class ContentManager : IContentService {
     public List<Content> GetTrendings(int sinceDays) {
         var referenceDate = DateTime.Now.AddDays(-sinceDays);
         var orderedList = _context.Contents
+                .ToList()
                 .OrderByDescending( t => LikeCountOfContent( t.ContentId, referenceDate ) )
                 .ToList();
         return orderedList;
@@ -72,12 +73,14 @@ public class ContentManager : IContentService {
         return PutIntoPages(SearchContainsInText(keyword), PageSize, PageNumber);
     }
     public List<Content> GetTrendingsWithPages(int sinceDays, int PageSize, int PageNumber) {
-        return GetTrendings(sinceDays).GetRange(PageNumber * PageSize, PageSize);
+        return GetTrendings(sinceDays).Skip(PageNumber * PageSize).Take(PageSize).ToList();
+        
+        //.GetRange(PageNumber * PageSize, PageSize);
     }
 
     private List<Content> PutIntoPages(List<Content> contentList, int PageSize, int PageNumber) {
         var orderedContentList = contentList.OrderBy(t => t.PublishDate).ToList();
-        var rangedContentList = orderedContentList.GetRange(PageNumber * PageSize, PageSize);
+        var rangedContentList = orderedContentList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
         return rangedContentList;
     }
 
