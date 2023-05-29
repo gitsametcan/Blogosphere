@@ -9,6 +9,10 @@ public interface IUserService {
     public DataResult<User> GetById(int id);
     public DataResult<User> GetByUsername(string username);
     public DataResult<User> GetByEmail(string email);
+    public List<User> GetAllAlphabetically();
+    public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber);
+    public DataResult<int> VerifyByUsername(string UserName, string Password);
+    public DataResult<int> VerifyByEmail(string Email, string Password);
     public Result RegisterUser(User newUser);
     public Result UpdateUser(int id, User updatedUser);
     public Result DeleteUser(int id);

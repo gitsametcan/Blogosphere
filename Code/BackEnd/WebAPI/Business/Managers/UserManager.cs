@@ -33,6 +33,31 @@ public class UserManager : IUserService {
         }
         return new DataResult<User>(true, user);
     }
+
+    public List<User> GetAllAlphabetically() {
+        var userList = _context.Users.OrderBy(t => t.UserName).ToList();
+        return userList;
+    }
+    public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber) {
+        var userList = GetAllAlphabetically();
+        var userListWithPages = userList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
+        return userListWithPages;
+    }
+    public DataResult<int> VerifyByUsername(string UserName, string Password) {
+        var user = GetByUsername(UserName);
+        if (user.Success && user.Data.Password == Password) {
+            return new DataResult<int>(true, "UserName and Password matches.", user.Data.UserId);
+        }
+        return new DataResult<int>(false, 0);
+    }
+    public DataResult<int> VerifyByEmail(string Email, string Password) {
+        var user = GetByEmail(Email);
+        if (user.Success && user.Data.Password == Password) {
+            return new DataResult<int>(true, "Email and Password matches.", user.Data.UserId);
+        }
+        return new DataResult<int>(false, 0);
+    }
+
     public Result RegisterUser(User newUser) {
         _context.Users.Add(newUser);
         _context.SaveChanges();
