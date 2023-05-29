@@ -8,7 +8,7 @@ interface ContentDetail{
   contentId: 0,
   title: string,
   publishDate: string,
-  content: string,
+  content1: string,
   imagePath: string,
   authorId: 0,
   categoryId: 0,
@@ -29,7 +29,7 @@ export class ContentDetailsComponent implements OnInit{
     contentId: 0,
     title: '',
     publishDate: '',
-    content: '',
+    content1: '',
     imagePath: '',
     authorId: 0,
     categoryId: 0,
@@ -41,7 +41,7 @@ export class ContentDetailsComponent implements OnInit{
   getContentsByID(ID:number):void {
     this.requestService.sendRequest('api/Contents/GetById/'+ID,'GET')
       .then(response => {
-        this.content = response;
+        this.content = response.data;
       })
       .catch(err => {
         console.error("Error: " + err);

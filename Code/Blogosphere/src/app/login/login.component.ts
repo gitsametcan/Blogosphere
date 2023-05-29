@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
   getUsers(): void {
     this.requestService.sendRequest('api/Users/GetAll','GET')
       .then(response => {
-        this.users = response;
+        this.users = response.data;
       })
       .catch(err => {
         console.error("Error: " + err);
