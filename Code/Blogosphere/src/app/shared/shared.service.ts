@@ -47,4 +47,12 @@ export class SharedService {
     return Number(localStorage.getItem('how'));
   }
 
+  setUserId(id:number){
+    localStorage.setItem('id',id.toString());
+  }
+
+  getUserId(){
+    return Number(localStorage.getItem('id'));
+  }
+
 }

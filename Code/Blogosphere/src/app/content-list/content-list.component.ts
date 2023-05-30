@@ -96,12 +96,12 @@ export class ContentListComponent implements OnInit {
 
 
   ngOnInit(): void { 
-    if(this.shared.getWhichCategory()>0){
-      this.getContentsByID(this.shared.getWhichCategory());
-    }else if(this.shared.getWhichTitleOrContent()){
-      this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent());
-    }else if(this.shared.getTrend()>0){
-      this.getTrendContents(7);
+    if(this.shared.getHowList()==1){
+      //this.getContentsByComment();
+    }else if(this.shared.getHowList()==2){
+      //this.getContentsByImpression();
+    }else if(this.shared.getTrend()==3){
+      //this.getContentsByEditor(7);
     }else{
       this.getContents();
     }
