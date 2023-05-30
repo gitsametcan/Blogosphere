@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service'
 import { urlencoded } from 'body-parser';
 import { RequestService } from '../request.service';
@@ -23,8 +23,21 @@ export class TopBarComponent implements OnInit {
     categoryDescription: '',
   };
 
+  enteredSearchValue: string = '';
+
   changeCategory(ID:number): void{
     this.shared.setWhichCategory(ID);
+    this.shared.setWhichTitleOrContent("");
+    this.shared.setTrend(0);
+  }
+
+  listSearchedContents():void{
+    this.shared.setWhichTitleOrContent(this.enteredSearchValue);
+    window.location.reload();
+  }
+
+  listTrends():void{
+    this.shared.setTrend(1);
   }
 
   constructor(private shared: SharedService, private requestService: RequestService){}
@@ -48,7 +61,14 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void { 
       this.getCategories();
-      
+  }
+
+  @Output()
+  searchTextChanged: EventEmitter<any>=new EventEmitter<any>();
+
+  onSearchTextChanged(){
+    this.searchTextChanged.emit(this.enteredSearchValue);
+    console.log(this.enteredSearchValue);
   }
 
 }

@@ -13,14 +13,14 @@
   </div>
   <div class="search-box">
     <form action="">
-      <input type="text" name="search" id="search-bar" placeholder="Search">
-      <button type="submit"><img src="../../assets/img/loupe.png" alt=""></button>
+      <input type="text" name="search" id="search-bar" placeholder="Search" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
+      <button type="submit" (click)="listSearchedContents()"><img src="../../assets/img/loupe.png" alt="image"></button>
     </form>
   </div>
   <ul class="nav-bar">
-    <li><a href="#">Trends</a></li>
+    <li><button class="button-trends" (click)="listTrends()"><a href="#">Trends</a></button></li>
     <li>
-      <a href="#">Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
+      <a>Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
       <ul class="dropdown">
         <div *ngFor="let item of categoriess">
           <li><button class="button-top-bar" (click)='changeCategory(item.categoryId)'><a href="">{{item.categoryTitle}}</a> </button></li>

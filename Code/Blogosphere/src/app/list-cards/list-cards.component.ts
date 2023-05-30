@@ -9,7 +9,7 @@ interface Content{
   contentId: 0,
   title: string,
   publishDate: string,
-  content: string,
+  content1: string,
   imagePath: string,
   authorId: 0,
   categoryId: 0,
@@ -29,7 +29,7 @@ export class ListCardsComponent implements OnInit{
     contentId: 0,
     title: '',
     publishDate: '',
-    content: '',
+    content1: '',
     imagePath: '',
     authorId: 0,
     categoryId: 0,
@@ -68,6 +68,7 @@ export class ListCardsComponent implements OnInit{
     this.requestService.sendRequest('api/Contents/GetAll','GET')
     .then(response => {
       this.contents = response.data;
+      console.log(this.contents)
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -84,10 +85,34 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
+  getContentsBySearchingTitle(KEYWORD:any):void {
+    this.requestService.sendRequest("api/Contents/SearchContainsInTitle?keyword="+KEYWORD,'GET')
+    .then(response => {
+      this.contents = response.data;
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getTrendContents(DAY:number):void {
+    this.requestService.sendRequest("api/Contents/GetTrendings?sinceDays="+DAY,'GET')
+    .then(response => {
+      this.contents = response.data;
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
 
   ngOnInit(): void { 
     if(this.shared.getWhichCategory()>0){
       this.getContentsByID(this.shared.getWhichCategory());
+    }else if(this.shared.getWhichTitleOrContent()){
+      this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent());
+    }else if(this.shared.getTrend()>0){
+      this.getTrendContents(7);
     }else{
       this.getContents();
     }

@@ -21,4 +21,21 @@ export class SharedService {
   getWhichContent(){
     return Number(localStorage.getItem('contentID'));
   }
+
+  setWhichTitleOrContent(data: any){
+    localStorage.setItem('search',data);
+  }
+
+  getWhichTitleOrContent(){
+    return localStorage.getItem('search');
+  }
+
+
+  setTrend(condition: number){
+    localStorage.setItem('trend',condition.toString());
+  }
+
+  getTrend(){
+    return Number(localStorage.getItem('trend'));
+  }
 }
