@@ -27,14 +27,14 @@ public class ImageManager : IImageService {
     }
 
     private string StringToSHA256(string key)  {
-            using (SHA256 sha256Hash = SHA256.Create()) {  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(key));
-                StringBuilder builder = new StringBuilder();
-                foreach (var item in bytes) {
-                    builder.Append(item.ToString("x2"));
-                }
-                return builder.ToString();  
-            }  
-        } 
+        using (SHA256 sha256Hash = SHA256.Create()) {  
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(key));
+            StringBuilder builder = new StringBuilder();
+            foreach (var item in bytes) {
+                builder.Append(item.ToString("x2"));
+            }
+            return builder.ToString();  
+        }  
+    } 
 
 }

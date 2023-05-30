@@ -8,9 +8,9 @@ insert into Users values('user1', 'email1@mail.com', 'sifresifresifre', 0, 'memb
 insert into Users values('user2', 'email2@mail.com', 'sifresifresifre', 0, 'member')
 go
 
-insert into Contents values('Pandalar ölüyor mu?', SYSUTCDATETIME(), 'Evet, her canlı gibi onlar da ölüyor!', 'Evet...','panda.jpg', 1, 1, 1)
-insert into Contents values('Ortalama sıcaklıklar son 10 yılda 1 derece arttı!', SYSUTCDATETIME(), 'Evet, doğru duydunuz! tam 1 derece!', 'Evet, doğru duydunuz!..','gunes.jpg', 2, 2, 1)
-insert into Contents values('Havucun muhtemelen bilmediğiniz 2 faydası!!', SYSUTCDATETIME(), 'Tupturuncu bir havuç çok lezzetlidir ve kök halinde toprağın altında yetişir.','Tupturuncu bir havuç...' ,'havuc.jpg', 1, 4, 1)
+insert into Contents values('Pandalar ölüyor mu?', SYSUTCDATETIME(), 'Evet, her canlı gibi onlar da ölüyor!', 'Evet...','api/Images/GetImage/panda.jpg', 1, 1, 1)
+insert into Contents values('Ortalama sıcaklıklar son 10 yılda 1 derece arttı!', SYSUTCDATETIME(), 'Evet, doğru duydunuz! tam 1 derece!', 'Evet, doğru duydunuz!..','api/Images/GetImage/gunes.jpg', 2, 2, 1)
+insert into Contents values('Havucun muhtemelen bilmediğiniz 2 faydası!!', SYSUTCDATETIME(), 'Tupturuncu bir havuç çok lezzetlidir ve kök halinde toprağın altında yetişir.','Tupturuncu bir havuç...' ,'api/Images/GetImage/havuc.jpg', 1, 4, 1)
 go
 
 insert into Likes values(1, 1, 0, SYSUTCDATETIME())
