@@ -3,10 +3,10 @@
     <div class="cards-container" style="background-color: #E3E3E3;">
       <div class="container">
         <div class="row">
-          <div class="col-md-4" *ngFor="let item of contents">
+          <div class="col-md-4" *ngFor="let item of contents;">
             <div class="card shadow-lg">
               <!-- <img src={{item.image}} alt="img" class="b-card py-2"> -->
-              <img src="../../assets/img/foto.jpg" alt="img" class="b-card py-2">
+              <img src="" alt="img" class="b-card py-2" id={{item.contentId}}>
               <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.shortDescription}}</p>

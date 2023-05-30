@@ -11,7 +11,7 @@ interface Content{
   publishDate: string,
   content1: string,
   shortDescription:string,
-  imagePath: string,
+  imagePath: any,
   authorId: 0,
   categoryId: 0,
   visibility: 0
@@ -74,17 +74,33 @@ export class ListCardsComponent implements OnInit{
     this.requestService.sendRequest('api/Contents/GetAll','GET')
     .then(response => {
       this.contents = response.data;
-      console.log(this.contents)
+      console.log(this.contents);
+      this.contents.forEach(element => {
+        console.log("Buradayım");
+        let url=element.imagePath;
+        let id=element.contentId;
+        console.log("Image: "+url+ " ID: "+id);
+        this.getImage(url,id);
+      });
     })
     .catch(err => {
       console.error("Error: " + err);
     })
+    
+    
   }
 
   getContentsByID(ID:number): void {
     this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
+      this.contents.forEach(element => {
+        console.log("Buradayım");
+        let url=element.imagePath;
+        let id=element.contentId;
+        console.log("Image: "+url+ " ID: "+id);
+        this.getImage(url,id);
+      });
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -95,6 +111,13 @@ export class ListCardsComponent implements OnInit{
     this.requestService.sendRequest("api/Contents/SearchContainsInTitle?keyword="+KEYWORD,'GET')
     .then(response => {
       this.contents = response.data;
+      this.contents.forEach(element => {
+        console.log("Buradayım");
+        let url=element.imagePath;
+        let id=element.contentId;
+        console.log("Image: "+url+ " ID: "+id);
+        this.getImage(url,id);
+      });
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -105,11 +128,34 @@ export class ListCardsComponent implements OnInit{
     this.requestService.sendRequest("api/Contents/GetTrendings?sinceDays="+DAY,'GET')
     .then(response => {
       this.contents = response.data;
+      this.contents.forEach(element => {
+        console.log("Buradayım");
+        let url=element.imagePath;
+        let id=element.contentId;
+        console.log("Image: "+url+ " ID: "+id);
+        this.getImage(url,id);
+      });
     })
     .catch(err => {
       console.error("Error: " + err);
     })
   }
+
+  getImage(img:string,id:number) : void {
+    const url = 'http://localhost:5204/api/Images/GetImage/'+img;
+    const options = {
+        method: "GET"
+    }
+    fetch(url, options)
+    .then(async response=>{
+      const imageBlob = await response.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      let image = <HTMLElement>document.getElementById(id.toString()) as HTMLImageElement;
+      image.src = imageObjectURL;
+    }).catch(error=>{
+      console.error('Error:', error);
+    })
+}
 
 
   ngOnInit(): void { 
