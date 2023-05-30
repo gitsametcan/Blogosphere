@@ -15,6 +15,15 @@ interface ContentDetail{
   visibility: 0
 }
 
+interface Comment{
+  commentId: 0,
+  posterId:	0,
+  contentId: 0,
+  commentContent: string,
+  publishDate: string
+
+}
+
 
 @Component({
   selector: 'app-content-details',
@@ -36,6 +45,16 @@ export class ContentDetailsComponent implements OnInit{
     visibility: 0
   };
 
+  commentObj: Comment = {
+    commentId: 0,
+    posterId:	0,
+    contentId: 0,
+    commentContent: '',
+    publishDate: ''
+  };
+
+  comments: Comment[] = [];
+
   content!: ContentDetail;
 
   getContentsByID(ID:number):void {
@@ -48,8 +67,22 @@ export class ContentDetailsComponent implements OnInit{
       })
   }
 
+  getCommentsByContentID(ID:number): void {
+    this.requestService.sendRequest('api/Comments/GetByContent/'+ID,'GET')
+    .then(response => {
+      this.comments = response.data;
+      console.log(this.comments);
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+
+
   ngOnInit(): void { 
       this.getContentsByID(this.shared.getWhichContent());
+      this.getCommentsByContentID(this.shared.getCommentByContent())
   }
 
 }

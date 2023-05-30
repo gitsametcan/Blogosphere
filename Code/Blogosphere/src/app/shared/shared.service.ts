@@ -54,5 +54,12 @@ export class SharedService {
   getUserId(){
     return Number(localStorage.getItem('id'));
   }
+  getCommentByContent(){
+    return Number(localStorage.getItem('commentID'));
+  }
+
+  setCommentByContent(data: number){
+    localStorage.setItem('commentID', data.toString())
+  }
 
 }
