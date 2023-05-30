@@ -37,6 +37,7 @@ export class TopBarComponent implements OnInit {
   }
 
   listTrends():void{
+    this.shared.setWhichCategory(0);
     this.shared.setTrend(1);
   }
 
