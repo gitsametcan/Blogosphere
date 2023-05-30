@@ -13,6 +13,8 @@ public partial class Content
 
     public string Content1 { get; set; } = null!;
 
+    public string? ShortDescription { get; set; }
+
     public string? ImagePath { get; set; }
 
     public int AuthorId { get; set; }

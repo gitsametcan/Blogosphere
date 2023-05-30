@@ -41,6 +41,7 @@ create table Contents (
 	Title nvarchar(100) not null,
 	PublishDate datetime not null,
 	Content ntext not null,
+	ShortDescription nvarchar(200),
 	ImagePath nvarchar(500),
 	AuthorID int not null,
 	CategoryID int,

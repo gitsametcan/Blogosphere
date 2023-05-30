@@ -72,6 +72,7 @@ public partial class BlogosphereContext : DbContext
             entity.Property(e => e.Content1)
                 .HasColumnType("ntext")
                 .HasColumnName("Content");
+            entity.Property(e => e.ShortDescription).HasMaxLength(200);
             entity.Property(e => e.ImagePath).HasMaxLength(500);
             entity.Property(e => e.PublishDate).HasColumnType("datetime");
             entity.Property(e => e.Title).HasMaxLength(100);

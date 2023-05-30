@@ -101,14 +101,15 @@ public class ContentManager : IContentService {
             return new Result(false, "Content not found: " + updatedContent.ContentId);
         }
         
-        tempContent.AuthorId    = updatedContent.AuthorId   != default ? updatedContent.AuthorId    : tempContent.AuthorId;
-        tempContent.CategoryId  = updatedContent.CategoryId != default ? updatedContent.CategoryId  : tempContent.CategoryId;
-        tempContent.Content1    = updatedContent.Content1   != default ? updatedContent.Content1    : tempContent.Content1;
-        tempContent.ContentId   = updatedContent.ContentId  != default ? updatedContent.ContentId   : tempContent.ContentId;
-        tempContent.ImagePath   = updatedContent.ImagePath  != default ? updatedContent.ImagePath   : tempContent.ImagePath;
-        tempContent.PublishDate = updatedContent.PublishDate!= default ? updatedContent.PublishDate : tempContent.PublishDate;
-        tempContent.Title       = updatedContent.Title      != default ? updatedContent.Title       : tempContent.Title;
-        tempContent.Visibility  = updatedContent.Visibility != default ? updatedContent.Visibility  : tempContent.Visibility;
+        tempContent.AuthorId         = updatedContent.AuthorId          != default ? updatedContent.AuthorId            : tempContent.AuthorId;
+        tempContent.CategoryId       = updatedContent.CategoryId        != default ? updatedContent.CategoryId          : tempContent.CategoryId;
+        tempContent.Content1         = updatedContent.Content1          != default ? updatedContent.Content1            : tempContent.Content1;
+        tempContent.ContentId        = updatedContent.ContentId         != default ? updatedContent.ContentId           : tempContent.ContentId;
+        tempContent.ImagePath        = updatedContent.ImagePath         != default ? updatedContent.ImagePath           : tempContent.ImagePath;
+        tempContent.PublishDate      = updatedContent.PublishDate       != default ? updatedContent.PublishDate         : tempContent.PublishDate;
+        tempContent.ShortDescription = updatedContent.ShortDescription  != default ? updatedContent.ShortDescription    : tempContent.ShortDescription;
+        tempContent.Title            = updatedContent.Title             != default ? updatedContent.Title               : tempContent.Title;
+        tempContent.Visibility       = updatedContent.Visibility        != default ? updatedContent.Visibility          : tempContent.Visibility;
         _context.SaveChanges();
 
         return new Result(true, "Successfully updated content: " + updatedContent.ContentId);
