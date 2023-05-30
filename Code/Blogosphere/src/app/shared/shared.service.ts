@@ -38,4 +38,13 @@ export class SharedService {
   getTrend(){
     return Number(localStorage.getItem('trend'));
   }
+
+  setHowList(choose:number){
+    localStorage.setItem('how',choose.toString());
+  }
+
+  getHowList(){
+    return Number(localStorage.getItem('how'));
+  }
+
 }
