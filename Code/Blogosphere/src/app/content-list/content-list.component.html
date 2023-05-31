@@ -1,9 +1,10 @@
-<div class="list-group" *ngFor="let item of contentsa">
+<div class="list-group" *ngFor="let item of contents">
     <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{item.title}}</h5>
-        <h6 class="mb-1">{{item.editor}}</h6>
-        <small class="text-muted">{{item.date}}</small>
+        <h6 class="mb-1">{{item.shortDescription}}</h6>
+        <small class="text-muted">{{item.publishDate}}</small>
+        <a routerLink="/content-details" class="btn btn-primary" (click)="setContentDetail(item.contentId);">See details</a>
       </div>
     </a>
 </div>

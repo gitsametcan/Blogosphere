@@ -41,15 +41,6 @@ export class ContentListComponent implements OnInit {
     this.shared.setWhichContent(ID);
   }
 
-  a = this.shared.getHowList();
-
-  
-
-  contentsa=[
-    {title: "Contents 1", date: "16.05.2001", editor: "madwriter"},
-    {title: "Contents 2", date: "20.10.1998", editor: "bigheart"},
-    {title: "Contents 3", date: "13.06.1998", editor: "23kk23"}
-  ];
 
   contents: Content[] = [];
 
@@ -64,8 +55,8 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getContentsByID(ID:number): void {
-    this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
+  getContentsByComment(ID:number): void {
+    this.requestService.sendRequest('api/Contents/GetByComment/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
     })
@@ -74,8 +65,8 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getContentsBySearchingTitle(KEYWORD:any):void {
-    this.requestService.sendRequest("api/Contents/SearchContainsInTitle?keyword="+KEYWORD,'GET')
+  getContentsByImpression(Id:number):void {
+    this.requestService.sendRequest("api/Contents/FindLikedByUser?Id="+Id,'GET')
     .then(response => {
       this.contents = response.data;
     })
@@ -84,8 +75,8 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getTrendContents(DAY:number):void {
-    this.requestService.sendRequest("api/Contents/GetTrendings?sinceDays="+DAY,'GET')
+  getContentsByEditor(Id:number):void {
+    this.requestService.sendRequest("api/Contents/GetByUser/1"+Id,'GET')
     .then(response => {
       this.contents = response.data;
     })
@@ -97,11 +88,11 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void { 
     if(this.shared.getHowList()==1){
-      //this.getContentsByComment();
+      this.getContentsByComment(23);
     }else if(this.shared.getHowList()==2){
-      //this.getContentsByImpression();
-    }else if(this.shared.getTrend()==3){
-      //this.getContentsByEditor(7);
+      this.getContentsByImpression(23);
+    }else if(this.shared.getHowList()==3){
+      this.getContentsByEditor(23);
     }else{
       this.getContents();
     }
