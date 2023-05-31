@@ -18,6 +18,7 @@ public class SessionManager : ISessionService {
     }
     public Result CreateSession(string SessionKey, int userId) {
         Session session = new Session();
+        session.SessionId = 0;
         session.SessionKey = SessionKey;
         session.UserId = userId;
         _context.Sessions.Add(session);
