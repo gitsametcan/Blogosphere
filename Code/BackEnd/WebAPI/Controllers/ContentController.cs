@@ -37,6 +37,11 @@ public class ContentController : ControllerBase {
         return new DataResult<List<Content>>(true, _service.FindLikedByUser(Id)); 
     }
 
+    [HttpGet("FindCommentedByUser")]
+    public DataResult<List<Content>> FindCommentedByUser([FromQuery, BindRequired]int Id) {
+        return new DataResult<List<Content>>(true, _service.FindCommentedByUser(Id));
+    }
+
     [HttpGet("GetByCategory/{CategoryId}")]
     public DataResult<List<Content>> GetByCategory(int CategoryId) {
         return new DataResult<List<Content>>(true, _service.GetByCategory(CategoryId));
@@ -55,6 +60,30 @@ public class ContentController : ControllerBase {
     [HttpGet("GetTrendings")]
     public DataResult<List<Content>> GetTrendings([FromQuery] int sinceDays) {
         return new DataResult<List<Content>>(true, _service.GetTrendings(sinceDays));
+    }
+
+    [HttpGet("FindByUserIdWithPages/{Id}")]
+    public DataResult<List<Content>> FindByUserIdWithPages(
+            int Id, 
+            [FromQuery] int PageSize, 
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.FindByUserIdWithPages(Id, PageSize, PageNumber));
+    }
+
+    [HttpGet("FindLikedByUserWithPages")]
+    public DataResult<List<Content>> FindLikedByUserWithPages(
+            [FromQuery] int Id, 
+            [FromQuery] int PageSize, 
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.FindLikedByUserWithPages(Id, PageSize, PageNumber));
+    }
+
+    [HttpGet("FindCommentedByUserWithPages")]
+    public DataResult<List<Content>> FindCommentedByUserWithPages(
+            [FromQuery] int Id, 
+            [FromQuery] int PageSize, 
+            [FromQuery] int PageNumber) {
+        return new DataResult<List<Content>>(true, _service.FindCommentedByUserWithPages(Id, PageSize, PageNumber));
     }
 
     [HttpGet("GetAllWithPages")]

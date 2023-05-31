@@ -33,6 +33,18 @@ public class ContentManager : IContentService {
                 .ToList<Content>();
         return contents;
     }
+
+    public List<Content> FindCommentedByUser(int Id) {
+        var commentList = _context.Comments
+                .Where(t => t.PosterId == Id)
+                .ToList()
+                .Select(t => t.ContentId)
+                .ToList();
+        var contentList = _context.Contents
+                .Where(t => commentList.Contains(t.ContentId))
+                .ToList();
+        return contentList;
+    }
     public List<Content> GetByCategory(int categoryId) {
         var contents = _context.Contents
                 .Where(t => t.CategoryId == categoryId)
@@ -63,6 +75,16 @@ public class ContentManager : IContentService {
     public List<Content> GetAllWithPages(int PageSize, int PageNumber) {
         return PutIntoPages(GetAll(), PageSize, PageNumber);
     }
+    public List<Content> FindByUserIdWithPages(int Id, int PageSize, int PageNumber) {
+        return PutIntoPages(FindByUserId(Id), PageSize, PageNumber);
+    }
+    public List<Content> FindLikedByUserWithPages(int Id, int PageSize, int PageNumber) {
+        return PutIntoPages(FindLikedByUser(Id), PageSize, PageNumber);
+    }
+    public List<Content> FindCommentedByUserWithPages(int Id, int PageSize, int PageNumber) {
+        return PutIntoPages(FindCommentedByUser(Id), PageSize, PageNumber);
+    }
+
     public List<Content> GetByCategoryWithPages(int CategoryId, int PageSize, int PageNumber) {
         return PutIntoPages(GetByCategory(CategoryId), PageSize, PageNumber);
     }
