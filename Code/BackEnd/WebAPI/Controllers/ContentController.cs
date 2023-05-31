@@ -139,6 +139,46 @@ public class ContentController : ControllerBase {
         );
     }
 
+    [HttpGet("GetAllCount")]
+    public DataResult<int> GetAllCount() {
+        return new DataResult<int>(true, _service.GetAllCount());
+    }
+
+    [HttpGet("GetByUserCount/{Id}")]
+    public DataResult<int> FindByUserIdCount(int Id) {
+        return new DataResult<int>(true, _service.FindByUserIdCount(Id));
+    }
+
+    [HttpGet("FindLikedByUserCount")]
+    public DataResult<int> FindLikedByUserCount([FromQuery, BindRequired] int Id) {
+        return new DataResult<int>(true, _service.FindLikedByUserCount(Id));
+    }
+
+    [HttpGet("FindCommentedByUserCount")]
+    public DataResult<int> FindCommentedByUserCount([FromQuery] int Id) {
+        return new DataResult<int>(true, _service.FindCommentedByUserCount(Id));
+    }
+
+    [HttpGet("GetByCategoryCount/{CategoryId}")]
+    public DataResult<int> GetByCategoryCount(int CategoryId) {
+        return new DataResult<int>(true, _service.GetByCategoryCount(CategoryId));
+    }
+
+    [HttpGet("SearchContainsInTitleCount")]
+    public DataResult<int> SearchContainsInTitleCount([FromQuery]string keyword) {
+        return new DataResult<int>(true, _service.SearchContainsInTitleCount(keyword));
+    }
+
+    [HttpGet("SearchContainsInTextCount")]
+    public DataResult<int> SearchContainsInTextCount([FromQuery]string keyword) {
+        return new DataResult<int>(true, _service.SearchContainsInTextCount(keyword));
+    }
+
+    [HttpGet("GetTrendingsCount")]
+    public DataResult<int> GetTrendingsCount([FromQuery] int sinceDays) {
+        return new DataResult<int>(true, _service.GetTrendingsCount(sinceDays));
+    }
+
     [HttpPost("NewContent")]
     public Result NewContent([FromBody] Content newContent) {
         return _service.NewContent(newContent);

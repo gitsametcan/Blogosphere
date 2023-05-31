@@ -98,6 +98,31 @@ public class ContentManager : IContentService {
         return GetTrendings(sinceDays).Skip(PageNumber * PageSize).Take(PageSize).ToList();
     }
 
+    public int GetAllCount() {
+        return GetAll().Count();
+    }
+    public int FindByUserIdCount(int Id) {
+        return FindByUserId(Id).Count();
+    }
+    public int FindLikedByUserCount(int Id) {
+        return FindLikedByUser(Id).Count();
+    }
+    public int FindCommentedByUserCount(int Id) {
+        return FindCommentedByUser(Id).Count();
+    }
+    public int GetByCategoryCount(int CategoryId) {
+        return GetByCategory(CategoryId).Count();
+    }
+    public int SearchContainsInTitleCount(string keyword) {
+        return SearchContainsInTitle(keyword).Count();
+    }
+    public int SearchContainsInTextCount(string keyword) {
+        return SearchContainsInText(keyword).Count();
+    }
+    public int GetTrendingsCount(int sinceDays) {
+        return GetTrendings(sinceDays).Count();
+    }
+
     private List<Content> PutIntoPages(List<Content> contentList, int PageSize, int PageNumber) {
         var orderedContentList = contentList.OrderBy(t => t.PublishDate).ToList();
         var rangedContentList = orderedContentList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
