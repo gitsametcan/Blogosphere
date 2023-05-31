@@ -42,43 +42,33 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.formSubmitted = true;
-
+  
     if (!this.loginObj || !this.loginObj.username || !this.loginObj.password) {
       console.log('Invalid credentials!');
       return;
     }
-
+  
     const enteredUsername = this.loginObj.username.trim();
     const enteredPassword = this.loginObj.password;
-    let matchingUser: User | undefined;
-    let isWrongCredentials: boolean = true;
-
-    for (const user of this.users) {
-      if (
-        user.username &&
-        user.username.toLowerCase() === enteredUsername.toLowerCase() &&
-        user.password.toLowerCase() === enteredPassword.toLowerCase()
-      ) {
-        matchingUser = user;
-        isWrongCredentials = false;
-        break;
-      }
-    }
-
-    console.log('Matching User:', matchingUser);
-
-    if (matchingUser) {
-      console.log('Logged in successfully!');
-      // Redirect to homepage or perform any other actions
-    } else {
-      console.log('Invalid credentials!');
-      // Handle invalid credentials, display error message, etc.
-      if (isWrongCredentials) {
-        this.handleWrongCredentials();
-      }
-    }
+  
+    // Check if the username exists
+    this.requestService
+      .sendRequest(`api/Users/GetByUsername/${enteredUsername}`, 'GET')
+      .then((response) => {
+        if (!response.success || !response.data) {
+          console.log('Invalid credentials!');
+          this.handleWrongCredentials();
+          return;
+        }
+  
+        // Username exists, verify the login
+        this.verifyLogin(enteredUsername, enteredPassword);
+      })
+      .catch((err) => {
+        console.error('Error:', err);
+      });
   }
-
+  
   openWrongCredentialsModal(): void {
     this.modalService.open(this.wrongCredentialsModal, { centered: true });
   }
@@ -108,11 +98,35 @@ export class LoginComponent implements OnInit {
     this.requestService.sendRequest('api/Users/GetAll','GET')
       .then(response => {
         this.users = response.data;
+        console.log('Users:', this.users);
       })
       .catch(err => {
         console.error("Error: " + err);
       })
   }
+
+  
+  verifyLogin(username: string, password: string): void {
+    // Perform login verification
+    this.requestService
+      .sendRequest(`api/Users/VerifyByUsername?UserName=${username}&Password=${password}`, 'GET')
+      .then((response) => {
+        if (response.success && response.data) {
+          // Login successful
+          console.log('Logged in successfully!');
+          // Redirect to homepage or perform any other actions
+        } else {
+          // Login failed
+          console.log('Invalid credentials!');
+          // Handle invalid credentials, display error message, etc.
+          this.handleWrongCredentials();
+        }
+      })
+      .catch((err) => {
+        console.error('Error:', err);
+      });
+  }
+  
 
   ngOnInit(): void { 
     this.getUsers();
