@@ -111,7 +111,7 @@ public partial class BlogosphereContext : DbContext
             entity.HasKey(e => e.SessionId).HasName("PK__Sessions__C9F49270505AC035");
 
             entity.Property(e => e.SessionId).HasColumnName("SessionID");
-            entity.Property(e => e.SessionKey).HasMaxLength(50);
+            entity.Property(e => e.SessionKey).HasMaxLength(128);
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
             /*entity.HasOne(d => d.User).WithMany(p => p.Sessions)

@@ -63,7 +63,7 @@ go
 create table Sessions (
 	SessionID int identity(1,1),
 	UserID int not null,
-	SessionKey nvarchar(50) not null,
+	SessionKey nvarchar(128) not null,
 	primary key (SessionID)
 )
 go
