@@ -7,7 +7,7 @@ interface User{
   userId: 0,
   userName: string,
   email: string,
-  userType: 0,
+  userType: string,
   activicy: boolean
 }
 
@@ -26,7 +26,7 @@ export class ProfilPageComponent implements OnInit {
   userId: 0,
   userName: '',
   email: '',
-  userType: 0,
+  userType: '',
   activicy: false
   };
 
@@ -51,10 +51,22 @@ export class ProfilPageComponent implements OnInit {
       this.getUserById(0);
   }
 
+
+  setTabs():string[]{
+    let tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
+    this.user.userType = "admin";
+    if(this.user.userType === "admin"){
+      let element:string = 'All Users';
+      let element2:string = 'All Contents';
+      tabs.push(element);
+      tabs.push(element2);
+    }
+    return tabs;
+  }
   tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
   tabsa: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
   
-
+  
   selectedtab = this.tabs[0];
 
   writeOnLog(string:any){

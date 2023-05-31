@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../../app/shared/shared.service'
+import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
 
 
