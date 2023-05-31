@@ -142,7 +142,7 @@ export class ListCardsComponent implements OnInit{
   }
 
   getImage(img:string,id:number) : void {
-    const url = 'http://localhost:5204/api/Images/GetImage/'+img;
+    const url = 'http://localhost:5204/'+img;
     const options = {
         method: "GET"
     }
