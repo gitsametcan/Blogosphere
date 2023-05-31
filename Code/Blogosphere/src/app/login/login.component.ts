@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { urlencoded } from 'body-parser';
 import { RequestService } from '../request.service';
-import { response } from 'express';
+import { enc, SHA256 } from 'crypto-js';
 
 interface User {
   userId: number;
@@ -105,6 +104,14 @@ export class LoginComponent implements OnInit {
       })
   }
 
+  generateSessionKey(): string {
+    const timestamp = Date.now().toString();
+    const randomString = Math.random().toString(36).substr(2);
+    const sessionKey = timestamp + randomString;
+    const encryptedKey = SHA256(sessionKey).toString(enc.Hex);
+    return encryptedKey;
+  }
+
   
   verifyLogin(username: string, password: string): void {
     // Perform login verification
@@ -112,14 +119,40 @@ export class LoginComponent implements OnInit {
       .sendRequest(`api/Users/VerifyByUsername?UserName=${username}&Password=${password}`, 'GET')
       .then((response) => {
         if (response.success && response.data) {
+          console.log(response.data)
           // Login successful
-          console.log('Logged in successfully!');
-          // Redirect to homepage or perform any other actions
+
+          // Generate a session key for the logged-in user
+          const sessionKey = this.generateSessionKey();
+          console.log('Session Key:', sessionKey);
+
+          // Create a session in the API
+          this.createSession(sessionKey, response.data);
         } else {
           // Login failed
           console.log('Invalid credentials!');
           // Handle invalid credentials, display error message, etc.
           this.handleWrongCredentials();
+        }
+      })
+      .catch((err) => {
+        console.error('Error:', err);
+      });
+  }
+
+  createSession(sessionKey: string, userId: number): void {
+    // Create a session in the API using the session key and user ID
+    this.requestService
+      .sendRequest('api/Sessions/NewSession', 'POST', { sessionKey, userId })
+      .then((response) => {
+        if (response.success) {
+          // Session creation successful
+          console.log('Session created successfully!');
+          // Redirect to homepage or perform any other actions
+        } else {
+          // Session creation failed
+          console.log('Failed to create session!');
+          // Handle session creation failure, display error message, etc.
         }
       })
       .catch((err) => {
