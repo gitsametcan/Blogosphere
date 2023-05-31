@@ -13,7 +13,7 @@ const appRoute: Routes =[
   {path: '', redirectTo:'home', pathMatch:'full'},
   {path: 'trends', component:ListCardsComponent},
   {path: 'category', component:ListCardsComponent},
-  {path: 'content-details', component:ContentDetailsComponent},
+  {path: 'content-details/:id', component:ContentDetailsComponent},
   {path: 'home', component:ListCardsComponent},
   {path: 'profil', component:ProfilPageComponent},
   {path: 'login',component:LoginComponent},

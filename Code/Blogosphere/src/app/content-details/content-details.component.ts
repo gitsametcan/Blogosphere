@@ -61,6 +61,7 @@ export class ContentDetailsComponent implements OnInit{
     this.requestService.sendRequest('api/Contents/GetById/'+ID,'GET')
       .then(response => {
         this.content = response.data;
+        this.getImage(this.content.imagePath,ID);
       })
       .catch(err => {
         console.error("Error: " + err);
@@ -77,6 +78,22 @@ export class ContentDetailsComponent implements OnInit{
       console.error("Error: " + err);
     })
   }
+
+  getImage(img:string,id:number) : void {
+    const url = 'http://localhost:5204/'+img;
+    const options = {
+        method: "GET"
+    }
+    fetch(url, options)
+    .then(async response=>{
+      const imageBlob = await response.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      let image = <HTMLElement>document.getElementById('content-detail-img') as HTMLImageElement;
+      image.src = imageObjectURL;
+    }).catch(error=>{
+      console.error('Error:', error);
+    })
+}
 
 
 
