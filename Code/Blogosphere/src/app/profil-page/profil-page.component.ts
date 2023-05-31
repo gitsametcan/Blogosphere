@@ -22,7 +22,7 @@ export class ProfilPageComponent implements OnInit {
   constructor(private requestService: RequestService, private shared: SharedService){}
 
 
-  contentObj: User = {
+  usera: User = {
   userId: 0,
   userName: '',
   email: '',
@@ -52,9 +52,23 @@ export class ProfilPageComponent implements OnInit {
   }
 
   tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
+  tabsa: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
+  
+
   selectedtab = this.tabs[0];
 
   writeOnLog(string:any){
-    console.log(string);
+    if (string==='My Contents'){
+      this.shared.setHowList(0);
+    }
+    else if (string==='My Comments'){
+      this.shared.setHowList(1);
+    }
+    else if (string==='My Impressions'){
+      this.shared.setHowList(2);
+    }
+    else if (string==='All Contents'){
+      this.shared.setHowList(3);
+    }
   }
 }

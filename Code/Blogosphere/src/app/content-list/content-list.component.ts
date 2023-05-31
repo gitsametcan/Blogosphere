@@ -91,7 +91,7 @@ export class ContentListComponent implements OnInit {
       this.getContentsByComment(23);
     }else if(this.shared.getHowList()==2){
       this.getContentsByImpression(23);
-    }else if(this.shared.getHowList()==3){
+    }else if(this.shared.getHowList()==0){
       this.getContentsByEditor(23);
     }else{
       this.getContents();
