@@ -11,7 +11,7 @@
 
       <ul class="nav nav-tabs side_nav" role="tablist">
         <li class="nav-item" *ngFor="let tab of tabs; let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
-          <a class="nav-link" (click)="selectedtab = tab" aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
+          <a class="nav-link" (click)="selectedtab = tab" (click)=writeOnLog(tab) aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
         </li>
       </ul>
       

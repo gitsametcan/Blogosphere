@@ -19,11 +19,11 @@ interface User{
 })
 export class ProfilPageComponent implements OnInit {
 
-  constructor(private requestService: RequestService){}
+  constructor(private requestService: RequestService, private shared: SharedService){}
 
 
   contentObj: User = {
-    userId: 0,
+  userId: 0,
   userName: '',
   email: '',
   userType: 0,
@@ -43,10 +43,18 @@ export class ProfilPageComponent implements OnInit {
 
   }
 
+  setWhichCategory(ID:number): void{
+    this.shared.setHowList(ID);
+  }
+
   ngOnInit(): void {
       this.getUserById(0);
   }
 
   tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
-selectedtab = this.tabs[0];
+  selectedtab = this.tabs[0];
+
+  writeOnLog(string:any){
+    console.log(string);
+  }
 }
