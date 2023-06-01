@@ -115,6 +115,16 @@ export class LoginComponent implements OnInit {
 
   
   verifyLogin(username: string, password: string): void {
+
+    const existingSessionKey = this.cookieService.get('sessionKey');
+
+    if (existingSessionKey) {
+      // Session key already exists, handle accordingly (e.g., show error message, redirect to logged-in state)
+      console.log('User is already logged in. Please Log out first.');
+      return;
+    }
+
+
     // Perform login verification
     this.requestService
       .sendRequest(`api/Users/VerifyByUsername?UserName=${username}&Password=${password}`, 'GET')
