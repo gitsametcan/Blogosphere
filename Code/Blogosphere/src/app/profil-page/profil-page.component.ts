@@ -4,11 +4,12 @@ import { RequestService } from '../request.service';
 
 
 interface User{
-  userId: 0,
+  userId: number,
   userName: string,
   email: string,
-  userType: string,
-  activicy: boolean
+  password: string,
+  blocked: number,
+  userType: string
 }
 
 
@@ -22,25 +23,22 @@ export class ProfilPageComponent implements OnInit {
   constructor(private requestService: RequestService, private shared: SharedService){}
 
 
-  usera: User = {
-  userId: 0,
-  userName: '',
-  email: '',
-  userType: '',
-  activicy: false
-  };
-
-  user!:User;
+  users!:User;
 
   getUserById(ID:number):void{
     this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
       .then(response => {
-        this.user = response;
+        this.users = response.data;
+        console.log(this.users);
       })
       .catch(err => {
         console.error("Error: " + err);
       })
 
+  }
+  getUser():User[]{
+    let userl:User[]=[this.users];
+    return userl;
   }
 
   setWhichCategory(ID:number): void{
@@ -48,14 +46,14 @@ export class ProfilPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.getUserById(0);
+      this.getUserById(1);
   }
 
 
   setTabs():string[]{
     let tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
-    this.user.userType = "admin";
-    if(this.user.userType === "admin"){
+    //let usera:User = this.getUser()[0];
+    if(this.users.userType == "admin"){
       let element:string = 'All Users';
       let element2:string = 'All Contents';
       tabs.push(element);

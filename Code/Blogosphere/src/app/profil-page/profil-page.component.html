@@ -50,53 +50,79 @@
 
         </div>
         <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active" id="one">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 label ">Username</div>
-            <div class="col-lg-9 col-md-8">come from database</div>
+        <div *ngFor="let user of getUser();">
+          <div  *ngIf='user.userType=="admin"'>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 label ">Username</div>
+              <div class="col-lg-9 col-md-8">{{user.userName}}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-4 label ">Email</div>
+              <div class="col-lg-9 col-md-8">{{user.email}}</div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
+              <div class="col-md-8 col-lg-9">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Now user type is {{user.userType}} , you can change from here</option>
+                  <option value="1">Admin</option>
+                  <option value="2">Editor</option>
+                  <option value="3">Member</option>           
+                </select>
+              </div>
+            </div>
+
+
+
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-danger">Block</button>
+            </div>
+
+
+
           </div>
+
+          <div *ngIf='user.userType!="admin"'>
+
+
           
           <div class="row mb-3">
               <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
               <div class="col-md-8 col-lg-9">
-                <input name="username" type="text" class="form-control" id="username">
+                <input name="username" type="text" class="form-control" id="username" placeholder={{user.userName}}>
               </div>
           </div>
           
-          <div class="row">
-            <div class="col-lg-3 col-md-4 label ">Email</div>
-            <div class="col-lg-9 col-md-8">come from database</div>
-          </div>
           
           <div class="row mb-3">
               <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
               <div class="col-md-8 col-lg-9">
-                <input name="email" type="text" class="form-control" id="email">
+                <input name="email" type="text" class="form-control" id="email" placeholder={{user.email}}>
               </div>
           </div>
           
           <div class="row">
             <div class="col-lg-3 col-md-4 label ">Authorization</div>
-            <div class="col-lg-9 col-md-8">come from database</div>
+            <div class="col-lg-9 col-md-8">{{user.userType}}</div>
           </div>
           
-          <div class="row mb-3">
-          <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
-          <div class="col-md-8 col-lg-9">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Member</option>
-              <option value="1">Editor</option>
-              <option value="2">Admin</option>
-            </select>
-          </div>
-        </div>
+          
 
         <div class="text-center">
           <button type="submit" class="btn btn-primary">Save Changes</button>
        </div>
+
+      </div>
        
-       <div class="text-center">
-          <button type="submit" class="btn btn-danger">Block</button>
-        </div>
+       
+      </div>
         
         </div>
         <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active" id="three">

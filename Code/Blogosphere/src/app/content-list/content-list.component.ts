@@ -56,7 +56,7 @@ export class ContentListComponent implements OnInit {
   }
 
   getContentsByComment(ID:number): void {
-    this.requestService.sendRequest('api/Contents/GetByComment/'+ID,'GET')
+    this.requestService.sendRequest('api/Contents/FindCommentedByUser/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
     })
@@ -88,12 +88,12 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void { 
     if(this.shared.getHowList()==1){
-      this.getContentsByComment(23);
+      this.getContentsByComment(1);
     }else if(this.shared.getHowList()==2){
-      this.getContentsByImpression(23);
+      this.getContentsByImpression(1);
     }else if(this.shared.getHowList()==0){
-      this.getContentsByEditor(23);
-    }else{
+      this.getContentsByEditor(1);
+    }else if(this.shared.getHowList()==3){
       this.getContents();
     }
   }
