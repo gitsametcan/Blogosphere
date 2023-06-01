@@ -68,16 +68,16 @@ export class ProfilPageComponent implements OnInit {
   selectedtab = this.tabs[0];
 
   writeOnLog(string:any){
-    if (string==='My Contents'){
+    if (string=='My Contents'){
       this.shared.setHowList(0);
     }
-    else if (string==='My Comments'){
+    else if (string=='My Comments'){
       this.shared.setHowList(1);
     }
-    else if (string==='My Impressions'){
+    else if (string=='My Impressions'){
       this.shared.setHowList(2);
     }
-    else if (string==='All Contents'){
+    else if (string=='All Contents'){
       this.shared.setHowList(3);
     }
   }

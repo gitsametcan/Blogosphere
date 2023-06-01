@@ -6,6 +6,8 @@ import { ContentDetailsComponent } from './content-details/content-details.compo
 import { ListCardsComponent } from './list-cards/list-cards.component';
 import { ProfilPageComponent } from './profil-page/profil-page.component';
 import { ContactComponent } from './contact/contact.component';
+import { Route } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 const appRoute: Routes =[
@@ -22,7 +24,9 @@ const appRoute: Routes =[
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoute)],
+  imports: [RouterModule.forRoot(appRoute, {
+    onSameUrlNavigation: 'reload'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

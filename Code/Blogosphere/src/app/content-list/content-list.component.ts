@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
+import {Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 interface Content{
@@ -23,7 +25,10 @@ interface Content{
 export class ContentListComponent implements OnInit {
 
 
-  constructor(private shared:SharedService,private requestService: RequestService){}
+  constructor(private shared:SharedService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private requestService: RequestService){}
 
   contentObj: Content = {
     contentId: 0,
@@ -48,7 +53,7 @@ export class ContentListComponent implements OnInit {
     this.requestService.sendRequest('api/Contents/GetAll','GET')
     .then(response => {
       this.contents = response.data;
-      console.log(this.contents)
+      console.log("all");
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -56,9 +61,10 @@ export class ContentListComponent implements OnInit {
   }
 
   getContentsByComment(ID:number): void {
-    this.requestService.sendRequest('api/Contents/FindCommentedByUser/'+ID,'GET')
+    this.requestService.sendRequest('api/Contents/FindCommentedByUser?Id='+ID,'GET')
     .then(response => {
       this.contents = response.data;
+      console.log("comment");
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -69,6 +75,7 @@ export class ContentListComponent implements OnInit {
     this.requestService.sendRequest("api/Contents/FindLikedByUser?Id="+Id,'GET')
     .then(response => {
       this.contents = response.data;
+      console.log("impression");
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -79,6 +86,7 @@ export class ContentListComponent implements OnInit {
     this.requestService.sendRequest("api/Contents/GetByUser/1"+Id,'GET')
     .then(response => {
       this.contents = response.data;
+      console.log("editor");
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -96,5 +104,13 @@ export class ContentListComponent implements OnInit {
     }else if(this.shared.getHowList()==3){
       this.getContents();
     }
+  }
+
+  resetComponent(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.navigate(['./'],{
+      relativeTo: this.route,
+      queryParamsHandling: "merge"
+    })
   }
 }
