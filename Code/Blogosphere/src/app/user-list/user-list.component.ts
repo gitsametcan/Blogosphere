@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
 
   users : User[] = [];
   getAllUser():void {
-    this.requestService.sendRequest('api/Contents/GetAll','GET')
+    this.requestService.sendRequest('api/Users/GetAll','GET')
     .then(response => {
       this.users = response.data;
       console.log(this.users)

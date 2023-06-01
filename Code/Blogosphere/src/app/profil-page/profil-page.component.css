@@ -1,13 +1,10 @@
-/**
-* Template Name: NiceAdmin - v2.3.1
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+
+.container{
+  margin-top: 60px;
+  }
+
+  
 :root {
     scroll-behavior: smooth;
   }
