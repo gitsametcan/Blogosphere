@@ -5,14 +5,26 @@
         <div class="row">
           <div class="col-md-4" *ngFor="let item of contents;">
             <div class="card shadow-lg">
-              <!-- <img src={{item.image}} alt="img" class="b-card py-2"> -->
               <img src="" alt="img" class="b-card py-2" id={{item.contentId}}>
               <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.shortDescription}}</p>
-                <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" (click)="setContentDetail(item.contentId);setCommentByContent(item.contentId);">See details</a>
+                <a routerLink="/content-details" class="btn btn-primary" (click)="setContentDetail(item.contentId);setCommentByContent(item.contentId);">See details</a>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col d-flex justify-content-center mb-3">
+              <div class="btn-group">
+                  <button
+                  *ngFor="let item of pageNumbers"
+                  (click)="changePage(item)"
+                  class="btn btn-outline-primary"
+                  [class.active]="item==selectedPage">
+                  {{item}}
+                  </button>
+              </div>
           </div>
         </div>
       </div>

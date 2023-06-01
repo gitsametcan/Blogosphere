@@ -24,6 +24,10 @@ interface Content{
 })
 export class ListCardsComponent implements OnInit{
 
+  public numberOfContents = 18; // This will be supplied by database
+  public numberOfContentsInPerPage= Math.ceil(this.numberOfContents/6)>7 ? Math.ceil(this.numberOfContents/7) : 6;
+  public selectedPage=1;
+
   constructor(private shared:SharedService,private requestService: RequestService){}
 
   contentObj: Content = {
@@ -155,7 +159,37 @@ export class ListCardsComponent implements OnInit{
     }).catch(error=>{
       console.error('Error:', error);
     })
-}
+  }
+
+  getContentsByPaging(pageNumber:number) : void {
+    this.requestService.sendRequest('api/Contents/GetAllWithPages?PageSize='+this.numberOfContentsInPerPage+'&PageNumber='+pageNumber,'GET')
+    .then(response => {
+      this.contents = response.data;
+      this.contents.forEach(element => {
+        let url=element.imagePath;
+        let id=element.contentId;
+        this.getImage(url,id);
+      });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+    
+  }
+
+  pagingArray: number[]=this.pageNumbers;
+   
+  get pageNumbers(): number[]{
+    return Array(Math.ceil(this.numberOfContents/this.numberOfContentsInPerPage))
+      .fill(0)
+      .map((a,i)=>i+1)
+  }
+
+  changePage(index:number):void{
+    this.selectedPage=index;
+    this.ngOnInit();
+  }
+
 
 
   ngOnInit(): void { 
@@ -166,7 +200,7 @@ export class ListCardsComponent implements OnInit{
     }else if(this.shared.getTrend()>0){
       this.getTrendContents(7);
     }else{
-      this.getContents();
+      this.getContentsByPaging(this.selectedPage-1);
     }
   }
   
