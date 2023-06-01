@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RequestService } from '../request.service';
 import { enc, SHA256 } from 'crypto-js';
+import { CookieService } from 'ngx-cookie-service';
 
 interface User {
   userId: number;
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
     return !this.loginObj.username && !this.loginObj.password;
   }
 
-  constructor(private router: Router, private modalService: NgbModal,private requestService: RequestService) {}
+  constructor(private router: Router, private modalService: NgbModal,private requestService: RequestService,private cookieService: CookieService) {}
 
   onLogin(): void {
     this.formSubmitted = true;
@@ -141,14 +142,18 @@ export class LoginComponent implements OnInit {
   }
 
   createSession(sessionKey: string, userId: number): void {
-    // Create a session in the API using the session key and user ID
+    const url = `api/Sessions/NewSession?SessionKey=${sessionKey}&userId=${userId}`;
     this.requestService
-      .sendRequest('api/Sessions/NewSession', 'POST', { sessionKey, userId })
+      .sendRequest(url, 'POST')
       .then((response) => {
         if (response.success) {
+          // Save the session key in a cookie
+          this.cookieService.set('sessionKey', sessionKey);
+  
           // Session creation successful
           console.log('Session created successfully!');
           // Redirect to homepage or perform any other actions
+          this.router.navigate(['/home']);
         } else {
           // Session creation failed
           console.log('Failed to create session!');
@@ -160,8 +165,13 @@ export class LoginComponent implements OnInit {
       });
   }
   
+  
+  
+  
 
   ngOnInit(): void { 
     this.getUsers();
+    // Retrieve the session key from the cookie
+
   }
 }

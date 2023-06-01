@@ -3,6 +3,8 @@ import { SharedService } from '../../app/shared/shared.service'
 import { urlencoded } from 'body-parser';
 import { RequestService } from '../request.service';
 import { response } from 'express';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 interface Category{
   categoryId: 0,
@@ -15,6 +17,7 @@ interface Category{
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
+
 export class TopBarComponent implements OnInit {
 
     categoryObj: Category = {
@@ -41,7 +44,7 @@ export class TopBarComponent implements OnInit {
     this.shared.setTrend(1);
   }
 
-  constructor(private shared: SharedService, private requestService: RequestService){}
+  constructor(private shared: SharedService, private requestService: RequestService,private cookieService: CookieService,private router: Router){}
   categories=[
     {id: 0 , type: "Environment"},
     {id: 1 , type: "Pollution"},
@@ -72,4 +75,17 @@ export class TopBarComponent implements OnInit {
     console.log(this.enteredSearchValue);
   }
 
+  logout(): void {
+  // Get the session key from the cookie
+  const sessionKey = this.cookieService.get('sessionKey');
+
+  // Delete the session key from the cookie
+  this.cookieService.delete('sessionKey');
+
+  // Send a service request to delete the session from the database
+  this.requestService
+      .sendRequest(`api/Sessions/DeleteSession?SessionKey=${sessionKey}`, 'DELETE')
+  this.router.navigate(['/login']);
+  
+  }
 }
