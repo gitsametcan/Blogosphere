@@ -5,6 +5,7 @@ import { RequestService } from '../request.service';
 import { response } from 'express';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { UserService } from '../UserService';
 
 interface Category{
   categoryId: 0,
@@ -44,7 +45,8 @@ export class TopBarComponent implements OnInit {
     this.shared.setTrend(1);
   }
 
-  constructor(private shared: SharedService, private requestService: RequestService,private cookieService: CookieService,private router: Router){}
+  constructor(private shared: SharedService, private requestService: RequestService,private cookieService: CookieService,private router: Router,private userService: UserService){
+  }
   categories=[
     {id: 0 , type: "Environment"},
     {id: 1 , type: "Pollution"},
@@ -65,7 +67,7 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void { 
       this.getCategories();
-  }
+    }
 
   @Output()
   searchTextChanged: EventEmitter<any>=new EventEmitter<any>();
@@ -78,10 +80,8 @@ export class TopBarComponent implements OnInit {
   logout(): void {
   // Get the session key from the cookie
   const sessionKey = this.cookieService.get('sessionKey');
-
   // Delete the session key from the cookie
   this.cookieService.delete('sessionKey');
-
   // Send a service request to delete the session from the database
   this.requestService
       .sendRequest(`api/Sessions/DeleteSession?SessionKey=${sessionKey}`, 'DELETE')
