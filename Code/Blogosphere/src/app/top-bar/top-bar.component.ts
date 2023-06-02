@@ -28,6 +28,7 @@ export class TopBarComponent implements OnInit {
   };
 
   enteredSearchValue: string = '';
+  loggedInUser: any;
 
   changeCategory(ID:number): void{
     this.shared.setWhichCategory(ID);
@@ -67,6 +68,27 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void { 
       this.getCategories();
+      const sessionKey = this.cookieService.get('sessionKey'); 
+      this.loggedInUser = this.retrieveUsername(sessionKey);
+    }
+
+
+    retrieveUsername(sessionKey: string): void {
+      const url = `api/Sessions/FindUser?SessionKey=${sessionKey}`;
+      this.requestService
+        .sendRequest(url, 'GET')
+        .then((response) => {
+          if (response.success && response.data) {
+            // Save the user information in the shared service
+            this.userService.setLoggedInUser(response.data);
+            this.loggedInUser = response.data.userName;
+          } else {
+            console.error('Failed to retrieve user data:', response.message);
+          }
+        })
+        .catch((err) => {
+          console.error('Error:', err);
+        });
     }
 
   @Output()
