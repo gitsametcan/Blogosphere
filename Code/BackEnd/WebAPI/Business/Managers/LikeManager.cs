@@ -23,6 +23,7 @@ public class LikeManager : ILikeService {
         return _context.Likes.Where(t => t.LikedContentId == contentId).ToList<Like>();;
     }
     public Result NewLike(Like newLike) {
+        newLike.LikeDate = DateTime.Now;
         _context.Likes.Add(newLike);
         _context.SaveChanges();
         return new Result(true, "New Like created.");

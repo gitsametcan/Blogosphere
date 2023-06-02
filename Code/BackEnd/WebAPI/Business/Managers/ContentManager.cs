@@ -137,6 +137,7 @@ public class ContentManager : IContentService {
     }
 
     public Result NewContent(Content newContent) {
+        newContent.PublishDate = DateTime.Now;
         _context.Contents.Add(newContent);
         _context.SaveChanges();
         return new Result(true, "New Content created: " + newContent.Title);
