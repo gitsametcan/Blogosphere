@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 interface Content{
@@ -78,8 +79,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryIDCount():void{
-    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+this.ID,'GET')
+  getContentsByCategoryIDCount(ID:number):void{
+    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+ID,'GET')
     .then(response => {
       this.shared.setContentCount(response.data);
     })
@@ -88,8 +89,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryID(): void {
-    this.requestService.sendRequest('api/Contents/GetByCategory/'+this.ID,'GET')
+  getContentsByCategoryID(ID:number): void {
+    this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
@@ -259,7 +260,7 @@ export class ListCardsComponent implements OnInit{
         this.getTrendContentsCount(7);
       }else{
         this.shared.setListPriority(type);
-        this.getContentsByCategoryIDCount();
+        this.getContentsByCategoryIDCount(Number(type));
       }
       window.location.reload();
     }

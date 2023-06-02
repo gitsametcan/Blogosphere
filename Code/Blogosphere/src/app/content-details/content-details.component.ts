@@ -6,6 +6,8 @@ import { response } from 'express';
 import { UserService } from '../UserService';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 interface ContentDetail {
   contentId: 0,
@@ -34,7 +36,7 @@ interface Comment {
 })
 export class ContentDetailsComponent implements OnInit {
 
-  constructor(private shared: SharedService, private requestService: RequestService, private userService: UserService, private cookieService: CookieService, private router: Router) { }
+  constructor(private shared: SharedService, private requestService: RequestService, private userService: UserService, private cookieService: CookieService, private router: Router,private route:ActivatedRoute) { }
 
   contentObj: ContentDetail = {
     contentId: 0,
@@ -62,19 +64,20 @@ export class ContentDetailsComponent implements OnInit {
   loggedInUser: any;
   createdComment: any;
 
-  getContentsByID(ID: number): void {
-    this.requestService.sendRequest('api/Contents/GetById/' + ID, 'GET')
+  ID=this.route.snapshot.params['id'];
+  getContentsByID(): void {
+    this.requestService.sendRequest('api/Contents/GetById/' + this.ID, 'GET')
       .then(response => {
         this.content = response.data;
-        this.getImage(this.content.imagePath, ID);
+        this.getImage(this.content.imagePath, this.ID);
       })
       .catch(err => {
         console.error("Error: " + err);
       })
   }
 
-  getCommentsByContentID(ID: number): void {
-    this.requestService.sendRequest('api/Comments/GetByContent/' + ID, 'GET')
+  getCommentsByContentID(): void {
+    this.requestService.sendRequest('api/Comments/GetByContent/' + this.ID, 'GET')
       .then(response => {
         this.comments = response.data;
         console.log(this.comments);
@@ -142,7 +145,7 @@ export class ContentDetailsComponent implements OnInit {
     console.log(`Session key: ${existingSessionKey}`);
     if (existingSessionKey) {
       this.createdComment = document.getElementById('created-comment') as HTMLInputElement
-      this.postComment(this.loggedInUser.userId, this.shared.getWhichContent());
+      this.postComment(this.loggedInUser.userId, this.ID);
     }
     else {
       this.router.navigate(['/register']);
@@ -293,8 +296,8 @@ export class ContentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.getContentsByID(this.shared.getWhichContent());
-    this.getCommentsByContentID(this.shared.getCommentByContent())
+    this.getContentsByID();
+    this.getCommentsByContentID()
     const sessionKey = this.cookieService.get('sessionKey'); // Replace with your session key retrieval logic
     this.retrieveUsername(sessionKey);
   }
