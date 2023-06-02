@@ -17,7 +17,7 @@ const appRoute: Routes =[
   {path: 'category', component:ListCardsComponent},
   {path: 'content-details/:id', component:ContentDetailsComponent},
   {path: 'home', component:ListCardsComponent},
-  {path: 'profil', component:ProfilPageComponent},
+  {path: 'profil/:id', component:ProfilPageComponent},
   {path: 'login',component:LoginComponent},
   {path: 'register', component:RegisterComponent},
   {path: 'contact', component:ContactComponent},

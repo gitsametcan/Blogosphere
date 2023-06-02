@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service'
 import { RequestService } from '../request.service';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 interface User{
@@ -20,7 +22,9 @@ interface User{
 })
 export class ProfilPageComponent implements OnInit {
 
-  constructor(private requestService: RequestService, private shared: SharedService){}
+  constructor(private requestService: RequestService,
+     private shared: SharedService,
+     private route: ActivatedRoute){}
 
 
   users!:User;
@@ -47,7 +51,7 @@ export class ProfilPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.getUserById(1);
+      this.getUserById((this.route.snapshot.params['id']));
   }
 
 
@@ -67,6 +71,7 @@ export class ProfilPageComponent implements OnInit {
   
   
   selectedtab = this.tabs[0];
+  
 
   writeOnLog(string:any){
     if (string=='My Contents'){
