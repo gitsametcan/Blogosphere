@@ -81,8 +81,32 @@ export class SharedService {
     return localStorage.getItem('whichPage');
   }
 
+  setCurrentUserType(value:string){
+    localStorage.setItem('currentId', value);
+  }
+
+  getCurrentUSerType(){
+    return localStorage.getItem('currentId');
+  }
+
   setWhichPage(value:string){
     localStorage.setItem('whichPage',value);
+  }
+
+  setCurrentUserId(id:Number){
+    localStorage.setItem('currentId', id.toString());
+  }
+
+  getCurrentUserId():Number{
+    return Number(localStorage.getItem('currentId'));
+  }
+
+  setOnUserId(id:Number){
+    localStorage.setItem('onId', id.toString());
+  }
+
+  getOnUserId():Number{
+    return Number(localStorage.getItem('onId'));
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
+import { SharedService } from '../shared/shared.service';
 
 
 
@@ -19,7 +20,7 @@ interface User{
 
 export class UserListComponent implements OnInit {
 
-  constructor(private requestService: RequestService){}
+  constructor(private requestService: RequestService, private shared:SharedService){}
 
   users : User[] = [];
   getAllUser():void {
@@ -31,6 +32,10 @@ export class UserListComponent implements OnInit {
     .catch(err => {
       console.error("Error: " + err);
     })
+  }
+
+  setOnUser(Id:Number){
+    this.shared.setOnUserId(Id);
   }
 
   ngOnInit():void{

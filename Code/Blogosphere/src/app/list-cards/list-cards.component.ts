@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 interface Content{
@@ -26,7 +27,7 @@ export class ListCardsComponent implements OnInit{
   public numberOfContentsInPerPage= Math.ceil(this.numberOfContents/6)>7 ? Math.ceil(this.numberOfContents/7) : 6;
   public selectedPage=1;
 
-  constructor(private shared:SharedService,private requestService: RequestService){}
+  constructor(private shared:SharedService,private requestService: RequestService, private route:ActivatedRoute){}
 
   contentObj: Content = {
     contentId: 0,
@@ -40,12 +41,13 @@ export class ListCardsComponent implements OnInit{
     visibility: 0
   };
 
-  setContentDetail(ID:number): void{
-    this.shared.setWhichContent(ID);
+  ID=this.route.snapshot.params['id'];
+  setContentDetail(): void{
+    this.shared.setWhichContent(this.ID);
   }
 
-  setCommentByContent(ID:number): void{
-    this.shared.setCommentByContent(ID);
+  setCommentByContent(): void{
+    this.shared.setCommentByContent(this.ID);
   }
 
   contents: Content[] = [];
@@ -76,8 +78,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryIDCount(ID:number):void{
-    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+ID,'GET')
+  getContentsByCategoryIDCount():void{
+    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+this.ID,'GET')
     .then(response => {
       this.shared.setContentCount(response.data);
     })
@@ -86,8 +88,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryID(ID:number): void {
-    this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
+  getContentsByCategoryID(): void {
+    this.requestService.sendRequest('api/Contents/GetByCategory/'+this.ID,'GET')
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
@@ -257,7 +259,7 @@ export class ListCardsComponent implements OnInit{
         this.getTrendContentsCount(7);
       }else{
         this.shared.setListPriority(type);
-        this.getContentsByCategoryIDCount(Number(type));
+        this.getContentsByCategoryIDCount();
       }
       window.location.reload();
     }

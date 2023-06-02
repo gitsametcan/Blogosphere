@@ -18,7 +18,7 @@
       
       <div class="tab-content">
         <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active" id="two">
-          <!-- Change Password Form -->
+          <div *ngIf='getSituation()==0'>
           <form>
   
             <div class="row mb-3">
@@ -47,11 +47,12 @@
             </div>
             
           </form><!-- End Change Password Form -->
-
+        </div>
+        <div *ngIf='getSituation()==1'>Password can change by only user</div>
         </div>
         <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active" id="one">
         <div *ngFor="let user of getUser();">
-          <div  *ngIf='user.userType=="admin"'>
+          <div  *ngIf='getSituation()==1'>
             <div class="row">
               <div class="col-lg-3 col-md-4 label ">Username</div>
               <div class="col-lg-9 col-md-8">{{user.userName}}</div>
@@ -89,7 +90,7 @@
 
           </div>
 
-          <div *ngIf='user.userType!="admin"'>
+          <div *ngIf='getSituation()==0'>
 
 
           

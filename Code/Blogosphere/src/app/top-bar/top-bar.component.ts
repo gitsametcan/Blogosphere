@@ -29,6 +29,7 @@ export class TopBarComponent implements OnInit {
 
   enteredSearchValue: string = '';
   loggedInUser: any;
+  userId: number = -1;
 
   selectWhichTypeHasPriority(type:string):void{
     this.shared.setWhichPage(type);
@@ -68,8 +69,9 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void { 
       this.getCategories();
-      const sessionKey = this.cookieService.get('sessionKey'); 
+      const sessionKey = this.cookieService.get('sessionKey');    
       this.loggedInUser = this.retrieveUsername(sessionKey);
+
     }
 
 
@@ -82,6 +84,10 @@ export class TopBarComponent implements OnInit {
             // Save the user information in the shared service
             this.userService.setLoggedInUser(response.data);
             this.loggedInUser = response.data.userName;
+            this.userId = response.data.userId;
+            this.shared.setCurrentUserId(response.data.userId);
+            this.shared.setCurrentUserType(response.data.userType);
+            this.shared.setOnUserId(response.data.userId);
           } else {
             console.error('Failed to retrieve user data:', response.message);
           }
@@ -107,7 +113,9 @@ export class TopBarComponent implements OnInit {
   // Send a service request to delete the session from the database
   this.requestService
       .sendRequest(`api/Sessions/DeleteSession?SessionKey=${sessionKey}`, 'DELETE')
-  this.router.navigate(['/login']);
+  this.router.navigate(['/login']) .then(() => {
+    window.location.reload();
+  });
   
   }
 }

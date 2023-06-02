@@ -3,6 +3,7 @@ import { SharedService } from '../../app/shared/shared.service'
 import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserService } from '../UserService';
 
 
 interface User{
@@ -28,17 +29,22 @@ export class ProfilPageComponent implements OnInit {
 
 
   users!:User;
+  changableUserId!:Number;
+  situation!:Number;
 
-  async getUserById(ID:number):Promise<void>{
-    await this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
+  getUserById(ID:number):void{
+    this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
       .then(response => {
         this.users = response.data;
-        console.log(response.data.userType);
-        console.log(this.users.userType);
       })
       .catch(err => {
         console.error("Error: " + err);
       })
+  }
+
+  getSituation():Number{
+    if(this.shared.getCurrentUSerType()=='admin' && this.shared.getOnUserId()!=this.shared.getCurrentUserId())return 1;
+    else return 0;
   }
 
   getUser():User[]{
@@ -58,7 +64,7 @@ export class ProfilPageComponent implements OnInit {
   setTabs():string[]{
     let tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
     //let usera:User = this.getUser()[0];
-    if(this.users.userType == "member"){
+    if(this.users.userType == "admin"){
       let element:string = 'All Users';
       let element2:string = 'All Contents';
       tabs.push(element);
@@ -67,7 +73,6 @@ export class ProfilPageComponent implements OnInit {
     return tabs;
   }
   tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
-  tabsa: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions','All Users','All Contents'];
   
   
   selectedtab = this.tabs[0];
@@ -87,4 +92,5 @@ export class ProfilPageComponent implements OnInit {
       this.shared.setHowList(3);
     }
   }
+
 }
