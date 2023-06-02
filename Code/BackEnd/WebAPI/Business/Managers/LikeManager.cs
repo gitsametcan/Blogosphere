@@ -22,6 +22,12 @@ public class LikeManager : ILikeService {
     public List<Like> GetByContent(int contentId) {
         return _context.Likes.Where(t => t.LikedContentId == contentId).ToList<Like>();;
     }
+    public int GetCountByContentAndDislike(int ContentId, int Dislike) {
+        return _context.Likes
+                .Where(t => t.LikedContentId == ContentId && t.Dislike == Dislike)
+                .ToList<Like>()
+                .Count();
+    }
     public Result NewLike(Like newLike) {
         newLike.LikeDate = DateTime.Now;
         _context.Likes.Add(newLike);

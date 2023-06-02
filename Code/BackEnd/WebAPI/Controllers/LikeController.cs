@@ -31,6 +31,11 @@ public class LikeController : ControllerBase {
         return new DataResult<List<Like>>(true, _service.GetByContent(contentId));
     }
 
+    [HttpGet("GetCountByContentAndDislike/{ContentId}")]
+    public DataResult<int> GetCountByContentAndDislike(int ContentId, [FromQuery] int Dislike) {
+        return new DataResult<int>(true, _service.GetCountByContentAndDislike(ContentId, Dislike));
+    }
+
     [HttpPost("NewLike")]
     public Result NewLike([FromBody] Like newLike) {
         return _service.NewLike(newLike);
