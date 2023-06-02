@@ -3,6 +3,9 @@ import { SharedService } from '../../app/shared/shared.service'
 import { urlencoded } from 'body-parser';
 import { RequestService } from '../request.service';
 import { response } from 'express';
+import { UserService } from '../UserService';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 interface ContentDetail{
   contentId: 0,
@@ -24,7 +27,6 @@ interface Comment{
 
 }
 
-
 @Component({
   selector: 'app-content-details',
   templateUrl: './content-details.component.html',
@@ -32,7 +34,7 @@ interface Comment{
 })
 export class ContentDetailsComponent implements OnInit{
   
-  constructor(private shared:SharedService, private requestService: RequestService){}
+  constructor(private shared:SharedService, private requestService: RequestService, private userService : UserService, private cookieService: CookieService, private router: Router){}
 
   contentObj: ContentDetail = {
     contentId: 0,
@@ -56,6 +58,9 @@ export class ContentDetailsComponent implements OnInit{
   comments: Comment[] = [];
 
   content!: ContentDetail;
+
+  loggedInUser:any;
+  createdComment:any;
 
   getContentsByID(ID:number):void {
     this.requestService.sendRequest('api/Contents/GetById/'+ID,'GET')
@@ -95,11 +100,62 @@ export class ContentDetailsComponent implements OnInit{
     })
 }
 
+retrieveUsername(sessionKey: string): void {
+  const url = `api/Sessions/FindUser?SessionKey=${sessionKey}`;
+  this.requestService.sendRequest(url, 'GET')
+    .then((response) => {
+      if (response.success && response.data) {
+        // Save the user information in the shared service
+        this.userService.setLoggedInUser(response.data);
+        this.loggedInUser = response.data
+        console.log(this.loggedInUser.userType);
+      } else {
+        console.error('Failed to retrieve user data:', response.message);
+      }
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+    });
+}
+
+postComment(userId: number, contentId: number):void {
+  const url = `api/Comments/NewComment`;
+  if(this.createdComment.value != ""){
+    this.requestService.sendRequest(url, 'POST', {
+      "commentId": 0,
+      "posterId": userId,
+      "contentId": contentId,
+      "commentContent": this.createdComment.value,
+      "publishDate": "2023-06-02T16:57:11.611Z"
+    })
+    .then(response => {
+      console.log(JSON.stringify(response));
+    })
+    .catch(err => {
+      console.error('Error: ' + err);
+    })
+  }
+}
+
+clickComment():void{
+  const existingSessionKey = this.cookieService.get('sessionKey');
+  console.log(`Session key: ${existingSessionKey}`);
+  if(existingSessionKey){
+    this.createdComment = document.getElementById('created-comment') as HTMLInputElement
+    this.postComment(this.loggedInUser.userId,this.shared.getWhichContent());
+  }
+  else{
+    this.router.navigate(['/register']);
+    alert("Yorum yapmak için kayıt olmalısınız...");//TO-DO
+  }
+}
 
 
   ngOnInit(): void { 
       this.getContentsByID(this.shared.getWhichContent());
       this.getCommentsByContentID(this.shared.getCommentByContent())
+      const sessionKey = this.cookieService.get('sessionKey'); // Replace with your session key retrieval logic
+      this.retrieveUsername(sessionKey);
   }
 
 }
