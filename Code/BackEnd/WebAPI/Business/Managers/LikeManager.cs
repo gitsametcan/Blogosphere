@@ -34,7 +34,7 @@ public class LikeManager : ILikeService {
             return new Result(false, "Like not found: " + updatedLike.LikeId);
         }
         tempLike.Dislike           = updatedLike.Dislike;
-        tempLike.LikeDate          = updatedLike.LikeDate       != default ? updatedLike.LikeDate       : tempLike.LikeDate;
+        tempLike.LikeDate          = DateTime.Now;
         tempLike.LikedContentId    = updatedLike.LikedContentId != default ? updatedLike.LikedContentId : tempLike.LikedContentId;
         tempLike.UserId            = updatedLike.UserId         != default ? updatedLike.UserId         : tempLike.UserId;
         _context.SaveChanges();
