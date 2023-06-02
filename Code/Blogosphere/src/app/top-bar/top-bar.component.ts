@@ -29,6 +29,7 @@ export class TopBarComponent implements OnInit {
 
   enteredSearchValue: string = '';
   loggedInUser: any;
+  userId: number = -1;
 
   changeCategory(ID:number): void{
     this.shared.setWhichCategory(ID);
@@ -82,6 +83,7 @@ export class TopBarComponent implements OnInit {
             // Save the user information in the shared service
             this.userService.setLoggedInUser(response.data);
             this.loggedInUser = response.data.userName;
+            this.userId = response.data.userId;
           } else {
             console.error('Failed to retrieve user data:', response.message);
           }
