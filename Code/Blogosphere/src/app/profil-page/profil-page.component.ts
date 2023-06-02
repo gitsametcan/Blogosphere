@@ -25,17 +25,18 @@ export class ProfilPageComponent implements OnInit {
 
   users!:User;
 
-  getUserById(ID:number):void{
-    this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
+  async getUserById(ID:number):Promise<void>{
+    await this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
       .then(response => {
         this.users = response.data;
-        console.log(this.users);
+        console.log(response.data.userType);
+        console.log(this.users.userType);
       })
       .catch(err => {
         console.error("Error: " + err);
       })
-
   }
+
   getUser():User[]{
     let userl:User[]=[this.users];
     return userl;
@@ -53,7 +54,7 @@ export class ProfilPageComponent implements OnInit {
   setTabs():string[]{
     let tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
     //let usera:User = this.getUser()[0];
-    if(this.users.userType == "admin"){
+    if(this.users.userType == "member"){
       let element:string = 'All Users';
       let element2:string = 'All Contents';
       tabs.push(element);
