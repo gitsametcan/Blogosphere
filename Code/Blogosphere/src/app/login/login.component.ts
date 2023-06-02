@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RequestService } from '../request.service';
+import { UserService } from '../UserService';
 import { enc, SHA256 } from 'crypto-js';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
     return !this.loginObj.username && !this.loginObj.password;
   }
 
-  constructor(private router: Router, private modalService: NgbModal,private requestService: RequestService,private cookieService: CookieService) {}
+  constructor(private router: Router, private modalService: NgbModal,private requestService: RequestService,private cookieService: CookieService,private userService: UserService) {
+  }
 
   onLogin(): void {
     this.formSubmitted = true;
@@ -82,18 +84,6 @@ export class LoginComponent implements OnInit {
   }
 
   users: User[] = [];
-  // getUsers(): void {
-  //   fetch('http://localhost:5204/api/Users/GetAll')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.users = data;
-  //       console.log('Users:', this.users);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //     });
-  // }
-
   getUsers(): void {
     this.requestService.sendRequest('api/Users/GetAll','GET')
       .then(response => {
@@ -139,6 +129,7 @@ export class LoginComponent implements OnInit {
 
           // Create a session in the API
           this.createSession(sessionKey, response.data);
+          this.userService.setLoggedInUser(response.data);
         } else {
           // Login failed
           console.log('Invalid credentials!');
@@ -174,14 +165,34 @@ export class LoginComponent implements OnInit {
         console.error('Error:', err);
       });
   }
-  
-  
-  
+  retrieveUsername(sessionKey: string): void {
+    const url = `api/Sessions/FindUser?SessionKey=${sessionKey}`;
+    this.requestService.sendRequest(url, 'GET')
+      .then((response) => {
+        if (response.success && response.data) {
+          // Save the user information in the shared service
+          this.userService.setLoggedInUser(response.data);
+
+          console.log('Logged-in Username:', response.data.userName);
+          // Redirect to the homepage or perform any other actions
+          
+          this.router.navigate(['/home']);
+        } else {
+          console.error('Failed to retrieve user data:', response.message);
+        }
+      })
+      .catch((err) => {
+        console.error('Error:', err);
+      });
+  }
   
 
   ngOnInit(): void { 
     this.getUsers();
-    // Retrieve the session key from the cookie
-
+  
+    const existingSessionKey = this.cookieService.get('sessionKey');
+    if (existingSessionKey) {
+      this.retrieveUsername(existingSessionKey);
+    }
   }
 }
