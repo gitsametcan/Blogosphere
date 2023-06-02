@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent {
   formFieldsError: boolean = false;
   modalRef: NgbModalRef | undefined;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,private requestService: RequestService) {}
 
   onSignUp(): void {
     this.passwordMatchError = this.signupObj.password !== this.signupObj.passwordConfirmation;
@@ -40,6 +41,33 @@ export class RegisterComponent {
       return;
     }
 
+    // Prepare the user object for POST request
+    const user = {
+      userId: 0,
+      userName: this.signupObj.userName,
+      email: this.signupObj.email,
+      password: this.signupObj.password,
+      blocked: 0, // Default value
+      userType: 'member' // Default value
+    };
+    const url = 'api/Users/RegisterUser';
+    this.requestService.sendRequest(url, 'POST', user)
+      .then(response => {
+        console.log('User registration successful:', response);
+        // Clear form fields after successful registration
+        this.signupObj = {
+          userName: '',
+          email: '',
+          password: '',
+          passwordConfirmation: ''
+        };
+        this.isSubmitted = true; // Set the form submission status to true
+      })
+      .catch(error => {
+        console.error('User registration failed:', error);
+      });
+
+      /*
   
     // Retrieve existing user information list from local storage
     let userList = localStorage.getItem('userList');
@@ -57,7 +85,7 @@ export class RegisterComponent {
       passwordConfirmation: ''
     };
 
-    this.isSubmitted = true; // Set the form submission status to true
+    this.isSubmitted = true; // Set the form submission status to true*/
   }
 
   openPasswordErrorModal(): void {
