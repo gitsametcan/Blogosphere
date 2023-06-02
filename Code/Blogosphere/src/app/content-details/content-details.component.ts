@@ -271,10 +271,10 @@ export class ContentDetailsComponent implements OnInit {
   }
 
   clickLike(): void {
-    this.like(this.loggedInUser.userId, this.shared.getWhichContent());
+    this.like(this.loggedInUser.userId, this.ID);
   }
   clickDislike(): void {
-    this.dislike(this.loggedInUser.userId, this.shared.getWhichContent());
+    this.dislike(this.loggedInUser.userId, this.ID);
   }
 
   checkLike(contentId: number): void{
@@ -295,6 +295,23 @@ export class ContentDetailsComponent implements OnInit {
     }}})
   }
 
+  likeAndDislikeCount(): void{
+    this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=0`, 'GET')
+    .then(response => {
+      console.log('like: ' + response.data);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+    this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=1`, 'GET')
+    .then(response => {
+      console.log('dislike: ' + response.data);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }
+
   ngOnInit(): void {
     
     this.getContentsByID();
@@ -304,7 +321,8 @@ export class ContentDetailsComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.checkLike(this.shared.getWhichContent());
+    this.checkLike(this.ID);
+    this.likeAndDislikeCount();
   }
   
 
