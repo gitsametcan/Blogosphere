@@ -85,5 +85,13 @@ export class SharedService {
     localStorage.setItem('whichPage',value);
   }
 
+  setCurrentUserId(id:Number){
+    localStorage.setItem('currentId', id.toString());
+  }
+
+  getCurrentUserId():Number{
+    return Number(localStorage.getItem('currentId'));
+  }
+
 
 }
