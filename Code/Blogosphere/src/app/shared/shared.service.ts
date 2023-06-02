@@ -61,5 +61,29 @@ export class SharedService {
   setCommentByContent(data: number){
     localStorage.setItem('commentID', data.toString())
   }
+  getContentCount(){
+    return Number(localStorage.getItem('contentCount'));
+  }
+
+  setContentCount(count: number){
+    localStorage.setItem('contentCount', count.toString());
+  }
+
+  getListPriority(){
+    return localStorage.getItem('priority');
+  }
+
+  setListPriority(value:string){
+    localStorage.setItem('priority',value);
+  }
+
+  getWhichPage(){
+    return localStorage.getItem('whichPage');
+  }
+
+  setWhichPage(value:string){
+    localStorage.setItem('whichPage',value);
+  }
+
 
 }

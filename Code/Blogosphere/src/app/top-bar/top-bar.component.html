@@ -1,7 +1,7 @@
 <header>
   <input type="checkbox" name="" id="checkbox1">
   <div class="d-flex align-items-center justify-content-between">
-    <button class="button-top-bar-logo" (click)='changeCategory(0)'>
+    <button class="button-top-bar-logo" (click)='changeCategory(0)' (click)='selectWhichTypeHasPriority("Homepage")'>
       <a href="" class="logo d-flex align-items-center">
         <img
           src="../../assets/img/as.png"
@@ -14,16 +14,16 @@
   <div class="search-box">
     <form action="">
       <input type="text" name="search" id="search-bar" placeholder="Search" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
-      <button type="submit" (click)="listSearchedContents()"><img src="../../assets/img/loupe.png" alt="image"></button>
+      <button type="submit" (click)="listSearchedContents()" (click)='selectWhichTypeHasPriority("Search")'><img src="../../assets/img/loupe.png" alt="image"></button>
     </form>
   </div>
   <ul class="nav-bar">
-    <li><button class="button-trends" (click)="listTrends()"><a href="">Trends</a></button></li>
+    <li><button class="button-trends" (click)="listTrends()" (click)='selectWhichTypeHasPriority("Trends")'><a href="">Trends</a></button></li>
     <li>
       <a>Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
       <ul class="dropdown">
         <div *ngFor="let item of categoriess">
-          <li><button class="button-top-bar" (click)='changeCategory(item.categoryId)'><a href="">{{item.categoryTitle}}</a> </button></li>
+          <li><button class="button-top-bar" (click)='changeCategory(item.categoryId)' (click)='selectWhichTypeHasPriority(item.categoryId.toString())'><a href="">{{item.categoryTitle}}</a> </button></li>
         </div>
       </ul>
     </li>

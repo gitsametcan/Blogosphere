@@ -30,6 +30,10 @@ export class TopBarComponent implements OnInit {
   enteredSearchValue: string = '';
   loggedInUser: any;
 
+  selectWhichTypeHasPriority(type:string):void{
+    this.shared.setWhichPage(type);
+  }
+
   changeCategory(ID:number): void{
     this.shared.setWhichCategory(ID);
     this.shared.setWhichTitleOrContent("");
@@ -48,14 +52,8 @@ export class TopBarComponent implements OnInit {
 
   constructor(private shared: SharedService, private requestService: RequestService,private cookieService: CookieService,private router: Router,private userService: UserService){
   }
-  categories=[
-    {id: 0 , type: "Environment"},
-    {id: 1 , type: "Pollution"},
-    {id: 2 , type: "Forest Fire"},
-    {id: 3 , type: "Earthquake"},
-  ]
-
   categoriess: Category[] = [];
+  
   getCategories():void {
     this.requestService.sendRequest('api/Categorys/GetAll','GET')
       .then(response => {
@@ -65,6 +63,7 @@ export class TopBarComponent implements OnInit {
         console.error("Error: " + err);
       })
   }
+
 
   ngOnInit(): void { 
       this.getCategories();
