@@ -68,8 +68,9 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void { 
       this.getCategories();
-      const sessionKey = this.cookieService.get('sessionKey'); 
+      const sessionKey = this.cookieService.get('sessionKey');    
       this.loggedInUser = this.retrieveUsername(sessionKey);
+
     }
 
 
@@ -111,7 +112,9 @@ export class TopBarComponent implements OnInit {
   // Send a service request to delete the session from the database
   this.requestService
       .sendRequest(`api/Sessions/DeleteSession?SessionKey=${sessionKey}`, 'DELETE')
-  this.router.navigate(['/login']);
+  this.router.navigate(['/login']) .then(() => {
+    window.location.reload();
+  });
   
   }
 }

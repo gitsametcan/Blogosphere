@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Business.Services;
 using WebAPI.Business.Managers;
-using WebAPI.Models;
 using WebAPI.Core.Result;
 
 namespace WebAPI.Controllers;

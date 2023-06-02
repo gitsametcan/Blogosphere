@@ -154,7 +154,10 @@ export class LoginComponent implements OnInit {
           // Session creation successful
           console.log('Session created successfully!');
           // Redirect to homepage or perform any other actions
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home']) .then(() => {
+            window.location.reload();
+          });
+          
         } else {
           // Session creation failed
           console.log('Failed to create session!');
