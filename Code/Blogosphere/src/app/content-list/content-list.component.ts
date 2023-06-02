@@ -46,7 +46,6 @@ export class ContentListComponent implements OnInit {
     this.shared.setWhichContent(ID);
   }
 
-
   contents: Content[] = [];
 
   getContents(): void {
@@ -54,6 +53,9 @@ export class ContentListComponent implements OnInit {
     .then(response => {
       this.contents = response.data;
       console.log("all");
+      if (this.shared.getHowList()!=3){
+        this.ngOnInit();
+      }
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -64,6 +66,9 @@ export class ContentListComponent implements OnInit {
     this.requestService.sendRequest('api/Contents/FindCommentedByUser?Id='+ID,'GET')
     .then(response => {
       this.contents = response.data;
+      if (this.shared.getHowList()!=1){
+        this.ngOnInit();
+      }
       console.log("comment");
     })
     .catch(err => {
@@ -75,6 +80,9 @@ export class ContentListComponent implements OnInit {
     this.requestService.sendRequest("api/Contents/FindLikedByUser?Id="+Id,'GET')
     .then(response => {
       this.contents = response.data;
+      if (this.shared.getHowList()!=2){
+        this.ngOnInit();
+      }
       console.log("impression");
     })
     .catch(err => {
@@ -83,9 +91,12 @@ export class ContentListComponent implements OnInit {
   }
 
   getContentsByEditor(Id:number):void {
-    this.requestService.sendRequest("api/Contents/GetByUser/1"+Id,'GET')
+    this.requestService.sendRequest("api/Contents/GetByUser/"+Id,'GET')
     .then(response => {
       this.contents = response.data;
+      if (this.shared.getHowList()!=0){
+        this.ngOnInit();
+      }
       console.log("editor");
     })
     .catch(err => {
@@ -106,11 +117,4 @@ export class ContentListComponent implements OnInit {
     }
   }
 
-  resetComponent(){
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.navigate(['./'],{
-      relativeTo: this.route,
-      queryParamsHandling: "merge"
-    })
-  }
 }

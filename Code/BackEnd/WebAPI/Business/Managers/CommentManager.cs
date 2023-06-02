@@ -29,6 +29,7 @@ public class CommentManager : ICommentService
     }
 
     public Result NewComment(Comment comment) {
+        comment.PublishDate = DateTime.Now;
         _context.Comments.Add(comment);
         _context.SaveChanges();
         return new Result(true, "New comment created: " + comment.CommentContent);

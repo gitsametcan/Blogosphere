@@ -25,6 +25,7 @@
     "crypto-js": "^4.1.1",
     "express": "^4.18.2",
     "ngx-bootstrap": "^10.2.0",
+    "ngx-cookie-service": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
