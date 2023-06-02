@@ -1,12 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { SharedService } from '../../app/shared/shared.service'
-import { urlencoded } from 'body-parser';
+import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
-import { response } from 'express';
-import { UserService } from '../UserService';
-import { CookieService } from 'ngx-cookie-service';
-
-
 
 
 interface Content{
@@ -21,7 +15,6 @@ interface Content{
   visibility: 0
 }
 
-
 @Component({
   selector: 'app-list-cards',
   templateUrl: './list-cards.component.html',
@@ -29,13 +22,11 @@ interface Content{
 })
 export class ListCardsComponent implements OnInit{
 
-  public numberOfContents = 18; // This will be supplied by database
+  public numberOfContents =  this.shared.getContentCount();
   public numberOfContentsInPerPage= Math.ceil(this.numberOfContents/6)>7 ? Math.ceil(this.numberOfContents/7) : 6;
   public selectedPage=1;
 
-  constructor(private shared:SharedService,private requestService: RequestService,private userService:UserService,private cookieService: CookieService){
-    
-  }
+  constructor(private shared:SharedService,private requestService: RequestService){}
 
   contentObj: Content = {
     contentId: 0,
@@ -48,9 +39,6 @@ export class ListCardsComponent implements OnInit{
     categoryId: 0,
     visibility: 0
   };
-  //loggedInUser: any;
-
-  
 
   setContentDetail(ID:number): void{
     this.shared.setWhichContent(ID);
@@ -59,29 +47,18 @@ export class ListCardsComponent implements OnInit{
   setCommentByContent(ID:number): void{
     this.shared.setCommentByContent(ID);
   }
-  news=[
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-    {image: "https://media-cdn.tripadvisor.com/media/photo-s/27/9f/45/bc/restaurant.jpg", title: "new1", text: "new1 text part"},
-  ];
 
   contents: Content[] = [];
-  // getContentsByID(ID:number): void {
-  //   fetch('http://localhost:5204/api/Contents/GetByCategory/'+ID)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.contents = data;
-  //       console.log('ContentsByID:', this.contents);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error:', error);
-  //     });
-  // }
+
+  getAllContentsCount() : void{
+    this.requestService.sendRequest('api/Contents/GetAllCount','GET')
+    .then(response => {
+      this.shared.setContentCount(response.data);
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+  })
+  }
 
   getContents(): void {
     this.requestService.sendRequest('api/Contents/GetAll','GET')
@@ -89,31 +66,60 @@ export class ListCardsComponent implements OnInit{
       this.contents = response.data;
       console.log(this.contents);
       this.contents.forEach(element => {
-        console.log("Buradayım");
         let url=element.imagePath;
         let id=element.contentId;
-        console.log("Image: "+url+ " ID: "+id);
         this.getImage(url,id);
       });
     })
     .catch(err => {
       console.error("Error: " + err);
     })
-    
-    
   }
 
-  getContentsByID(ID:number): void {
+  getContentsByCategoryIDCount(ID:number):void{
+    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+ID,'GET')
+    .then(response => {
+      this.shared.setContentCount(response.data);
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getContentsByCategoryID(ID:number): void {
     this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
-        console.log("Buradayım");
         let url=element.imagePath;
         let id=element.contentId;
-        console.log("Image: "+url+ " ID: "+id);
         this.getImage(url,id);
       });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getContentsByCategoryIDWithPaging(ID:number,pageNumber:number):void{
+    this.requestService.sendRequest("api/Contents/GetByCategoryWithPages/"+ID+"?PageSize="+this.numberOfContentsInPerPage+"&PageNumber="+pageNumber,'GET')
+    .then(response => {
+      this.contents = response.data;
+      this.contents.forEach(element => {
+        let url=element.imagePath;
+        let id=element.contentId;
+        this.getImage(url,id);
+      });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getContentsBySearchingTitleCount(KEYWORD:any):void{
+    this.requestService.sendRequest("api/Contents/SearchContainsInTitleCount?keyword="+KEYWORD,'GET')
+    .then(response => {
+      this.shared.setContentCount(response.data);
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -125,12 +131,35 @@ export class ListCardsComponent implements OnInit{
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
-        console.log("Buradayım");
         let url=element.imagePath;
         let id=element.contentId;
-        console.log("Image: "+url+ " ID: "+id);
         this.getImage(url,id);
       });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getContentsBySearchingTitleWithPaging(KEYWORD:any,pageNumber:number):void{
+    this.requestService.sendRequest("api/Contents/SearchContainsInTitleWithPages?keyword="+KEYWORD+"&PageSize="+this.numberOfContentsInPerPage+"&PageNumber="+pageNumber,'GET')
+    .then(response => {
+      this.contents = response.data;
+      this.contents.forEach(element => {
+        let url=element.imagePath;
+        let id=element.contentId;
+        this.getImage(url,id);
+      });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+  getTrendContentsCount(DAY:number):void{
+    this.requestService.sendRequest("api/Contents/GetTrendingsCount?sinceDays="+DAY,'GET')
+    .then(response => {
+      this.shared.setContentCount(response.data);
     })
     .catch(err => {
       console.error("Error: " + err);
@@ -142,16 +171,31 @@ export class ListCardsComponent implements OnInit{
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
-        console.log("Buradayım");
         let url=element.imagePath;
         let id=element.contentId;
-        console.log("Image: "+url+ " ID: "+id);
         this.getImage(url,id);
       });
     })
     .catch(err => {
       console.error("Error: " + err);
     })
+  }
+
+  getTrendContentsByPaging(DAY:number,pageNumber:number):void{
+    this.requestService.sendRequest("api/Contents/GetTrendingsWithPages?sinceDays="+DAY+"&PageSize="+this.numberOfContentsInPerPage+"&PageNumber="+pageNumber,'GET')
+    .then(response => {
+      this.contents = response.data;
+      this.contents.forEach(element => {
+        let url=element.imagePath;
+        let id=element.contentId;
+        this.getImage(url,id);
+      });
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+
+
   }
 
   getImage(img:string,id:number) : void {
@@ -185,11 +229,9 @@ export class ListCardsComponent implements OnInit{
     })
     
   }
-
-  pagingArray: number[]=this.pageNumbers;
    
   get pageNumbers(): number[]{
-    return Array(Math.ceil(this.numberOfContents/this.numberOfContentsInPerPage))
+      return Array(Math.ceil(this.numberOfContents/this.numberOfContentsInPerPage))
       .fill(0)
       .map((a,i)=>i+1)
   }
@@ -199,15 +241,40 @@ export class ListCardsComponent implements OnInit{
     this.ngOnInit();
   }
 
-
+  changeCount(type:any):void{
+    let value:boolean=this.shared.getListPriority()===type;
+    if(!value){
+      if(type==="Homepage"){
+        this.shared.setListPriority(type);
+        this.getAllContentsCount();
+      }else if(type==="Search"){
+        this.shared.setListPriority(type);
+        this.getContentsBySearchingTitleCount(this.shared.getWhichTitleOrContent());
+      }else if(type==="Trends"){
+        this.shared.setListPriority(type);
+        this.getTrendContentsCount(7);
+      }else{
+        this.shared.setListPriority(type);
+        this.getContentsByCategoryIDCount(Number(type));
+      }
+      window.location.reload();
+    }
+  }
 
   ngOnInit(): void { 
+    if(!this.shared.getContentCount()){
+      this.getAllContentsCount();
+    }
+    this.changeCount(this.shared.getWhichPage());    
     if(this.shared.getWhichCategory()>0){
-      this.getContentsByID(this.shared.getWhichCategory());
+      this.getContentsByCategoryIDWithPaging(this.shared.getWhichCategory(),this.selectedPage-1);
+      /* this.getContentsByCategoryID(this.shared.getWhichCategory()); */
     }else if(this.shared.getWhichTitleOrContent()){
-      this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent());
+      this.getContentsBySearchingTitleWithPaging(this.shared.getWhichTitleOrContent(),this.selectedPage-1);
+      /* this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent()); */
     }else if(this.shared.getTrend()>0){
-      this.getTrendContents(7);
+      this.getTrendContentsByPaging(7,this.selectedPage-1);
+      /* this.getTrendContents(7); */
     }else{
       this.getContentsByPaging(this.selectedPage-1);
     }
