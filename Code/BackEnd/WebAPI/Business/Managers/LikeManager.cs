@@ -33,7 +33,7 @@ public class LikeManager : ILikeService {
         if (tempLike is null) {
             return new Result(false, "Like not found: " + updatedLike.LikeId);
         }
-        tempLike.Dislike           = updatedLike.Dislike        != default ? updatedLike.Dislike        : tempLike.Dislike;
+        tempLike.Dislike           = updatedLike.Dislike;
         tempLike.LikeDate          = updatedLike.LikeDate       != default ? updatedLike.LikeDate       : tempLike.LikeDate;
         tempLike.LikedContentId    = updatedLike.LikedContentId != default ? updatedLike.LikedContentId : tempLike.LikedContentId;
         tempLike.UserId            = updatedLike.UserId         != default ? updatedLike.UserId         : tempLike.UserId;
