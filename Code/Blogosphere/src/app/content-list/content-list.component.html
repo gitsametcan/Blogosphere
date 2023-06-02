@@ -4,7 +4,7 @@
         <h5 class="mb-1">{{item.title}}</h5>
         <h6 class="mb-1">{{item.shortDescription}}</h6>
         <small class="text-muted">{{item.publishDate}}</small>
-        <a routerLink="/content-details" class="btn btn-primary" (click)="setContentDetail(item.contentId);">See details</a>
+        <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" (click)="setContentDetail(item.contentId);">See details</a>
       </div>
     </a>
 </div>
