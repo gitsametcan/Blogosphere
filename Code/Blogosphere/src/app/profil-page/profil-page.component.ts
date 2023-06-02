@@ -43,7 +43,7 @@ export class ProfilPageComponent implements OnInit {
   }
 
   getSituation():Number{
-    if(this.users.userType=='admin' && this.users.userId!=this.shared.getCurrentUserId())return 1;
+    if(this.shared.getCurrentUSerType()=='admin' && this.shared.getOnUserId()!=this.shared.getCurrentUserId())return 1;
     else return 0;
   }
 
@@ -64,7 +64,7 @@ export class ProfilPageComponent implements OnInit {
   setTabs():string[]{
     let tabs: string[] = ['Informations','New Password','My Contents','My Comments','My Impressions'];
     //let usera:User = this.getUser()[0];
-    if(this.users.userType == "member"){
+    if(this.users.userType == "admin"){
       let element:string = 'All Users';
       let element2:string = 'All Contents';
       tabs.push(element);
