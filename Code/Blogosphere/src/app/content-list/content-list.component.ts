@@ -62,7 +62,7 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getContentsByComment(ID:number): void {
+  getContentsByComment(ID:Number): void {
     this.requestService.sendRequest('api/Contents/FindCommentedByUser?Id='+ID,'GET')
     .then(response => {
       this.contents = response.data;
@@ -76,7 +76,7 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getContentsByImpression(Id:number):void {
+  getContentsByImpression(Id:Number):void {
     this.requestService.sendRequest("api/Contents/FindLikedByUser?Id="+Id,'GET')
     .then(response => {
       this.contents = response.data;
@@ -90,7 +90,7 @@ export class ContentListComponent implements OnInit {
     })
   }
 
-  getContentsByEditor(Id:number):void {
+  getContentsByEditor(Id:Number):void {
     this.requestService.sendRequest("api/Contents/GetByUser/"+Id,'GET')
     .then(response => {
       this.contents = response.data;
@@ -107,11 +107,11 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void { 
     if(this.shared.getHowList()==1){
-      this.getContentsByComment(1);
+      this.getContentsByComment(this.shared.getOnUserId());
     }else if(this.shared.getHowList()==2){
-      this.getContentsByImpression(1);
+      this.getContentsByImpression(this.shared.getOnUserId());
     }else if(this.shared.getHowList()==0){
-      this.getContentsByEditor(1);
+      this.getContentsByEditor(this.shared.getOnUserId());
     }else if(this.shared.getHowList()==3){
       this.getContents();
     }
