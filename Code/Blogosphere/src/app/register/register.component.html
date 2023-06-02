@@ -87,6 +87,31 @@
                       </div>
                     </ng-template>
 
+
+
+                    <!-- ERROR PAGE FOR ALREADY REGİSTERED USER -->
+                    <ng-template #alreadyRegisteredModal let-modal>
+                      <div class="modal fade show" tabindex="-1" role="dialog" [style.display]="modal ? 'block' : 'none'">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Error</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeAlreadyRegisteredModal()">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>The user is already registered.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeAlreadyRegisteredModal()">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                    
+
                     
 
                     <!-- ERROR PAGE FOR THE MİSMATCH PASSWROD -->
@@ -110,8 +135,7 @@
                         </div>
                       </div>
                     </ng-template>
-
-                    
+                  
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="/login">Log in</a></p>
                     </div>

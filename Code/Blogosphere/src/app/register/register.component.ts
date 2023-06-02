@@ -11,6 +11,7 @@ import { RequestService } from '../request.service';
 export class RegisterComponent {
   @ViewChild('passwordErrorModal') passwordErrorModal!: ElementRef;
   @ViewChild('errorModal') errorModal!: ElementRef;
+  @ViewChild('alreadyRegisteredModal') alreadyRegisteredModal!: ElementRef;
   
   signupObj: any = {
     userName: '',
@@ -20,7 +21,7 @@ export class RegisterComponent {
   };
 
   isSubmitted: boolean = false;
-
+  isAlreadyRegistered: boolean = false;
   passwordMatchError: boolean = false;
   formFieldsError: boolean = false;
   modalRef: NgbModalRef | undefined;
@@ -50,22 +51,41 @@ export class RegisterComponent {
       blocked: 0, // Default value
       userType: 'member' // Default value
     };
-    const url = 'api/Users/RegisterUser';
-    this.requestService.sendRequest(url, 'POST', user)
+
+    const url = 'api/Users/GetAll';
+    this.requestService.sendRequest(url, 'GET')
       .then(response => {
-        console.log('User registration successful:', response);
-        // Clear form fields after successful registration
-        this.signupObj = {
-          userName: '',
-          email: '',
-          password: '',
-          passwordConfirmation: ''
-        };
-        this.isSubmitted = true; // Set the form submission status to true
-      })
-      .catch(error => {
-        console.error('User registration failed:', error);
-      });
+        // Check if user already exists
+        const userList = response.data;
+        const existingUser = userList.find((u: any) => u.email === user.email);
+        if (existingUser) {
+          // User already exists, show error modal
+          this.isAlreadyRegistered = true;
+          this.openErrorModal();
+          return;
+        }
+
+      // Send the POST request to register the user
+      const registerUrl = 'api/Users/RegisterUser';
+      this.requestService.sendRequest(registerUrl, 'POST', user)
+        .then(registerResponse => {
+          console.log('User registration successful:', registerResponse);
+          // Clear form fields after successful registration
+          this.signupObj = {
+            userName: '',
+            email: '',
+            password: '',
+            passwordConfirmation: ''
+          };
+          this.isSubmitted = true; // Set the form submission status to true
+        })
+        .catch(registerError => {
+          console.error('User registration failed:', registerError);
+        });
+    })
+    .catch(error => {
+      console.error('Error retrieving user list:', error);
+    });
 
       /*
   
@@ -93,11 +113,20 @@ export class RegisterComponent {
       this.modalRef = this.modalService.open(this.passwordErrorModal, { ariaLabelledBy: 'passwordErrorModalTitle' });
     }
   }
-  openErrorModal(): void {
-    if (this.errorModal) {
-      this.modalRef = this.modalService.open(this.errorModal, { ariaLabelledBy: 'errorModalTitle' });
+
+  openAlreadyRegisteredModal(): void {
+    if (this.alreadyRegisteredModal) {
+      this.modalRef = this.modalService.open(this.alreadyRegisteredModal, { ariaLabelledBy: 'alreadyRegisteredModalTitle' });
     }
   }
+
+  openErrorModal(): void {
+    if (this.isAlreadyRegistered) {
+      this.openAlreadyRegisteredModal();
+    } else if (this.errorModal) {
+      this.modalRef = this.modalService.open(this.errorModal, { ariaLabelledBy: 'errorModalTitle' });
+    }
+  } 
   closeErrorModal(): void {
     if (this.modalRef) {
       this.modalRef.dismiss();
@@ -106,6 +135,12 @@ export class RegisterComponent {
   }
 
   closePasswordErrorModal(): void {
+    if (this.modalRef) {
+      this.modalRef.dismiss();
+      this.modalRef = undefined;
+    }
+  }
+  closeAlreadyRegisteredModal(): void {
     if (this.modalRef) {
       this.modalRef.dismiss();
       this.modalRef = undefined;
