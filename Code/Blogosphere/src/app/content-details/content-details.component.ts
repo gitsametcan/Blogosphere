@@ -133,6 +133,7 @@ export class ContentDetailsComponent implements OnInit {
       })
         .then(response => {
           console.log(JSON.stringify(response));
+          this.getCommentsByContentID();
         })
         .catch(err => {
           console.error('Error: ' + err);
