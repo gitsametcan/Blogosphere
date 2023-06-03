@@ -4,13 +4,14 @@
     <button type="submit"><img src="../../assets/img/loupe.png" alt="image"></button>
   </form>
 </div>
-<div *ngFor="let item of users" [class]="{ 'bg-success':item.blocked==1}" [class.bg-danger]="item.blocked==0">
+<div class="list-group" *ngFor="let item of users">
     <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{item.userName}}</h5>
         <!-- <h6 class="mb-1">{{item.editor}}</h6> -->
         <small class="text-muted">{{item.blocked}}</small>
-        <button class="border border-none"><a href="/profil/{{item.userId}}" class="btn btn-primary" (click)="setOnUser(item.userId)">See User Profile</a></button>
+        <a href="/profil/{{item.userId}}" class="btn btn-primary" *ngIf="item.blocked==0" (click)="setOnUser(item.userId)">See User Profile</a>
+        <a href="/profil/{{item.userId}}" class="btn btn-danger" *ngIf="item.blocked!=0" (click)="setOnUser(item.userId)">See User Profile</a>
       </div>
     </a>
 </div>
