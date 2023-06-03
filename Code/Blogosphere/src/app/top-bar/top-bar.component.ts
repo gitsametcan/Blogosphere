@@ -84,7 +84,7 @@ export class TopBarComponent implements OnInit {
             this.userService.setLoggedInUser(response.data);
             this.loggedInUser = response.data.userName;
             this.userId = response.data.userId;
-            this.shared.setCurrentUserId(response.data.userId);
+            this.shared.setLogUserId(response.data.userId);
             this.shared.setCurrentUserType(response.data.userType);
             this.shared.setOnUserId(response.data.userId);
           } else {

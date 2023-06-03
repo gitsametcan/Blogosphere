@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { SharedService } from '../shared/shared.service';
+import { Router } from '@angular/router';
 
 
 
@@ -20,7 +21,7 @@ interface User{
 
 export class UserListComponent implements OnInit {
 
-  constructor(private requestService: RequestService, private shared:SharedService){}
+  constructor(private requestService: RequestService, private shared:SharedService, private router:Router){}
 
   users : User[] = [];
   getAllUser():void {

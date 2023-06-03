@@ -93,12 +93,12 @@ export class SharedService {
     localStorage.setItem('whichPage',value);
   }
 
-  setCurrentUserId(id:Number){
-    localStorage.setItem('currentId', id.toString());
+  setLogUserId(id:Number){
+    localStorage.setItem('logId', id.toString());
   }
 
-  getCurrentUserId():Number{
-    return Number(localStorage.getItem('currentId'));
+  getLogUserId():Number{
+    return Number(localStorage.getItem('logId'));
   }
 
   setOnUserId(id:Number){

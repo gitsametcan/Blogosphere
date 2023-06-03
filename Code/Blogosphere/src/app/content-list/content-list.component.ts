@@ -107,11 +107,11 @@ export class ContentListComponent implements OnInit {
 
   ngOnInit(): void { 
     if(this.shared.getHowList()==1){
-      this.getContentsByComment(this.shared.getOnUserId());
+      this.getContentsByComment((this.route.snapshot.params['id']));
     }else if(this.shared.getHowList()==2){
-      this.getContentsByImpression(this.shared.getOnUserId());
+      this.getContentsByImpression((this.route.snapshot.params['id']));
     }else if(this.shared.getHowList()==0){
-      this.getContentsByEditor(this.shared.getOnUserId());
+      this.getContentsByEditor((this.route.snapshot.params['id']));
     }else if(this.shared.getHowList()==3){
       this.getContents();
     }
