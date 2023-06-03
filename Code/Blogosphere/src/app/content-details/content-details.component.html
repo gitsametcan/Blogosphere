@@ -58,10 +58,10 @@
                                 <div *ngFor="let item of comments">       
                                     <div class="commented-section mt-2">
                                         <div class="d-flex flex-row align-items-center commented-user">
-                                            <h5 class="mr-2">username</h5><span class="dot mb-1"></span><span
-                                                class="mb-1 ml-2">{{item.publishDate}}</span>
+                                            <h5 class="mr-2">{{item.user.userName}}</h5><span class="dot mb-1"></span><span
+                                                class="mb-1 ml-2">{{item.comment.publishDate}}</span>
                                         </div>
-                                        <div class="comment-text-sm"><span>{{item.commentContent}}</span></div>
+                                        <div class="comment-text-sm"><span>{{item.comment.commentContent}}</span></div>
                                     </div><br>
                                 </div>
                                 </div> <!-- Comment Part!!!   End-->

@@ -21,12 +21,21 @@ interface ContentDetail {
 }
 
 interface Comment {
-  commentId: 0,
-  posterId: 0,
-  contentId: 0,
-  commentContent: string,
-  publishDate: string
-
+      comment: {
+        commentId: 0,
+        posterId: 0,
+        contentId: 0,
+        commentContent: string,
+        publishDate: string
+      },
+      user: {
+        userId: 0,
+        userName: string,
+        email: string,
+        password: string,
+        blocked: 0,
+        userType: string
+      }
 }
 
 @Component({
@@ -50,11 +59,21 @@ export class ContentDetailsComponent implements OnInit {
   };
 
   commentObj: Comment = {
-    commentId: 0,
-    posterId: 0,
-    contentId: 0,
-    commentContent: '',
-    publishDate: ''
+    comment: {
+        commentId: 0,
+        posterId: 0,
+        contentId: 0,
+        commentContent: "",
+        publishDate: ""
+      },
+      user: {
+        userId: 0,
+        userName: "",
+        email: "",
+        password: "",
+        blocked: 0,
+        userType: ""
+      }
   };
 
   comments: Comment[] = [];
@@ -122,7 +141,7 @@ export class ContentDetailsComponent implements OnInit {
   }
 
   postComment(userId: number, contentId: number): void {
-    const url = `api/Comments/NewComment`;
+    let url = `api/Comments/NewComment`;
     if (this.createdComment.value != "") {
       this.requestService.sendRequest(url, 'POST', {
         "commentId": 0,
@@ -134,11 +153,14 @@ export class ContentDetailsComponent implements OnInit {
         .then(response => {
           console.log(JSON.stringify(response));
           this.getCommentsByContentID();
+          this.createdComment.value = "";
         })
         .catch(err => {
           console.error('Error: ' + err);
         })
     }
+
+
   }
 
   clickComment(): void {
