@@ -48,6 +48,11 @@ public class UserManager : IUserService {
         return userList;
     }
 
+    public int SearchByUserNameCount(string keyword) {
+        var userList = SearchByUserName(keyword);
+        return userList.Count();
+    }
+
     public List<User> SearchByUserNameWithPages(string keyword, int PageSize, int PageNumber) {
         var userList = SearchByUserName(keyword);
         var userListWithPages = userList.Skip(PageNumber * PageSize).Take(PageSize).ToList();

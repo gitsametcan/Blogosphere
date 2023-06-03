@@ -51,7 +51,11 @@ public class UserController : ControllerBase {
         return new DataResult<List<User>>(true, _service.SearchByUserName(keyword));
     }
 
-    [HttpGet("SearchByUserName/{keyword}")]
+    public DataResult<int> SearchByUserNameCount(string keyword) {
+        return new DataResult<int>(true, _service.SearchByUserNameCount(keyword));
+    }
+
+    [HttpGet("SearchByUserNameWithPages/{keyword}")]
     public DataResult<List<User>> SearchByUserNameWithPages(
                 string keyword,
                 [FromQuery] int PageSize,
