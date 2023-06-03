@@ -9,7 +9,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.shortDescription}}</p>
-                <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" (click)="setContentDetail();setCommentByContent();">See details</a>
+                <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" *ngIf="item.visibility!=0" (click)="setContentDetail();setCommentByContent();">See details</a>
+                <a class="btn btn-danger" *ngIf="item.visibility==0">This content is restricted!</a>
               </div>
             </div>
           </div>

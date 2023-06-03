@@ -45,6 +45,8 @@ interface Comment {
 })
 export class ContentDetailsComponent implements OnInit {
 
+  userType = this.shared.getCurrentUSerType();
+
   constructor(private shared: SharedService, private requestService: RequestService, private userService: UserService, private cookieService: CookieService, private router: Router,private route:ActivatedRoute) { }
 
   contentObj: ContentDetail = {

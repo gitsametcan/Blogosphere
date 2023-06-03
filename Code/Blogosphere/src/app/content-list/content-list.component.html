@@ -4,7 +4,21 @@
         <h5 class="mb-1">{{item.title}}</h5>
         <h6 class="mb-1">{{item.shortDescription}}</h6>
         <small class="text-muted">{{item.publishDate}}</small>
-        <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" (click)="setContentDetail(item.contentId);">See details</a>
+        <a routerLink="/content-details/{{item.contentId}}" class="btn btn-primary" *ngIf="item.visibility!=0" (click)="setContentDetail(item.contentId);">See details</a>
+        <a routerLink="/content-details/{{item.contentId}}" class="btn btn-danger" *ngIf="item.visibility==0" (click)="setContentDetail(item.contentId);">See details</a>
       </div>
     </a>
+</div>
+<div class="row mt-3" id="pagination-row">
+  <div class="col d-flex justify-content-center mb-3">
+      <div class="btn-group">
+          <button
+          *ngFor="let item of pageNumbers"
+          (click)="changePage(item)"
+          class="btn btn-outline-primary"
+          [class.active]="item==selectedPage">
+          {{item}}
+          </button>
+      </div>
+  </div>
 </div>

@@ -1,159 +1,164 @@
-
+<main style="background-color: #E3E3E3;">
+  <section>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   
-<div class="container" style="background-color: #E3E3E3;">
-
-<div class="row flex justify-content-center profil-div">
+    <div class="container" >
+    
+    <div class="row flex justify-content-center profil-div">
+              
+    <div class="col-xl-10 mt-4">
+    
+      <div class="card">
+        <div class="card-body pt-3">
+    
+          <ul class="nav nav-tabs side_nav" role="tablist">
+            <li class="nav-item" *ngFor="let tab of setTabs(); let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
+              <a class="nav-link" (click)="selectedtab = tab" (click)=writeOnLog(tab) aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
+            </li>
+          </ul>
           
-<div class="col-xl-10">
-
-  <div class="card">
-    <div class="card-body pt-3">
-
-      <ul class="nav nav-tabs side_nav" role="tablist">
-        <li class="nav-item" *ngFor="let tab of setTabs(); let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
-          <a class="nav-link" (click)="selectedtab = tab" (click)=writeOnLog(tab) aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
-        </li>
-      </ul>
+          <div class="tab-content">
+            <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active mt-1 p-4" id="two">
+              <div *ngIf='getSituation()==0'>
       
-      <div class="tab-content">
-        <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active" id="two">
-          <div *ngIf='getSituation()==0'>
-  
-            <div class="row mb-3">
-              <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-              <div class="col-md-8 col-lg-9">
-                <input [(ngModel)]="oldPassword" value=" " placeholder="Please enter old password">
-              </div>
+                <div class="row mb-3">
+                  <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input [(ngModel)]="oldPassword" value=" " placeholder="Please enter old password">
+                  </div>
+                </div>
+    
+                <div class="row mb-3">
+                  <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input [(ngModel)]="newPassword" value=" " placeholder="At least 8 character">
+                  </div>
+                </div>
+    
+                <div class="row mb-3">
+                  <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input [(ngModel)]="newPasswordAgain" value=" " placeholder="At least 8 character">
+                  </div>
+                </div>
+    
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" (click)="updatePassword(userOn.userId)">Change Password</button>
+                </div>
+                
+              <!-- End Change Password Form -->
             </div>
-
-            <div class="row mb-3">
-              <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-              <div class="col-md-8 col-lg-9">
-                <input [(ngModel)]="newPassword" value=" " placeholder="At least 8 character">
-              </div>
+            <div *ngIf='getSituation()==1'>Password can change by only user</div>
             </div>
-
-            <div class="row mb-3">
-              <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-              <div class="col-md-8 col-lg-9">
-                <input [(ngModel)]="newPasswordAgain" value=" " placeholder="At least 8 character">
+            <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active mt-1 p-4" id="one">
+            <div *ngFor="let user of getUser();">
+              <div  *ngIf='getSituation()==1' class="mt-4">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">Username</div>
+                  <div class="col-lg-9 col-md-8">{{user.userName}}</div>
+                </div>
+    
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">Email</div>
+                  <div class="col-lg-9 col-md-8">{{user.email}}</div>
+                </div>
+    
+                <div class="row mb-3">
+                  <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
+                  <div class="col-md-8 col-lg-9">
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="userAuthorization">
+                      <option selected>{{user.userType}}</option>
+                      <option value="admin">Admin</option>
+                      <option value="editor">Editor</option>
+                      <option value="member">Member</option>           
+                    </select>
+                  </div>
+                </div>
+    
+    
+    
+    
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" (click)="setAuthorization(userOn.userId)">Save Changes</button>
+                </div>
+    
+                <div class="text-center" *ngIf="userOn.blocked==0">
+                  <button type="submit" class="btn btn-danger" (click)="blockUser(userOn.userId)">Block</button>
+                </div>
+    
+                <div class="text-center" *ngIf="userOn.blocked==1">
+                  <button type="submit" class="btn btn-danger" (click)="unblockUser(userOn.userId)">Remove Block</button>
+                </div>
+    
+    
+    
               </div>
-            </div>
-
+    
+              <div *ngIf='getSituation()==0'>
+    
+    
+              
+              <div class="row mb-3">
+                  <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input [(ngModel)]="userNameInput" value="{{user.userName}}" placeholder={{user.userName}}>
+                  </div>
+              </div>
+              
+              
+              <div class="row mb-3">
+                  <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input [(ngModel)]="emailInput" value="{{user.email}}" placeholder={{user.email}}>
+                  </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label ">Authorization</div>
+                <div class="col-lg-9 col-md-8">{{user.userType}}</div>
+              </div>
+              
+              
+    
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" (click)="updatePassword(userOn.userId)">Change Password</button>
-            </div>
+              <button type="submit" class="btn btn-primary" (click)="updateUser(userOn.userId)">Save Changes</button>
+           </div>
+    
+          </div>
+           
+           
+          </div>
             
-          <!-- End Change Password Form -->
-        </div>
-        <div *ngIf='getSituation()==1'>Password can change by only user</div>
-        </div>
-        <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active" id="one">
-        <div *ngFor="let user of getUser();">
-          <div  *ngIf='getSituation()==1'>
-            <div class="row">
-              <div class="col-lg-3 col-md-4 label ">Username</div>
-              <div class="col-lg-9 col-md-8">{{user.userName}}</div>
             </div>
-
-            <div class="row">
-              <div class="col-lg-3 col-md-4 label ">Email</div>
-              <div class="col-lg-9 col-md-8">{{user.email}}</div>
+            <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active mt-1 p-4" id="three">
+              <div *ngIf="userLog.userType=='editor'" class="mt-2"><a routerLink="/content-details/-1" class="btn btn-success w-100 text-white">New Content</a></div>
+              <app-content-list></app-content-list>
+            
             </div>
-
-            <div class="row mb-3">
-              <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
-              <div class="col-md-8 col-lg-9">
-                <select class="form-select" aria-label="Default select example" [(ngModel)]="userAuthorization">
-                  <option selected>{{user.userType}}</option>
-                  <option value="admin">Admin</option>
-                  <option value="editor">Editor</option>
-                  <option value="member">Member</option>           
-                </select>
-              </div>
+            <div *ngIf="selectedtab === tabs[3]" role="tabpanel" class="tab-pane active mt-1 p-4" id="four">
+              <app-content-list></app-content-list>
+            
             </div>
-
-
-
-
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary" (click)="setAuthorization(userOn.userId)">Save Changes</button>
+            <div *ngIf="selectedtab === tabs[4]" role="tabpanel" class="tab-pane active mt-1 p-4" id="five">
+              <app-content-list></app-content-list>
+            
             </div>
-
-            <div class="text-center" *ngIf="userOn.blocked==0">
-              <button type="submit" class="btn btn-danger" (click)="blockUser(userOn.userId)">Block</button>
+            <div *ngIf="selectedtab === tabs[5]" role="tabpanel" class="tab-pane active mt-1 p-4" id="six">
+              <app-user-list></app-user-list>
+            
             </div>
-
-            <div class="text-center" *ngIf="userOn.blocked==1">
-              <button type="submit" class="btn btn-danger" (click)="unblockUser(userOn.userId)">Remove Block</button>
+            <div *ngIf="selectedtab === tabs[6]" role="tabpanel" class="tab-pane active mt-1 p-4" id="seven">
+              <app-content-list></app-content-list>
+            
             </div>
-
-
-
           </div>
-
-          <div *ngIf='getSituation()==0'>
-
-
-          
-          <div class="row mb-3">
-              <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
-              <div class="col-md-8 col-lg-9">
-                <input [(ngModel)]="userNameInput" value="{{user.userName}}" placeholder={{user.userName}}>
-              </div>
-          </div>
-          
-          
-          <div class="row mb-3">
-              <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-              <div class="col-md-8 col-lg-9">
-                <input [(ngModel)]="emailInput" value="{{user.email}}" placeholder={{user.email}}>
-              </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-lg-3 col-md-4 label ">Authorization</div>
-            <div class="col-lg-9 col-md-8">{{user.userType}}</div>
-          </div>
-          
-          
-
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary" (click)="updateUser(userOn.userId)">Save Changes</button>
-       </div>
-
-      </div>
-       
-       
-      </div>
-        
-        </div>
-        <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active" id="three">
-          <app-content-list></app-content-list>
-        
-        </div>
-        <div *ngIf="selectedtab === tabs[3]" role="tabpanel" class="tab-pane active" id="four">
-          <app-content-list></app-content-list>
-        
-        </div>
-        <div *ngIf="selectedtab === tabs[4]" role="tabpanel" class="tab-pane active" id="five">
-          <app-content-list></app-content-list>
-        
-        </div>
-        <div *ngIf="selectedtab === tabs[5]" role="tabpanel" class="tab-pane active" id="six">
-          <app-user-list></app-user-list>
-        
-        </div>
-        <div *ngIf="selectedtab === tabs[6]" role="tabpanel" class="tab-pane active" id="seven">
-          <app-content-list></app-content-list>
-        
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
+  </section>
+</main>
+   
 
  

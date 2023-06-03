@@ -281,7 +281,8 @@ export class ListCardsComponent implements OnInit{
     }
     this.changeCount(this.shared.getWhichPage());    
     if(this.shared.getWhichCategory()>0){
-      this.getContentsByCategoryIDWithPaging(this.shared.getWhichCategory(),this.selectedPage-1);
+      this.invisiblePagination(false);
+      this.getContentsByCategoryID(this.shared.getWhichCategory());
     }else if(this.shared.getWhichTitleOrContent()){
       this.invisiblePagination(false);
       this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent());
@@ -290,6 +291,7 @@ export class ListCardsComponent implements OnInit{
     }else{
       this.getContentsByPaging(this.selectedPage-1);
     }
+
 
   //const sessionKey = this.cookieService.get('sessionKey'); // Replace with your session key retrieval logic
   //this.retrieveUsername(sessionKey);

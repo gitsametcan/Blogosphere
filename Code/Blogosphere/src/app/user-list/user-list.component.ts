@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 
 
 interface User{
-  userId: 0,
+  userId: number,
   userName: string,
   email: string,
-  userType: string,
-  activicy: boolean
+  password: string,
+  blocked: number,
+  userType: string
 }
 
 @Component({
@@ -20,10 +21,15 @@ interface User{
 })
 
 export class UserListComponent implements OnInit {
+  //public numberOfContents =  this.shared.getUserCount();
+  public numberOfContents =  3;
+  public numberOfContentsInPerPage= Math.ceil(this.numberOfContents/10)>7 ? Math.ceil(this.numberOfContents/7) : 10;
+  public selectedPage=1;
 
   constructor(private requestService: RequestService, private shared:SharedService, private router:Router){}
 
   users : User[] = [];
+
   getAllUser():void {
     this.requestService.sendRequest('api/Users/GetAll','GET')
     .then(response => {
@@ -35,11 +41,46 @@ export class UserListComponent implements OnInit {
     })
   }
 
+
+  getAllUserWithPaging(pageNumber: number):void {
+    this.requestService.sendRequest('api/Users/GetAllAlphabeticallyWithPages?PageSize='+this.numberOfContentsInPerPage+'&PageNumber='+pageNumber,'GET')
+    .then(response => {
+      this.users = response.data;
+      console.log(this.users)
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+
+  get pageNumbers(): number[]{
+    return Array(Math.ceil(this.numberOfContents/this.numberOfContentsInPerPage))
+    .fill(0)
+    .map((a,i)=>i+1)
+  }
+
+  changePage(index:number):void{
+    this.selectedPage=index;
+    this.ngOnInit();
+  }
+
+  invisiblePagination(statu:boolean):void{
+    let paginationRow = <HTMLElement>document.getElementById("pagination-row") as HTMLDivElement;
+    if(!statu){
+      paginationRow.style.visibility="hidden";
+    }else{
+      paginationRow.style.visibility="visible";
+    }
+  }
+
   setOnUser(Id:Number){
     this.shared.setOnUserId(Id);
   }
 
   ngOnInit():void{
-    this.getAllUser();
+    this.invisiblePagination(true);
+    this.getAllUserWithPaging(this.selectedPage-1);
+    //this.getAllUser();
   }
 }

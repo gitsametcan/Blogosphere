@@ -1,10 +1,23 @@
-<div *ngFor="let item of users" [class]="{ 'bg-primary':item.activicy}" [class.bg-warning]="!item.activicy">
+<div *ngFor="let item of users" [class]="{ 'bg-success':item.blocked==1}" [class.bg-danger]="item.blocked==0">
     <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{item.userName}}</h5>
         <!-- <h6 class="mb-1">{{item.editor}}</h6> -->
-        <small class="text-muted">{{item.activicy}}</small>
-        <button><a href="/profil/{{item.userId}}" class="btn btn-primary" (click)="setOnUser(item.userId)">See User Profile</a></button>
+        <small class="text-muted">{{item.blocked}}</small>
+        <button class="border border-none"><a href="/profil/{{item.userId}}" class="btn btn-primary" (click)="setOnUser(item.userId)">See User Profile</a></button>
       </div>
     </a>
+</div>
+<div class="row mt-3" id="pagination-row">
+  <div class="col d-flex justify-content-center mb-3">
+      <div class="btn-group">
+          <button
+          *ngFor="let item of pageNumbers"
+          (click)="changePage(item)"
+          class="btn btn-outline-primary"
+          [class.active]="item==selectedPage">
+          {{item}}
+          </button>
+      </div>
+  </div>
 </div>

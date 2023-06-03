@@ -109,5 +109,13 @@ export class SharedService {
     return Number(localStorage.getItem('onId'));
   }
 
+  setUserCount(count: number){
+    localStorage.setItem('userCount',count.toString());
+  }
+
+  getUserCount(){
+    return Number(localStorage.getItem('userCount'));
+  }
+
 
 }
