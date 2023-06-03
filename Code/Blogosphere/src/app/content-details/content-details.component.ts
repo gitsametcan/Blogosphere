@@ -149,8 +149,8 @@ export class ContentDetailsComponent implements OnInit {
       this.postComment(this.loggedInUser.userId, this.ID);
     }
     else {
-      this.router.navigate(['/register']);
-      alert("Yorum yapmak için kayıt olmalısınız...");//TO-DO
+      this.router.navigate(['/login']);
+      alert("Yorum yapmak için giriş yapmalısınız...");//TO-DO
     }
   }
 
@@ -166,19 +166,22 @@ export class ContentDetailsComponent implements OnInit {
             "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
           })
             .then(response => {
-              console.log(JSON.stringify(response));
+              console.log(JSON.stringify(response + ' if'));
+              this.likeAndDislikeCount();
             })
             .catch(err => {
               console.error('Error: ' + err);
             })
         }
         else {
+          let isMine = false;
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].userId == this.loggedInUser.userId) {
               if(response.data[i].dislike == 0){
                 this.requestService.sendRequest('api/Likes/DeleteLike/' + response.data[i].likeId, 'DELETE')
                 .then(response => {
-                  console.log(response.message);
+                  console.log(response.message + 'delete ' + i);
+                  this.likeAndDislikeCount();
                 })
               }else{
                 this.requestService.sendRequest('api/Likes/UpdateLike/'+response.data[i].likeId, 'PUT', {
@@ -190,22 +193,27 @@ export class ContentDetailsComponent implements OnInit {
                 })
                 .then(response => {
                   console.log(response.message);
+                  this.likeAndDislikeCount();
                 })
               }
-            }
-            else {
-              this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
-                "likeId": 0,
-                "userId": userId,
-                "likedContentId": contentId,
-                "dislike": 0,
-                "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
-              })
-                .then(response => {
-                  console.log(JSON.stringify(response));
-                })
+              isMine = true
+              break;
             }
           }
+          if(!isMine){
+            this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
+              "likeId": 0,
+              "userId": userId,
+              "likedContentId": contentId,
+              "dislike": 0,
+              "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
+            })
+              .then(response => {
+                console.log(JSON.stringify(response + ' post '));
+                this.likeAndDislikeCount();
+              })
+          }
+          
         }
       }).catch(err => {
         console.error('Error: ' + err);
@@ -225,18 +233,21 @@ export class ContentDetailsComponent implements OnInit {
           })
             .then(response => {
               console.log(JSON.stringify(response));
+              this.likeAndDislikeCount();
             })
             .catch(err => {
               console.error('Error: ' + err);
             })
         }
         else {
+          let isMine = false;
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].userId == this.loggedInUser.userId) {
               if(response.data[i].dislike == 1){
                 this.requestService.sendRequest('api/Likes/DeleteLike/' + response.data[i].likeId, 'DELETE')
                 .then(response => {
                   console.log(response.message);
+                  this.likeAndDislikeCount();
                 })
               }else{
                 this.requestService.sendRequest('api/Likes/UpdateLike/'+response.data[i].likeId, 'PUT', {
@@ -248,21 +259,25 @@ export class ContentDetailsComponent implements OnInit {
                 })
                 .then(response => {
                   console.log(response.message);
+                  this.likeAndDislikeCount();
                 })
               }
+              isMine = true;
+              break;
             }
-            else {
-              this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
-                "likeId": 0,
-                "userId": userId,
-                "likedContentId": contentId,
-                "dislike": 1,
-                "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
+          }
+          if(!isMine){
+            this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
+              "likeId": 0,
+              "userId": userId,
+              "likedContentId": contentId,
+              "dislike": 1,
+              "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
+            })
+              .then(response => {
+                console.log(JSON.stringify(response));
+                this.likeAndDislikeCount();
               })
-                .then(response => {
-                  console.log(JSON.stringify(response));
-                })
-            }
           }
         }
       }).catch(err => {
@@ -271,10 +286,28 @@ export class ContentDetailsComponent implements OnInit {
   }
 
   clickLike(): void {
-    this.like(this.loggedInUser.userId, this.ID);
+    const existingSessionKey = this.cookieService.get('sessionKey');
+    console.log(`Session key: ${existingSessionKey}`);
+    if (existingSessionKey) {
+      this.like(this.loggedInUser.userId, this.ID);
+    }
+    else {
+      this.router.navigate(['/login']);
+      alert("Post beğenmek için giriş yapmalısınız...");//TO-DO
+    }
+    
   }
   clickDislike(): void {
-    this.dislike(this.loggedInUser.userId, this.ID);
+    const existingSessionKey = this.cookieService.get('sessionKey');
+    console.log(`Session key: ${existingSessionKey}`);
+    if (existingSessionKey) {
+      this.dislike(this.loggedInUser.userId, this.ID);
+    }
+    else {
+      this.router.navigate(['/login']);
+      alert("Post beğenmemek için giriş yapmalısınız...");//TO-DO
+    }
+    
   }
 
   checkLike(contentId: number): void{
@@ -299,6 +332,8 @@ export class ContentDetailsComponent implements OnInit {
     this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=0`, 'GET')
     .then(response => {
       console.log('like: ' + response.data);
+      const likeButton = document.getElementById('green');
+      likeButton!.innerHTML = `<i class="fa fa-thumbs-up fa-lg" aria-hidden="true">` + response.data;
     })
     .catch(err => {
       console.error(err);
@@ -306,6 +341,8 @@ export class ContentDetailsComponent implements OnInit {
     this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=1`, 'GET')
     .then(response => {
       console.log('dislike: ' + response.data);
+      const likeButton = document.getElementById('red');
+      likeButton!.innerHTML = `<i class="fa fa-thumbs-down fa-lg" aria-hidden="true">` + response.data;
     })
     .catch(err => {
       console.error(err);
@@ -324,7 +361,6 @@ export class ContentDetailsComponent implements OnInit {
     this.checkLike(this.ID);
     this.likeAndDislikeCount();
   }
-  
 
 }
 
