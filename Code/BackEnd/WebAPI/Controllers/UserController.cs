@@ -36,9 +36,31 @@ public class UserController : ControllerBase {
         return _service.GetByEmail(email);
     }
 
+    [HttpGet("GetAllCount")]
+    public DataResult<int> GetAllCount() {
+        return _service.GetAllCount();
+    }
+
     [HttpGet("GetAllAlphabetically")]
     public DataResult<List<User>> GetAllAlphabetically() {
         return new DataResult<List<User>>(true, _service.GetAllAlphabetically());
+    }
+
+    [HttpGet("SearchByUserName/{keyword}")]
+    public DataResult<List<User>> SearchByUserName(string keyword) {
+        return new DataResult<List<User>>(true, _service.SearchByUserName(keyword));
+    }
+
+    public DataResult<int> SearchByUserNameCount(string keyword) {
+        return new DataResult<int>(true, _service.SearchByUserNameCount(keyword));
+    }
+
+    [HttpGet("SearchByUserNameWithPages/{keyword}")]
+    public DataResult<List<User>> SearchByUserNameWithPages(
+                string keyword,
+                [FromQuery] int PageSize,
+                [FromQuery] int PageNumber) {
+        return new DataResult<List<User>>(true, _service.SearchByUserNameWithPages(keyword, PageSize, PageNumber));
     }
 
     [HttpGet("GetAllAlphabeticallyWithPages")]

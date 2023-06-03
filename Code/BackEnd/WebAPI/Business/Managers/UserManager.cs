@@ -34,10 +34,31 @@ public class UserManager : IUserService {
         return new DataResult<User>(true, user);
     }
 
+    public DataResult<int> GetAllCount() {
+        return new DataResult<int>(true, GetAll().Count());
+    }
+
     public List<User> GetAllAlphabetically() {
         var userList = _context.Users.OrderBy(t => t.UserName).ToList();
         return userList;
     }
+
+    public List<User> SearchByUserName(string keyword) {
+        var userList = _context.Users.Where(t => t.UserName.Contains(keyword)).ToList();
+        return userList;
+    }
+
+    public int SearchByUserNameCount(string keyword) {
+        var userList = SearchByUserName(keyword);
+        return userList.Count();
+    }
+
+    public List<User> SearchByUserNameWithPages(string keyword, int PageSize, int PageNumber) {
+        var userList = SearchByUserName(keyword);
+        var userListWithPages = userList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
+        return userListWithPages;
+    }
+
     public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber) {
         var userList = GetAllAlphabetically();
         var userListWithPages = userList.Skip(PageNumber * PageSize).Take(PageSize).ToList();
