@@ -84,6 +84,7 @@ export class ProfilPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      if(this.route.snapshot.params['id']==-1)window.location.reload();
       this.getOnUserById((this.route.snapshot.params['id']));
       this.getCurretnUserById(this.shared.getLogUserId());
       if((this.route.snapshot.params['id'])==this.shared.getLogUserId())this.selectedtab = this.tabs[1];
