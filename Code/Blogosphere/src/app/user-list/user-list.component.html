@@ -1,3 +1,9 @@
+<div class="search-box mb-4">
+  <form action="">
+    <input type="text" name="search" id="search-bar" placeholder="Search">
+    <button type="submit"><img src="../../assets/img/loupe.png" alt="image"></button>
+  </form>
+</div>
 <div *ngFor="let item of users" [class]="{ 'bg-success':item.blocked==1}" [class.bg-danger]="item.blocked==0">
     <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
       <div class="d-flex w-100 justify-content-between">
