@@ -31,11 +31,12 @@ export class ProfilPageComponent implements OnInit {
   userLog!:User;
   userOn!:User;
   situation!:Number;
-  emailInput:String=" ";
-  userNameInput:String=" ";
-  oldPassword:String=" ";
-  newPassword:String=" ";
-  newPasswordAgain:String=" ";
+  emailInput:String="";
+  userNameInput:String="";
+  oldPassword:String="";
+  newPassword:String="";
+  newPasswordAgain:String="";
+  userAuthorization:String="";
 
   getCurretnUserById(ID:Number):void{
     this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
@@ -56,6 +57,7 @@ export class ProfilPageComponent implements OnInit {
         this.userOn = response.data;
         if (response.data.userId!=this.shared.getOnUserId()){
           this.shared.setOnUserId(ID);
+          this.userAuthorization=response.data.userType;
           this.ngOnInit();
         }
       })
@@ -149,8 +151,8 @@ export class ProfilPageComponent implements OnInit {
 
   updateUser(id:Number):void{
     
-    if (this.emailInput==" ")this.emailInput = this.userLog.email;
-    if (this.userNameInput==" ")this.userNameInput = this.userLog.userName;
+    if (this.emailInput=="")this.emailInput = this.userLog.email;
+    if (this.userNameInput=="")this.userNameInput = this.userLog.userName;
     console.log(this.userNameInput);
     console.log(this.emailInput);
     if (id==this.userLog.userId){
@@ -158,15 +160,16 @@ export class ProfilPageComponent implements OnInit {
       "userId": this.userLog.userId,
       "userName": this.userNameInput,
       "email": this.emailInput,
-      "password": this.userLog.userId,
+      "password": this.userLog.password,
       "blocked": this.userLog.blocked,
       "userType": this.userLog.userType
     })
     .then(response => {
       console.log(response.message);
       alert(response.message);
-      this.userNameInput = " ";
-      this.emailInput = " ";
+      this.userNameInput = "";
+      this.emailInput = "";
+      this.ngOnInit();
     })
     .catch(err => {
       alert("olmayor");
@@ -175,7 +178,26 @@ export class ProfilPageComponent implements OnInit {
 
   }
 
-  setAuthorization(id:Number,authorization:string):void{
+  setAuthorization(id:Number):void{
+    //console.log(this.userAuthorization);
+    if (id==this.userOn.userId){
+      this.requestService.sendRequest('api/Users/UpdateUser/'+id, 'PUT', {
+        "userId": this.userOn.userId,
+        "userName": this.userOn.userName,
+        "email": this.userOn.email,
+        "password": this.userOn.password,
+        "blocked": this.userOn.blocked,
+        "userType": this.userAuthorization
+      })
+      .then(response => {
+        console.log(response.message);
+        alert(response.message);
+        this.ngOnInit();
+      })
+      .catch(err => {
+        alert("olmayor");
+        console.error("Error: " + err);
+      })}
 
   }
 
@@ -195,8 +217,8 @@ export class ProfilPageComponent implements OnInit {
       .then(response => {
         console.log(response.message);
         alert(response.message);
-        this.userNameInput = " ";
-        this.emailInput = " ";
+        this.userNameInput = "";
+        this.emailInput = "";
       })
       .catch(err => {
         alert("olmayor");

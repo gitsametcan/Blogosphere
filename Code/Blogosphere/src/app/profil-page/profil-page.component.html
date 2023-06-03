@@ -65,11 +65,11 @@
             <div class="row mb-3">
               <label class="col-md-4 col-lg-3 col-form-label">Authorization</label>
               <div class="col-md-8 col-lg-9">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Now user type is {{user.userType}} , you can change from here</option>
-                  <option value="1">Admin</option>
-                  <option value="2">Editor</option>
-                  <option value="3">Member</option>           
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="userAuthorization">
+                  <option selected>{{user.userType}}</option>
+                  <option value="admin">Admin</option>
+                  <option value="editor">Editor</option>
+                  <option value="member">Member</option>           
                 </select>
               </div>
             </div>
@@ -78,7 +78,7 @@
 
 
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-primary" (click)="setAuthorization(userOn.userId)">Save Changes</button>
             </div>
 
             <div class="text-center" *ngIf="userOn.blocked==0">
