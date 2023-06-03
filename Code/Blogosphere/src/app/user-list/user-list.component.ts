@@ -21,10 +21,11 @@ interface User{
 })
 
 export class UserListComponent implements OnInit {
-  //public numberOfContents =  this.shared.getUserCount();
-  public numberOfContents =  3;
+  public numberOfContents =  this.shared.getUserCount();
   public numberOfContentsInPerPage= Math.ceil(this.numberOfContents/10)>7 ? Math.ceil(this.numberOfContents/7) : 10;
   public selectedPage=1;
+
+  enteredSearchValue: string = '';
 
   constructor(private requestService: RequestService, private shared:SharedService, private router:Router){}
 
@@ -40,6 +41,18 @@ export class UserListComponent implements OnInit {
       console.error("Error: " + err);
     })
   }
+
+  getAllUserCount():void {
+    this.requestService.sendRequest('api/Users/GetAllCount','GET')
+    .then(response => {
+      this.shared.setUserCount(response.data);
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
+
+
 
 
   getAllUserWithPaging(pageNumber: number):void {
@@ -79,6 +92,9 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit():void{
+    if(!this.shared.getUserCount()){
+      this.getAllUserCount();
+    }
     this.invisiblePagination(true);
     this.getAllUserWithPaging(this.selectedPage-1);
     //this.getAllUser();
