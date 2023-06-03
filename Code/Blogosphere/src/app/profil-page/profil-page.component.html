@@ -11,14 +11,16 @@
       <div class="card">
         <div class="card-body pt-3">
     
-          <ul class="nav nav-tabs side_nav" role="tablist">
-            <li class="nav-item" *ngFor="let tab of setTabs(); let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
-              <a class="nav-link" (click)="selectedtab = tab" (click)=writeOnLog(tab) aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
+          <ul class="nav nav-pills side_nav" role="tablist">
+            <li class="nav-item nav-hover" *ngFor="let tab of setTabs(); let first = first;" [ngClass]="{firstItem: first}" role="presentation" [class.active]="selectedtab===tab">
+              <div>
+                <a class="nav-link d-flex justify-content-center align-items-center a-hover" (click)="selectedtab = tab" (click)=writeOnLog(tab) aria-controls="one" role="tab" data-toggle="tab">{{tab}}</a>
+              </div>
             </li>
           </ul>
           
           <div class="tab-content">
-            <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active mt-1 p-4" id="two">
+            <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="two">
               <div *ngIf='getSituation()==0'>
       
                 <div class="row mb-3">
@@ -43,14 +45,14 @@
                 </div>
     
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" (click)="updatePassword(userOn.userId)">Change Password</button>
+                  <button type="submit" class="btn btn-success" (click)="updatePassword(userOn.userId)">Change Password</button>
                 </div>
                 
               <!-- End Change Password Form -->
             </div>
             <div *ngIf='getSituation()==1'>Password can change by only user</div>
             </div>
-            <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active mt-1 p-4" id="one">
+            <div *ngIf="selectedtab === tabs[0]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="one">
             <div *ngFor="let user of getUser();">
               <div  *ngIf='getSituation()==1' class="mt-4">
                 <div class="row">
@@ -79,7 +81,7 @@
     
     
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" (click)="setAuthorization(userOn.userId)">Save Changes</button>
+                  <button type="submit" class="btn btn-success" (click)="setAuthorization(userOn.userId)">Save Changes</button>
                 </div>
     
                 <div class="text-center" *ngIf="userOn.blocked==0">
@@ -121,7 +123,7 @@
               
     
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" (click)="updateUser(userOn.userId)">Save Changes</button>
+              <button type="submit" class="btn btn-success" (click)="updateUser(userOn.userId)">Save Changes</button>
            </div>
     
           </div>
@@ -130,24 +132,24 @@
           </div>
             
             </div>
-            <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active mt-1 p-4" id="three">
+            <div *ngIf="selectedtab === tabs[2]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="three">
               <div *ngIf="userLog.userType=='editor'" class="mt-2"><a routerLink="/content-details/-1" class="btn btn-success w-100 text-white">New Content</a></div>
               <app-content-list></app-content-list>
             
             </div>
-            <div *ngIf="selectedtab === tabs[3]" role="tabpanel" class="tab-pane active mt-1 p-4" id="four">
+            <div *ngIf="selectedtab === tabs[3]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="four">
               <app-content-list></app-content-list>
             
             </div>
-            <div *ngIf="selectedtab === tabs[4]" role="tabpanel" class="tab-pane active mt-1 p-4" id="five">
+            <div *ngIf="selectedtab === tabs[4]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="five">
               <app-content-list></app-content-list>
             
             </div>
-            <div *ngIf="selectedtab === tabs[5]" role="tabpanel" class="tab-pane active mt-1 p-4" id="six">
+            <div *ngIf="selectedtab === tabs[5]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="six">
               <app-user-list></app-user-list>
             
             </div>
-            <div *ngIf="selectedtab === tabs[6]" role="tabpanel" class="tab-pane active mt-1 p-4" id="seven">
+            <div *ngIf="selectedtab === tabs[6]" role="tabpanel" class="tab-pane active mt-1 p-4 border border-black" id="seven">
               <app-content-list></app-content-list>
             
             </div>

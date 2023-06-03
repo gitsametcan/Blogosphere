@@ -1257,3 +1257,22 @@
     font-size: 13px;
     color: #012970;
   }
+
+  .tab-color{
+    text-color: #218920;
+  }
+
+  .nav-hover:hover{
+    background-color: #218920;
+  }
+
+  .a-hover{
+    color: black;
+  }
+
+  .a-hover:hover{
+    color: white;
+    transition: all 0.3s;
+  }
+
+  

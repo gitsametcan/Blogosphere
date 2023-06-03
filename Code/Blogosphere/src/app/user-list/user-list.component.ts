@@ -119,7 +119,7 @@ export class UserListComponent implements OnInit {
     if(!this.shared.getUserCount()){
       this.getAllUserCount();
     }
-    if(this.shared.getWhichUserSearched()){
+    if(this.enteredSearchValue!=''){
       this.invisiblePagination(false);
       this.getUsersBySearchingUsername(this.shared.getWhichUserSearched());
     }else{
