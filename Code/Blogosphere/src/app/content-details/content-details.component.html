@@ -34,7 +34,7 @@
                             ">
                             <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
                         </button>
-                        <button *ngIf="userType=='admin'" class="btn btn-lg"><i class="fa fa-ban fa-lg" aria-hidden="true"></i></button>
+                        <button *ngIf="userType=='admin'" id="block-btn" class="btn btn-lg"><i class="fa fa-ban fa-lg" aria-hidden="true" (click)="clickBlockContent()" onclick=""></i></button>
                     </div> <!--Ending LIKE PART!!! -->
 
 
@@ -46,7 +46,7 @@
                                     class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
                                     <div class="d-flex flex-column ml-3">
                                         <div class="d-flex flex-row post-title">
-                                            <h5>Comments</h5><span class="ml-2"> (User Name)</span>
+                                            <h5>Comments &nbsp;</h5><span class="ml-2">({{loggedInUser.userName}})</span>
                                         </div>
                                     </div>
                                 </div>

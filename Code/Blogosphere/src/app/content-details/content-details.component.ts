@@ -10,14 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 interface ContentDetail {
-  contentId: 0,
+  contentId: number,
   title: string,
   publishDate: string,
   content1: string,
   imagePath: string,
-  authorId: 0,
-  categoryId: 0,
-  visibility: 0
+  authorId: number,
+  categoryId: number,
+  visibility: number,
+  shortDescription: string
 }
 
 interface Comment {
@@ -57,7 +58,8 @@ export class ContentDetailsComponent implements OnInit {
     imagePath: '',
     authorId: 0,
     categoryId: 0,
-    visibility: 0
+    visibility: 0,
+    shortDescription: ''
   };
 
   commentObj: Comment = {
@@ -373,6 +375,73 @@ export class ContentDetailsComponent implements OnInit {
     })
   }
 
+  blockContent():void{
+    const url =`api/Contents/UpdateContent`;
+    if(this.content.visibility){
+      this.requestService.sendRequest(url, 'PUT',{
+        "contentId": this.ID,
+        "title": this.content.title,
+        "publishDate": "2023-06-03T22:20:09.100Z",
+        "content1": this.content.content1,
+        "shortDescription": this.content.shortDescription,
+        "imagePath": this.content.imagePath,
+        "authorId": this.content.authorId,
+        "categoryId": this.content.categoryId,
+        "visibility": 0
+      })
+      .then(response => {
+        console.log(JSON.stringify(response));
+        this.content.visibility = 0;
+        this.checkBlockContent();
+        console.log('Visibility: ' + JSON.stringify(this.content.visibility));
+      })
+      .catch(err => {
+        console.error('Error' + err);
+      })
+    }
+    else{
+      this.requestService.sendRequest(url, 'PUT',{
+        "contentId": this.ID,
+        "title": this.content.title,
+        "publishDate": "2023-06-03T22:20:09.100Z",
+        "content1": this.content.content1,
+        "shortDescription": this.content.shortDescription,
+        "imagePath": this.content.imagePath,
+        "authorId": this.content.authorId,
+        "categoryId": this.content.categoryId,
+        "visibility": 1
+      })
+      .then(response => {
+        console.log(JSON.stringify(response));
+        this.content.visibility = 1;
+        this.checkBlockContent();
+        console.log('Visibility: ' + JSON.stringify(this.content.visibility));
+      })
+      .catch(err => {
+        console.error('Error' + err);
+      })
+
+    }
+    
+
+  }
+
+clickBlockContent():void{
+  this.blockContent();
+  
+}
+
+checkBlockContent():void{
+  const blockButton = document.getElementById('block-btn')
+  if(!this.content.visibility){
+    blockButton?.classList.add('red');
+  }
+  else{
+    blockButton?.classList.remove('red');
+  }
+
+}
+
   ngOnInit(): void {
     
     this.getContentsByID();
@@ -384,6 +453,7 @@ export class ContentDetailsComponent implements OnInit {
   ngAfterViewInit(): void {
     this.checkLike(this.ID);
     this.likeAndDislikeCount();
+    this.checkBlockContent();
   }
 
 }
