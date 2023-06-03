@@ -10,6 +10,7 @@ public interface IUserService {
     public DataResult<User> GetByUsername(string username);
     public DataResult<User> GetByEmail(string email);
     public List<User> GetAllAlphabetically();
+    public DataResult<int> GetAllCount();
     public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber);
     public DataResult<int> VerifyByUsername(string UserName, string Password);
     public DataResult<int> VerifyByEmail(string Email, string Password);

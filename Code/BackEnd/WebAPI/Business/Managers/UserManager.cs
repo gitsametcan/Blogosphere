@@ -34,6 +34,10 @@ public class UserManager : IUserService {
         return new DataResult<User>(true, user);
     }
 
+    public DataResult<int> GetAllCount() {
+        return new DataResult<int>(true, GetAll().Count());
+    }
+
     public List<User> GetAllAlphabetically() {
         var userList = _context.Users.OrderBy(t => t.UserName).ToList();
         return userList;

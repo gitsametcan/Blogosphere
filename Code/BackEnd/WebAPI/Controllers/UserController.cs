@@ -36,6 +36,11 @@ public class UserController : ControllerBase {
         return _service.GetByEmail(email);
     }
 
+    [HttpGet("GetAllCount")]
+    public DataResult<int> GetAllCount() {
+        return _service.GetAllCount();
+    }
+
     [HttpGet("GetAllAlphabetically")]
     public DataResult<List<User>> GetAllAlphabetically() {
         return new DataResult<List<User>>(true, _service.GetAllAlphabetically());
