@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { SharedService } from '../../app/shared/shared.service';
 import { RequestService } from '../request.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 interface Content{
@@ -78,8 +79,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryIDCount():void{
-    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+this.ID,'GET')
+  getContentsByCategoryIDCount(ID:number):void{
+    this.requestService.sendRequest('api/Contents/GetByCategoryCount/'+ID,'GET')
     .then(response => {
       this.shared.setContentCount(response.data);
     })
@@ -88,8 +89,8 @@ export class ListCardsComponent implements OnInit{
     })
   }
 
-  getContentsByCategoryID(): void {
-    this.requestService.sendRequest('api/Contents/GetByCategory/'+this.ID,'GET')
+  getContentsByCategoryID(ID:number): void {
+    this.requestService.sendRequest('api/Contents/GetByCategory/'+ID,'GET')
     .then(response => {
       this.contents = response.data;
       this.contents.forEach(element => {
@@ -119,8 +120,10 @@ export class ListCardsComponent implements OnInit{
   }
 
   getContentsBySearchingTitleCount(KEYWORD:any):void{
+    localStorage.setItem('denememiz',"girdi mi")
     this.requestService.sendRequest("api/Contents/SearchContainsInTitleCount?keyword="+KEYWORD,'GET')
     .then(response => {
+      console.log(response.data);
       this.shared.setContentCount(response.data);
     })
     .catch(err => {
@@ -257,9 +260,18 @@ export class ListCardsComponent implements OnInit{
         this.getTrendContentsCount(7);
       }else{
         this.shared.setListPriority(type);
-        this.getContentsByCategoryIDCount();
+        this.getContentsByCategoryIDCount(Number(type));
       }
       window.location.reload();
+    }
+  }
+
+  invisiblePagination(statu:boolean):void{
+    let paginationRow = <HTMLElement>document.getElementById("pagination-row") as HTMLDivElement;
+    if(!statu){
+      paginationRow.style.visibility="hidden";
+    }else{
+      paginationRow.style.visibility="visible";
     }
   }
 
@@ -270,16 +282,15 @@ export class ListCardsComponent implements OnInit{
     this.changeCount(this.shared.getWhichPage());    
     if(this.shared.getWhichCategory()>0){
       this.getContentsByCategoryIDWithPaging(this.shared.getWhichCategory(),this.selectedPage-1);
-      /* this.getContentsByCategoryID(this.shared.getWhichCategory()); */
     }else if(this.shared.getWhichTitleOrContent()){
-      this.getContentsBySearchingTitleWithPaging(this.shared.getWhichTitleOrContent(),this.selectedPage-1);
-      /* this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent()); */
+      this.invisiblePagination(false);
+      this.getContentsBySearchingTitle(this.shared.getWhichTitleOrContent());
     }else if(this.shared.getTrend()>0){
       this.getTrendContentsByPaging(7,this.selectedPage-1);
-      /* this.getTrendContents(7); */
     }else{
       this.getContentsByPaging(this.selectedPage-1);
     }
+
   //const sessionKey = this.cookieService.get('sessionKey'); // Replace with your session key retrieval logic
   //this.retrieveUsername(sessionKey);
 

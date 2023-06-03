@@ -16,20 +16,22 @@
                     <div class="like-card d-flex justify-content-end border border-dark rounded ">
                         <link rel="stylesheet"
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <button class="btn btn-lg" id="green" onclick="
-                          var btn2 = document.querySelector('#red');
-                          if (btn2.classList.contains('red')) {
-                            btn2.classList.remove('red');
-                            } 
-                          this.classList.toggle('green');">
+                        <button class="btn btn-lg" id="green" (click)="clickLike()" onclick="
+                            var btn2 = document.querySelector('#red');
+                            if (btn2.classList.contains('red')) {
+                                btn2.classList.remove('red');
+                            }
+                            this.classList.toggle('green');
+                            ">
                             <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
                         </button>
-                        <button class="btn btn-lg" id="red" onclick="
-                        var btn1 = document.querySelector('#green');
-                        if (btn1.classList.contains('green')) {
-                        btn1.classList.remove('green');
-                          }
-                        this.classList.toggle('red');">
+                        <button class="btn btn-lg" id="red" (click)="clickDislike()" onclick="
+                            var btn1 = document.querySelector('#green');
+                            if (btn1.classList.contains('green')) {
+                                btn1.classList.remove('green');
+                            }
+                            this.classList.toggle('red');
+                            ">
                             <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
                         </button>
                     </div> <!--Ending LIKE PART!!! -->

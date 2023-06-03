@@ -22,6 +22,12 @@ public class LikeManager : ILikeService {
     public List<Like> GetByContent(int contentId) {
         return _context.Likes.Where(t => t.LikedContentId == contentId).ToList<Like>();;
     }
+    public int GetCountByContentAndDislike(int ContentId, int Dislike) {
+        return _context.Likes
+                .Where(t => t.LikedContentId == ContentId && t.Dislike == Dislike)
+                .ToList<Like>()
+                .Count();
+    }
     public Result NewLike(Like newLike) {
         newLike.LikeDate = DateTime.Now;
         _context.Likes.Add(newLike);
@@ -33,8 +39,8 @@ public class LikeManager : ILikeService {
         if (tempLike is null) {
             return new Result(false, "Like not found: " + updatedLike.LikeId);
         }
-        tempLike.Dislike           = updatedLike.Dislike        != default ? updatedLike.Dislike        : tempLike.Dislike;
-        tempLike.LikeDate          = updatedLike.LikeDate       != default ? updatedLike.LikeDate       : tempLike.LikeDate;
+        tempLike.Dislike           = updatedLike.Dislike;
+        tempLike.LikeDate          = DateTime.Now;
         tempLike.LikedContentId    = updatedLike.LikedContentId != default ? updatedLike.LikedContentId : tempLike.LikedContentId;
         tempLike.UserId            = updatedLike.UserId         != default ? updatedLike.UserId         : tempLike.UserId;
         _context.SaveChanges();

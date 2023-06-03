@@ -33,6 +33,7 @@ export class TopBarComponent implements OnInit {
 
   selectWhichTypeHasPriority(type:string):void{
     this.shared.setWhichPage(type);
+    window.location.reload();
   }
 
   changeCategory(ID:number): void{
