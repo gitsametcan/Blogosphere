@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 using WebAPI.Business.Services;
 using WebAPI.Core.Result;
+using WebAPI.Models.DTOs;
 
 namespace WebAPI.Business.Managers;
 
@@ -14,8 +15,14 @@ public class CommentManager : ICommentService
         _context = context;
     }
 
-    public List<Comment> GetAll() {
-        return _context.Comments.ToList();
+    public List<CommentUserDTO> GetAll() {
+        return _context.Comments
+                .Select(t => 
+                    new CommentUserDTO(t, _context.Users
+                                            .SingleOrDefault(k => k.UserId == t.PosterId)
+                            )
+                    )
+                .ToList();
     }
 
     public Comment GetById(int id) {
@@ -23,8 +30,12 @@ public class CommentManager : ICommentService
         return comment;
     }
     
-    public List<Comment> GetByContent(int contentId) {
-        var commentList = _context.Comments.Where(t => t.ContentId == contentId).ToList<Comment>();
+    public List<CommentUserDTO> GetByContent(int contentId) {
+        var commentList = _context.Comments
+                .Where(t => t.ContentId == contentId)
+                .ToList<Comment>()
+                .Select(t => new CommentUserDTO(t, _context.Users.SingleOrDefault(k => k.UserId == t.PosterId)))
+                .ToList();
         return commentList;
     }
 

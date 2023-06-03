@@ -3,6 +3,7 @@ using WebAPI.Business.Managers;
 using WebAPI.Business.Services;
 using WebAPI.Core.Result;
 using WebAPI.Models;
+using WebAPI.Models.DTOs;
 
 namespace WebAPI.Controllers;
 
@@ -17,8 +18,8 @@ public class CommentController : ControllerBase {
     }
 
     [HttpGet("GetAll")]
-    public DataResult<List<Comment>> GetAll() {
-        return new DataResult<List<Comment>>(true, _service.GetAll());
+    public DataResult<List<CommentUserDTO>> GetAll() {
+        return new DataResult<List<CommentUserDTO>>(true, _service.GetAll());
     }
 
     [HttpGet("GetById/{id}")]
@@ -27,8 +28,8 @@ public class CommentController : ControllerBase {
     }
 
     [HttpGet("GetByContent/{contentId}")]
-    public DataResult<List<Comment>> GetByContent(int contentId) {
-        return new DataResult<List<Comment>>(true, _service.GetByContent(contentId));
+    public DataResult<List<CommentUserDTO>> GetByContent(int contentId) {
+        return new DataResult<List<CommentUserDTO>>(true, _service.GetByContent(contentId));
     }
 
     [HttpPost("NewComment")]
