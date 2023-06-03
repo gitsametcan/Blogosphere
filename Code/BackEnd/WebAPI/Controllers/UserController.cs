@@ -46,6 +46,19 @@ public class UserController : ControllerBase {
         return new DataResult<List<User>>(true, _service.GetAllAlphabetically());
     }
 
+    [HttpGet("SearchByUserName/{keyword}")]
+    public DataResult<List<User>> SearchByUserName(string keyword) {
+        return new DataResult<List<User>>(true, _service.SearchByUserName(keyword));
+    }
+
+    [HttpGet("SearchByUserName/{keyword}")]
+    public DataResult<List<User>> SearchByUserNameWithPages(
+                string keyword,
+                [FromQuery] int PageSize,
+                [FromQuery] int PageNumber) {
+        return new DataResult<List<User>>(true, _service.SearchByUserNameWithPages(keyword, PageSize, PageNumber));
+    }
+
     [HttpGet("GetAllAlphabeticallyWithPages")]
     public DataResult<List<User>> GetAllAlphabeticallyWithPages([FromQuery] int PageSize, [FromQuery] int PageNumber) {
         return new DataResult<List<User>>(true, _service.GetAllAlphabeticallyWithPages(PageSize, PageNumber));
