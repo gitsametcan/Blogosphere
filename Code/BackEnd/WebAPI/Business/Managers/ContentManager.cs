@@ -157,7 +157,7 @@ public class ContentManager : IContentService {
         tempContent.PublishDate      = updatedContent.PublishDate       != default ? updatedContent.PublishDate         : tempContent.PublishDate;
         tempContent.ShortDescription = updatedContent.ShortDescription  != default ? updatedContent.ShortDescription    : tempContent.ShortDescription;
         tempContent.Title            = updatedContent.Title             != default ? updatedContent.Title               : tempContent.Title;
-        tempContent.Visibility       = updatedContent.Visibility        != default ? updatedContent.Visibility          : tempContent.Visibility;
+        tempContent.Visibility       = updatedContent.Visibility;
         _context.SaveChanges();
 
         return new Result(true, "Successfully updated content: " + updatedContent.ContentId);
