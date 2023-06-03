@@ -31,11 +31,11 @@ export class ProfilPageComponent implements OnInit {
   userLog!:User;
   userOn!:User;
   situation!:Number;
-  emailInput:String="";
-  userNameInput:String="";
-  oldPassword:String="";
-  newPassword:String="";
-  newPasswordAgain:String="";
+  emailInput:String=" ";
+  userNameInput:String=" ";
+  oldPassword:String=" ";
+  newPassword:String=" ";
+  newPasswordAgain:String=" ";
 
   getCurretnUserById(ID:Number):void{
     this.requestService.sendRequest('api/Users/GetById/'+ID,'GET')
@@ -65,8 +65,8 @@ export class ProfilPageComponent implements OnInit {
   }
 
   getSituation():Number{
-    console.log("On=" + this.shared.getOnUserId() + "  Current="+ this.shared.getLogUserId())
-    console.log(this.shared.getCurrentUSerType())
+    //console.log("On=" + this.shared.getOnUserId() + "  Current="+ this.shared.getLogUserId())
+    //console.log(this.shared.getCurrentUSerType())
     if(this.shared.getCurrentUSerType()=='admin'){
       if((this.route.snapshot.params['id'])==this.shared.getLogUserId())return 0
       else return 1;
@@ -124,26 +124,54 @@ export class ProfilPageComponent implements OnInit {
 
   blockUser(id:Number):void{
     if (this.userOn.userId==id){
-      console.log(this.userOn);
-    }
-    
-    /*if (userWillUpdate.userId != 0){
-      this.requestService.sendRequest('api/Users/UpdateUser/'+id, 'PUT',{
-        "userId": userWillUpdate.userId,
-        "userName": userWillUpdate.userName,
-        "email": userWillUpdate.email,
-        "password": userWillUpdate.password,
-        "blocked": 1,
-        "userType": "member"
+      this.requestService.sendRequest('api/Users/BanUser?id='+id,'GET')
+      .then(response => {
+        alert(response.message);
       })
-    }*/
+      .catch(err => {
+        console.error("Error: " + err);
+      })
+    }
+  }
+
+  unblockUser(id:Number):void{
+    if (this.userOn.userId==id){
+      this.requestService.sendRequest('api/Users/UnbanUser?id='+id,'GET')
+      .then(response => {
+        alert(response.message);
+      })
+      .catch(err => {
+        console.error("Error: " + err);
+      })
+    }
   }
 
   updateUser(id:Number):void{
+    
+    if (this.emailInput==" ")this.emailInput = this.userLog.email;
+    if (this.userNameInput==" ")this.userNameInput = this.userLog.userName;
     console.log(this.userNameInput);
-    if (this.emailInput==null)console.log("evet bos");
-    else console.log(this.emailInput);
-    this.ngOnInit();
+    console.log(this.emailInput);
+    if (id==this.userLog.userId){
+    this.requestService.sendRequest('api/Users/UpdateUser/'+id, 'PUT', {
+      "userId": this.userLog.userId,
+      "userName": this.userNameInput,
+      "email": this.emailInput,
+      "password": this.userLog.userId,
+      "blocked": this.userLog.blocked,
+      "userType": this.userLog.userType
+    })
+    .then(response => {
+      console.log(response.message);
+      alert(response.message);
+      this.userNameInput = " ";
+      this.emailInput = " ";
+    })
+    .catch(err => {
+      alert("olmayor");
+      console.error("Error: " + err);
+    })}
+
   }
 
   setAuthorization(id:Number,authorization:string):void{
@@ -153,6 +181,26 @@ export class ProfilPageComponent implements OnInit {
   updatePassword(id:Number):void{
     console.log(this.newPassword);
     if (this.userOn.password == this.oldPassword && this.newPassword == this.newPasswordAgain)console.log(this.newPassword);
+
+    if (id==this.userLog.userId){
+      this.requestService.sendRequest('api/Users/UpdateUser/'+id, 'PUT', {
+        "userId": this.userLog.userId,
+        "userName": this.userLog.userName,
+        "email": this.userLog.email,
+        "password": this.newPassword,
+        "blocked": this.userLog.blocked,
+        "userType": this.userLog.userType
+      })
+      .then(response => {
+        console.log(response.message);
+        alert(response.message);
+        this.userNameInput = " ";
+        this.emailInput = " ";
+      })
+      .catch(err => {
+        alert("olmayor");
+        console.error("Error: " + err);
+      })}
 
   }
 

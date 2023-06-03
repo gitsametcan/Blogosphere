@@ -81,8 +81,12 @@
               <button type="submit" class="btn btn-primary">Save Changes</button>
             </div>
 
-            <div class="text-center">
+            <div class="text-center" *ngIf="userOn.blocked==0">
               <button type="submit" class="btn btn-danger" (click)="blockUser(userOn.userId)">Block</button>
+            </div>
+
+            <div class="text-center" *ngIf="userOn.blocked==1">
+              <button type="submit" class="btn btn-danger" (click)="unblockUser(userOn.userId)">Remove Block</button>
             </div>
 
 
