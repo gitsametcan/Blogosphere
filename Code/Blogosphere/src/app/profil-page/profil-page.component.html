@@ -19,34 +19,33 @@
       <div class="tab-content">
         <div *ngIf="selectedtab === tabs[1]" role="tabpanel" class="tab-pane active" id="two">
           <div *ngIf='getSituation()==0'>
-          <form>
   
             <div class="row mb-3">
               <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
               <div class="col-md-8 col-lg-9">
-                <input name="password" type="password" class="form-control" id="currentPassword">
+                <input [(ngModel)]="oldPassword" value=" " placeholder="Please enter old password">
               </div>
             </div>
 
             <div class="row mb-3">
               <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
               <div class="col-md-8 col-lg-9">
-                <input name="newpassword" type="password" class="form-control" id="newPassword">
+                <input [(ngModel)]="newPassword" value=" " placeholder="At least 8 character">
               </div>
             </div>
 
             <div class="row mb-3">
               <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
               <div class="col-md-8 col-lg-9">
-                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                <input [(ngModel)]="newPasswordAgain" value=" " placeholder="At least 8 character">
               </div>
             </div>
 
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">Change Password</button>
+              <button type="submit" class="btn btn-primary" (click)="updatePassword(userOn.userId)">Change Password</button>
             </div>
             
-          </form><!-- End Change Password Form -->
+          <!-- End Change Password Form -->
         </div>
         <div *ngIf='getSituation()==1'>Password can change by only user</div>
         </div>
@@ -83,7 +82,7 @@
             </div>
 
             <div class="text-center">
-              <button type="submit" class="btn btn-danger">Block</button>
+              <button type="submit" class="btn btn-danger" (click)="blockUser(userOn.userId)">Block</button>
             </div>
 
 
@@ -97,7 +96,7 @@
           <div class="row mb-3">
               <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
               <div class="col-md-8 col-lg-9">
-                <input name="username" type="text" class="form-control" id="username" placeholder={{user.userName}}>
+                <input [(ngModel)]="userNameInput" value="{{user.userName}}" placeholder={{user.userName}}>
               </div>
           </div>
           
@@ -105,7 +104,7 @@
           <div class="row mb-3">
               <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
               <div class="col-md-8 col-lg-9">
-                <input name="email" type="text" class="form-control" id="email" placeholder={{user.email}}>
+                <input [(ngModel)]="emailInput" value="{{user.email}}" placeholder={{user.email}}>
               </div>
           </div>
           
@@ -117,7 +116,7 @@
           
 
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="submit" class="btn btn-primary" (click)="updateUser(userOn.userId)">Save Changes</button>
        </div>
 
       </div>
