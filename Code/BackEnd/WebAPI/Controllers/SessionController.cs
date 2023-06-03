@@ -18,7 +18,7 @@ public class SessionController : ControllerBase {
 
     [HttpGet("FindUser")]
     public DataResult<User> FindUser([FromQuery] string SessionKey) {
-        return new DataResult<User>(true, _service.FindUser(SessionKey));
+        return _service.FindUser(SessionKey);
     }
 
     [HttpPost("NewSession")]

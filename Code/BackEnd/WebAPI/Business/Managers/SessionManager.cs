@@ -11,10 +11,16 @@ public class SessionManager : ISessionService {
         _context = context;
     }
 
-    public User FindUser(string SessionKey) {
+    public DataResult<User> FindUser(string SessionKey) {
         var session = _context.Sessions.SingleOrDefault(t => t.SessionKey == SessionKey);
+        if (session is null) {
+            return new DataResult<User>(false, "Session is not available: " + SessionKey, null);
+        }
         var user = _context.Users.SingleOrDefault(t => t.UserId == session.UserId);
-        return user;
+        if (user is null) {
+            return new DataResult<User>(false, "User is not available: " + session.UserId, null);
+        }
+        return new DataResult<User>(true, "Session successfully found.", user);
     }
     public Result CreateSession(string SessionKey, int userId) {
         Session session = new Session();

@@ -5,7 +5,7 @@ namespace WebAPI.Business.Services;
 
 public interface ISessionService {
 
-    public User FindUser(string SessionKey);
+    public DataResult<User> FindUser(string SessionKey);
     public Result CreateSession(string SessionKey, int userId);
     public Result DeleteSession(string SessionKey);
 
