@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { RequestService } from '../request.service';
 import { SharedService } from '../shared/shared.service';
 import { Router } from '@angular/router';
@@ -30,6 +30,30 @@ export class UserListComponent implements OnInit {
   constructor(private requestService: RequestService, private shared:SharedService, private router:Router){}
 
   users : User[] = [];
+
+  listSearchedUsers():void{
+    this.shared.setWhichUserSearched(this.enteredSearchValue);
+    this.getUsersBySearchingUsername(this.enteredSearchValue);
+  }
+
+  @Output()
+  searchTextChanged: EventEmitter<any>=new EventEmitter<any>();
+
+  onSearchTextChanged(){
+    this.searchTextChanged.emit(this.enteredSearchValue);
+    console.log(this.enteredSearchValue);
+  }
+
+
+  getUsersBySearchingUsername(KEYWORD:any):void {
+    this.requestService.sendRequest("api/Users/SearchByUserName/"+KEYWORD,'GET')
+    .then(response => {
+      this.users = response.data;
+    })
+    .catch(err => {
+      console.error("Error: " + err);
+    })
+  }
 
   getAllUser():void {
     this.requestService.sendRequest('api/Users/GetAll','GET')
@@ -95,8 +119,14 @@ export class UserListComponent implements OnInit {
     if(!this.shared.getUserCount()){
       this.getAllUserCount();
     }
-    this.invisiblePagination(true);
-    this.getAllUserWithPaging(this.selectedPage-1);
+    if(this.shared.getWhichUserSearched()){
+      this.invisiblePagination(false);
+      this.getUsersBySearchingUsername(this.shared.getWhichUserSearched());
+    }else{
+      this.invisiblePagination(true);
+      this.getAllUserWithPaging(this.selectedPage-1);
+    }
+    
     //this.getAllUser();
   }
 }

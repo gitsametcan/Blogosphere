@@ -117,5 +117,14 @@ export class SharedService {
     return Number(localStorage.getItem('userCount'));
   }
 
+  setWhichUserSearched(data: any){
+    localStorage.setItem('searchUser',data);
+  }
+
+  getWhichUserSearched(){
+    return localStorage.getItem('searchUser');
+  }
+
+
 
 }

@@ -1,7 +1,7 @@
 <div class="search-box mb-4">
   <form action="">
-    <input type="text" name="search" id="search-bar" placeholder="Search">
-    <button type="submit"><img src="../../assets/img/loupe.png" alt="image"></button>
+    <input type="text" name="search" id="search-bar" placeholder="Search" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
+    <button type="submit" (click)="listSearchedUsers()"><img src="../../assets/img/loupe.png" alt="image"></button>
   </form>
 </div>
 <div class="list-group" *ngFor="let item of users">
