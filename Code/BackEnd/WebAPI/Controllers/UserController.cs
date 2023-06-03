@@ -56,6 +56,16 @@ public class UserController : ControllerBase {
         return _service.VerifyByEmail(Email, Password);
     }
 
+    [HttpGet("BanUser")]
+    public Result BanUser([FromQuery] int id) {
+        return _service.BanUser(id);
+    }
+
+    [HttpGet("UnbanUser")]
+    public Result UnbanUser([FromQuery] int id) {
+        return _service.UnbanUser(id);
+    }
+
     [HttpPost("RegisterUser")]
     public Result RegisterUser([FromBody] User user) {
         return _service.RegisterUser(user);

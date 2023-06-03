@@ -13,6 +13,8 @@ public interface IUserService {
     public List<User> GetAllAlphabeticallyWithPages(int PageSize, int PageNumber);
     public DataResult<int> VerifyByUsername(string UserName, string Password);
     public DataResult<int> VerifyByEmail(string Email, string Password);
+    public Result BanUser(int id);
+    public Result UnbanUser(int id);
     public Result RegisterUser(User newUser);
     public Result UpdateUser(int id, User updatedUser);
     public Result DeleteUser(int id);

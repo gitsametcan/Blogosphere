@@ -58,6 +58,25 @@ public class UserManager : IUserService {
         return new DataResult<int>(false, 0);
     }
 
+    public Result BanUser(int id) {
+        var user = _context.Users.SingleOrDefault(t => t.UserId == id);
+        if (user is null) {
+            return new Result(false, "User not found.");
+        }
+        user.Blocked = 1;
+        _context.SaveChanges();
+        return new Result(true, "User banned: " + user.UserName);
+    }
+    public Result UnbanUser(int id) {
+        var user = _context.Users.SingleOrDefault(t => t.UserId == id);
+        if (user is null) {
+            return new Result(false, "User not found.");
+        }
+        user.Blocked = 0;
+        _context.SaveChanges();
+        return new Result(true, "User unbanned: " + user.UserName);
+    }
+
     public Result RegisterUser(User newUser) {
         _context.Users.Add(newUser);
         _context.SaveChanges();
