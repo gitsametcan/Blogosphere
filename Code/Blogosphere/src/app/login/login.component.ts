@@ -196,6 +196,8 @@ export class LoginComponent implements OnInit {
     const existingSessionKey = this.cookieService.get('sessionKey');
     if (existingSessionKey) {
       this.retrieveUsername(existingSessionKey);
+      this.cookieService.delete('sessionKey'); // //guaranteeed
+      this.retrieveUsername(existingSessionKey);
     }
   }
 }
