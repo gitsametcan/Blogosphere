@@ -474,24 +474,46 @@ checkBlockContent():void{
 }
 
 uploadContent(): void{
- 
-  this.requestService.sendRequest('api/Contents/NewContent', 'POST', {
-    "contentId": 0,
-    "title": this.contentTitle.value,
-    "publishDate": "2023-06-04T13:30:31.443Z",
-    "content1": this.contentBody.value,
-    "shortDescription": "",
-    "imagePath": `api/Images/GetImage/${this.uploadedImage.value}`,
-    "authorId": this.loggedInUser.userId,
-    "categoryId": this.selectedCategory.value,
-    "visibility": 1
-  })
-  .then(response => {
-    console.log(response.message);
-  })
-  .catch(err => {
-    console.error(err);
-  })
+
+      // Select file upload element
+      const formFile = document.getElementById('formFile') as HTMLInputElement;
+      const userFile = formFile.files ? formFile.files[0] : null;
+
+      // Create new formData object then append file
+      const formData = new FormData();
+      if (userFile) {
+        formData.append('file', userFile, 'user-file.jpg');
+      }
+      console.log('FileName: ' + userFile?.name);
+      // POST/PUT with Fetch API
+      fetch('http://localhost:5204/api/Images/UploadImage', {
+          method: "POST", // or "PUT"
+          body: formData,
+      })
+          .then(res => res.json())
+          .then(data => {
+            console.log(JSON.stringify(data));
+            this.requestService.sendRequest('api/Contents/NewContent', 'POST', {
+              "contentId": 0,
+              "title": this.contentTitle.value,
+              "publishDate": "2023-06-04T13:30:31.443Z",
+              "content1": this.contentBody.value,
+              "shortDescription": "",
+              "imagePath": `api/Images/GetImage/${data.message}`,
+              "authorId": this.loggedInUser.userId,
+              "categoryId": this.selectedCategory.value,
+              "visibility": 1
+            })
+            .then(response => {
+              console.log(response.message);
+            })
+            .catch(err => {
+              console.error(err);
+            })
+
+          })
+          .catch(err => console.log(err))
+
 }
 
 clickUploadContentButton(){
@@ -500,12 +522,12 @@ clickUploadContentButton(){
   this.selectedCategory = document.getElementById('floatingSelect');
   this.uploadedImage = document.getElementById('formFile');
 
-  console.log('Title: ' + this.contentTitle.value);
-  console.log('Body: ' + this.contentBody.value);
-  console.log('Category: ' + this.selectedCategory.value);
-  console.log('Image: ' + this.uploadedImage.value);
+  // console.log('Title: ' + this.contentTitle.value);
+  // console.log('Body: ' + this.contentBody.value);
+  // console.log('Category: ' + this.selectedCategory.value);
+  // console.log('Image: ' + this.uploadedImage.value);
   
-  //this.uploadContent();
+  this.uploadContent();
 }
 
   ngOnInit(): void {
