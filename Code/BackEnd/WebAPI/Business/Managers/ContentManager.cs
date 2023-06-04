@@ -168,6 +168,18 @@ public class ContentManager : IContentService {
         if (tempContent is null) {
             return new Result(false, "Content not found: " + id);
         }
+        
+        var likesList = _context.Likes.Where(t => t.LikedContentId == id).ToList();
+        var commentsList = _context.Comments.Where(t => t.ContentId == id).ToList();
+        foreach (var comment in commentsList) {
+            _context.Comments.Remove(comment);
+        }
+        _context.SaveChanges();
+        foreach (var like in likesList) {
+            _context.Likes.Remove(like);
+        }
+        _context.SaveChanges();
+        
         _context.Contents.Remove(tempContent);
         _context.SaveChanges();
         return new Result(true, "Content successfully deleted: " + id);
