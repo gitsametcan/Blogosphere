@@ -190,7 +190,7 @@ public class ContentController : ControllerBase {
     }
 
     [HttpDelete("DeleteContent")]
-    public Result DeleteContent(int id) {
+    public Result DeleteContent([FromQuery] int id) {
         return _service.DeleteContent(id);
     }
 }

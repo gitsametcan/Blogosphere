@@ -13,7 +13,8 @@ public class ImageManager : IImageService {
         return new PhysicalFileResult(System.IO.Directory.GetCurrentDirectory() + "\\Assets\\" + FilePath, "image/jpeg");
     }
     public Result UploadImage(IFormFile file) {
-        string fName = StringToSHA256(file.FileName);
+        string tempName = Path.GetRandomFileName();
+        string fName = StringToSHA256(tempName);
         string path = System.IO.Directory.GetCurrentDirectory() + "\\Assets\\" + fName + ".jpg";
         using (var stream = new FileStream(path, FileMode.Create))
         {
