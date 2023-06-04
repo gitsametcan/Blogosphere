@@ -79,3 +79,8 @@ button{
 .red{
   color: red;
 }
+
+.comment-input{
+  margin-left: 10px;
+  margin-right: 10px;
+}

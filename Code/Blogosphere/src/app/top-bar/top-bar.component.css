@@ -228,9 +228,15 @@ header .menu{
     margin-top: -15px;
   }
 
-  #checkbox1:checked ~ ul:not(.profile){
-    visibility: hidden;
+  .nav-bar{
+    visibility:hidden;
   }
+
+  #checkbox1:checked ~ ul:not(.profile){
+    visibility: visible;
+  }
+
+  
 
   ul li ul.dropdown li{
     display:block;

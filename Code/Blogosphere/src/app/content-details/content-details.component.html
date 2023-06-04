@@ -2,8 +2,8 @@
     <section>
         <div style="background-color: #E3E3E3; margin-top: 60px;">
             <div class="container">
-                <div class="row align-items-top">
-                    <div class="card align-items-center">
+                <div class="row align-items-top justify-content-center">
+                    <div class="card align-items-center col-md-9">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{content.title}}</h5>
                         </div>
@@ -13,7 +13,7 @@
 
                     
                     <!-- LIKE PART!!! -->
-                    <div class="like-card d-flex justify-content-end border border-dark rounded ">
+                    <div class="like-card d-flex justify-content-end border border-dark rounded col-md-9 bg-white">
                         <link rel="stylesheet"
                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                         <button class="btn btn-lg" id="green" (click)="clickLike()" onclick="
@@ -41,7 +41,7 @@
 
                     <div class="container mt-5 mb-5"> <!-- Comment Part!!!-->
                         <div class="d-flex justify-content-center row">
-                            <div class="d-flex flex-column col-md-8">
+                            <div class="d-flex flex-column col-md-9">
                                 <div
                                     class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
                                     <div class="d-flex flex-column ml-3">
@@ -53,9 +53,9 @@
                                 <div class="coment-bottom bg-white p-2 px-4">
                                     <div class="d-flex flex-row add-comment-section mt-4 mb-4"><img
                                             class="img-fluid img-responsive rounded-circle mr-2"
-                                            src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text"
-                                            class="form-control mr-3" id="created-comment" placeholder="Add comment"><button
-                                            class="btn btn-primary" type="button" (click) = "clickComment()">Comment</button></div>
+                                            src="../../assets/img/user.png" width="38"><input type="text"
+                                            class="form-control mr-3 comment-input" id="created-comment" placeholder="Add comment"><button
+                                            class="btn btn-success text-white" type="button" (click) = "clickComment()">Comment</button></div>
                                 <div *ngFor="let item of comments">       
                                     <div class="commented-section mt-2">
                                         <div class="d-flex flex-row align-items-center commented-user">
