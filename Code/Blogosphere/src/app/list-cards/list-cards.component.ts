@@ -120,7 +120,6 @@ export class ListCardsComponent implements OnInit{
   }
 
   getContentsBySearchingTitleCount(KEYWORD:any):void{
-    localStorage.setItem('denememiz',"girdi mi")
     this.requestService.sendRequest("api/Contents/SearchContainsInTitleCount?keyword="+KEYWORD,'GET')
     .then(response => {
       console.log(response.data);
@@ -276,9 +275,7 @@ export class ListCardsComponent implements OnInit{
   }
 
   ngOnInit(): void { 
-    if(!this.shared.getContentCount()){
-      this.getAllContentsCount();
-    }
+    this.getAllContentsCount();
     this.changeCount(this.shared.getWhichPage());    
     if(this.shared.getWhichCategory()>0){
       this.invisiblePagination(false);
