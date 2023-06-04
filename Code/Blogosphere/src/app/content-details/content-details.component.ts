@@ -22,24 +22,24 @@ interface ContentDetail {
 }
 
 interface Comment {
-      comment: {
-        commentId: 0,
-        posterId: 0,
-        contentId: 0,
-        commentContent: string,
-        publishDate: string
-      },
-      user: {
-        userId: 0,
-        userName: string,
-        email: string,
-        password: string,
-        blocked: 0,
-        userType: string
-      }
+  comment: {
+    commentId: 0,
+    posterId: 0,
+    contentId: 0,
+    commentContent: string,
+    publishDate: string
+  },
+  user: {
+    userId: 0,
+    userName: string,
+    email: string,
+    password: string,
+    blocked: 0,
+    userType: string
+  }
 }
 
-interface Category{
+interface Category {
   categoryId: 0,
   categoryTitle: string,
   categoryDescription: string,
@@ -56,7 +56,7 @@ export class ContentDetailsComponent implements OnInit {
 
   userType = this.shared.getCurrentUSerType();
 
-  constructor(private shared: SharedService, private requestService: RequestService, private userService: UserService, private cookieService: CookieService, private router: Router,private route:ActivatedRoute) { }
+  constructor(private shared: SharedService, private requestService: RequestService, private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute) { }
 
   contentObj: ContentDetail = {
     contentId: 0,
@@ -72,20 +72,20 @@ export class ContentDetailsComponent implements OnInit {
 
   commentObj: Comment = {
     comment: {
-        commentId: 0,
-        posterId: 0,
-        contentId: 0,
-        commentContent: "",
-        publishDate: ""
-      },
-      user: {
-        userId: 0,
-        userName: "",
-        email: "",
-        password: "",
-        blocked: 0,
-        userType: ""
-      }
+      commentId: 0,
+      posterId: 0,
+      contentId: 0,
+      commentContent: "",
+      publishDate: ""
+    },
+    user: {
+      userId: 0,
+      userName: "",
+      email: "",
+      password: "",
+      blocked: 0,
+      userType: ""
+    }
   };
 
   categoryObj: Category = {
@@ -95,9 +95,9 @@ export class ContentDetailsComponent implements OnInit {
   };
 
   categoriess: Category[] = [];
-  
-  getCategories():void {
-    this.requestService.sendRequest('api/Categorys/GetAll','GET')
+
+  getCategories(): void {
+    this.requestService.sendRequest('api/Categorys/GetAll', 'GET')
       .then(response => {
         this.categoriess = response.data;
       })
@@ -117,8 +117,9 @@ export class ContentDetailsComponent implements OnInit {
   contentBody: any;
   selectedCategory: any;
   uploadedImage: any;
+  shortDescription: any;
 
-  ID=this.route.snapshot.params['id'];
+  ID = this.route.snapshot.params['id'];
   getContentsByID(): void {
     this.requestService.sendRequest('api/Contents/GetById/' + this.ID, 'GET')
       .then(response => {
@@ -234,30 +235,30 @@ export class ContentDetailsComponent implements OnInit {
           let isMine = false;
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].userId == this.loggedInUser.userId) {
-              if(response.data[i].dislike == 0){
+              if (response.data[i].dislike == 0) {
                 this.requestService.sendRequest('api/Likes/DeleteLike/' + response.data[i].likeId, 'DELETE')
-                .then(response => {
-                  console.log(response.message + 'delete ' + i);
-                  this.likeAndDislikeCount();
-                })
-              }else{
-                this.requestService.sendRequest('api/Likes/UpdateLike/'+response.data[i].likeId, 'PUT', {
+                  .then(response => {
+                    console.log(response.message + 'delete ' + i);
+                    this.likeAndDislikeCount();
+                  })
+              } else {
+                this.requestService.sendRequest('api/Likes/UpdateLike/' + response.data[i].likeId, 'PUT', {
                   "likeId": response.data[i].likeId,
                   "userId": userId,
                   "likedContentId": contentId,
                   "dislike": 0,
                   "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
                 })
-                .then(response => {
-                  console.log(response.message);
-                  this.likeAndDislikeCount();
-                })
+                  .then(response => {
+                    console.log(response.message);
+                    this.likeAndDislikeCount();
+                  })
               }
               isMine = true
               break;
             }
           }
-          if(!isMine){
+          if (!isMine) {
             this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
               "likeId": 0,
               "userId": userId,
@@ -270,7 +271,7 @@ export class ContentDetailsComponent implements OnInit {
                 this.likeAndDislikeCount();
               })
           }
-          
+
         }
       }).catch(err => {
         console.error('Error: ' + err);
@@ -300,30 +301,30 @@ export class ContentDetailsComponent implements OnInit {
           let isMine = false;
           for (let i = 0; i < response.data.length; i++) {
             if (response.data[i].userId == this.loggedInUser.userId) {
-              if(response.data[i].dislike == 1){
+              if (response.data[i].dislike == 1) {
                 this.requestService.sendRequest('api/Likes/DeleteLike/' + response.data[i].likeId, 'DELETE')
-                .then(response => {
-                  console.log(response.message);
-                  this.likeAndDislikeCount();
-                })
-              }else{
-                this.requestService.sendRequest('api/Likes/UpdateLike/'+response.data[i].likeId, 'PUT', {
+                  .then(response => {
+                    console.log(response.message);
+                    this.likeAndDislikeCount();
+                  })
+              } else {
+                this.requestService.sendRequest('api/Likes/UpdateLike/' + response.data[i].likeId, 'PUT', {
                   "likeId": response.data[i].likeId,
                   "userId": userId,
                   "likedContentId": contentId,
                   "dislike": 1,
                   "likeDate": "2023-06-02T19:14:22.850Z" //Date will be edit
                 })
-                .then(response => {
-                  console.log(response.message);
-                  this.likeAndDislikeCount();
-                })
+                  .then(response => {
+                    console.log(response.message);
+                    this.likeAndDislikeCount();
+                  })
               }
               isMine = true;
               break;
             }
           }
-          if(!isMine){
+          if (!isMine) {
             this.requestService.sendRequest('api/Likes/NewLike', 'POST', {
               "likeId": 0,
               "userId": userId,
@@ -352,7 +353,7 @@ export class ContentDetailsComponent implements OnInit {
       this.router.navigate(['/login']);
       alert("Post beğenmek için giriş yapmalısınız...");//TO-DO
     }
-    
+
   }
   clickDislike(): void {
     const existingSessionKey = this.cookieService.get('sessionKey');
@@ -364,52 +365,54 @@ export class ContentDetailsComponent implements OnInit {
       this.router.navigate(['/login']);
       alert("Post beğenmemek için giriş yapmalısınız...");//TO-DO
     }
-    
+
   }
 
-  checkLike(contentId: number): void{
-    this.requestService.sendRequest('api/Likes/GetByContent/'+contentId, 'GET')
-    .then(response =>{
-      for (let i = 0; i < response.data.length; i++) {
-        if (response.data[i].userId == this.loggedInUser.userId) {
-          if(response.data[i].dislike == 0){
-            let likeButton = document.getElementById('green')
-            likeButton?.classList.toggle('green');
-            console.log('like');
+  checkLike(contentId: number): void {
+    this.requestService.sendRequest('api/Likes/GetByContent/' + contentId, 'GET')
+      .then(response => {
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].userId == this.loggedInUser.userId) {
+            if (response.data[i].dislike == 0) {
+              let likeButton = document.getElementById('green')
+              likeButton?.classList.toggle('green');
+              console.log('like');
+            }
+            else if (response.data[i].dislike == 1) {
+              let likeButton = document.getElementById('red')
+              likeButton?.classList.toggle('red');
+              console.log('dislike');
+            }
           }
-          else if(response.data[i].dislike == 1){
-            let likeButton = document.getElementById('red')
-            likeButton?.classList.toggle('red');
-            console.log('dislike');
-          }
-    }}})
+        }
+      })
   }
 
-  likeAndDislikeCount(): void{
+  likeAndDislikeCount(): void {
     this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=0`, 'GET')
-    .then(response => {
-      console.log('like: ' + response.data);
-      const likeButton = document.getElementById('green');
-      likeButton!.innerHTML = `<i class="fa fa-thumbs-up fa-lg" aria-hidden="true">` + response.data;
-    })
-    .catch(err => {
-      console.error(err);
-    })
+      .then(response => {
+        console.log('like: ' + response.data);
+        const likeButton = document.getElementById('green');
+        likeButton!.innerHTML = `<i class="fa fa-thumbs-up fa-lg" aria-hidden="true">` + response.data;
+      })
+      .catch(err => {
+        console.error(err);
+      })
     this.requestService.sendRequest(`api/Likes/GetCountByContentAndDislike/${this.ID}?Dislike=1`, 'GET')
-    .then(response => {
-      console.log('dislike: ' + response.data);
-      const likeButton = document.getElementById('red');
-      likeButton!.innerHTML = `<i class="fa fa-thumbs-down fa-lg" aria-hidden="true">` + response.data;
-    })
-    .catch(err => {
-      console.error(err);
-    })
+      .then(response => {
+        console.log('dislike: ' + response.data);
+        const likeButton = document.getElementById('red');
+        likeButton!.innerHTML = `<i class="fa fa-thumbs-down fa-lg" aria-hidden="true">` + response.data;
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
-  blockContent():void{
-    const url =`api/Contents/UpdateContent`;
-    if(this.content.visibility){
-      this.requestService.sendRequest(url, 'PUT',{
+  blockContent(): void {
+    const url = `api/Contents/UpdateContent`;
+    if (this.content.visibility) {
+      this.requestService.sendRequest(url, 'PUT', {
         "contentId": this.ID,
         "title": this.content.title,
         "publishDate": "2023-06-03T22:20:09.100Z",
@@ -420,18 +423,18 @@ export class ContentDetailsComponent implements OnInit {
         "categoryId": this.content.categoryId,
         "visibility": 0
       })
-      .then(response => {
-        console.log(JSON.stringify(response));
-        this.content.visibility = 0;
-        this.checkBlockContent();
-        console.log('Visibility: ' + JSON.stringify(this.content.visibility));
-      })
-      .catch(err => {
-        console.error('Error' + err);
-      })
+        .then(response => {
+          console.log(JSON.stringify(response));
+          this.content.visibility = 0;
+          this.checkBlockContent();
+          console.log('Visibility: ' + JSON.stringify(this.content.visibility));
+        })
+        .catch(err => {
+          console.error('Error' + err);
+        })
     }
-    else{
-      this.requestService.sendRequest(url, 'PUT',{
+    else {
+      this.requestService.sendRequest(url, 'PUT', {
         "contentId": this.ID,
         "title": this.content.title,
         "publishDate": "2023-06-03T22:20:09.100Z",
@@ -442,93 +445,109 @@ export class ContentDetailsComponent implements OnInit {
         "categoryId": this.content.categoryId,
         "visibility": 1
       })
-      .then(response => {
-        console.log(JSON.stringify(response));
-        this.content.visibility = 1;
-        this.checkBlockContent();
-        console.log('Visibility: ' + JSON.stringify(this.content.visibility));
-      })
-      .catch(err => {
-        console.error('Error' + err);
-      })
+        .then(response => {
+          console.log(JSON.stringify(response));
+          this.content.visibility = 1;
+          this.checkBlockContent();
+          console.log('Visibility: ' + JSON.stringify(this.content.visibility));
+        })
+        .catch(err => {
+          console.error('Error' + err);
+        })
 
     }
-    
+
 
   }
 
-clickBlockContent():void{
-  this.blockContent();
-  
-}
+  clickBlockContent(): void {
+    this.blockContent();
 
-checkBlockContent():void{
-  const blockButton = document.getElementById('block-btn')
-  if(!this.content.visibility){
-    blockButton?.classList.add('red');
-  }
-  else{
-    blockButton?.classList.remove('red');
   }
 
-}
+  checkBlockContent(): void {
+    const blockButton = document.getElementById('block-btn')
+    if (!this.content.visibility) {
+      blockButton?.classList.add('red');
+    }
+    else {
+      blockButton?.classList.remove('red');
+    }
 
-uploadContent(): void{
+  }
 
-      // Select file upload element
-      const formFile = document.getElementById('formFile') as HTMLInputElement;
-      const userFile = formFile.files ? formFile.files[0] : null;
+  uploadContent(): void {
 
-      // Create new formData object then append file
-      const formData = new FormData();
-      if (userFile) {
-        formData.append('file', userFile, 'user-file.jpg');
-      }
-      console.log('FileName: ' + userFile?.name);
-      // POST/PUT with Fetch API
-      fetch('http://localhost:5204/api/Images/UploadImage', {
-          method: "POST", // or "PUT"
-          body: formData,
-      })
-          .then(res => res.json())
-          .then(data => {
-            console.log(JSON.stringify(data));
-            this.requestService.sendRequest('api/Contents/NewContent', 'POST', {
-              "contentId": 0,
-              "title": this.contentTitle.value,
-              "publishDate": "2023-06-04T13:30:31.443Z",
-              "content1": this.contentBody.value,
-              "shortDescription": "",
-              "imagePath": `api/Images/GetImage/${data.message}`,
-              "authorId": this.loggedInUser.userId,
-              "categoryId": this.selectedCategory.value,
-              "visibility": 1
-            })
-            .then(response => {
-              console.log(response.message);
-            })
-            .catch(err => {
-              console.error(err);
-            })
+    // Select file upload element
+    const formFile = document.getElementById('formFile') as HTMLInputElement;
+    const userFile = formFile.files ? formFile.files[0] : null;
 
+    // Create new formData object then append file
+    const formData = new FormData();
+    if (userFile) {
+      formData.append('file', userFile, 'user-file.jpg');
+    }
+    console.log('FileName: ' + userFile?.name);
+    // POST/PUT with Fetch API
+    fetch('http://localhost:5204/api/Images/UploadImage', {
+      method: "POST", // or "PUT"
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(JSON.stringify(data));
+        this.requestService.sendRequest('api/Contents/NewContent', 'POST', {
+          "contentId": 0,
+          "title": this.contentTitle.value,
+          "publishDate": "2023-06-04T13:30:31.443Z",
+          "content1": this.contentBody.value,
+          "shortDescription": this.shortDescription.value,
+          "imagePath": `api/Images/GetImage/${data.message}`,
+          "authorId": this.loggedInUser.userId,
+          "categoryId": this.selectedCategory.value,
+          "visibility": 1
+        })
+          .then(response => {
+            console.log(response.message);
+            this.router.navigate(['/home']);
           })
-          .catch(err => console.log(err))
+          .catch(err => {
+            console.error(err);
+          })
 
-}
+      })
+      .catch(err => console.log(err))
 
-clickUploadContentButton(){
-  this.contentTitle = document.getElementById('floatingName');
-  this.contentBody = document.getElementById('floatingTextarea');
-  this.selectedCategory = document.getElementById('floatingSelect');
-  this.uploadedImage = document.getElementById('formFile');
+  }
 
-  // console.log('Title: ' + this.contentTitle.value);
-  // console.log('Body: ' + this.contentBody.value);
-  // console.log('Category: ' + this.selectedCategory.value);
-  // console.log('Image: ' + this.uploadedImage.value);
-  
-  this.uploadContent();
-}
+  clickUploadContentButton() {
+    this.contentTitle = document.getElementById('floatingName');
+    this.contentBody = document.getElementById('floatingTextarea');
+    this.selectedCategory = document.getElementById('floatingSelect');
+    this.uploadedImage = document.getElementById('formFile');
+    this.shortDescription = document.getElementById('shortDescription');
+
+    // console.log('Title: ' + this.contentTitle.value);
+    // console.log('Body: ' + this.contentBody.value);
+    // console.log('Category: ' + this.selectedCategory.value);
+    // console.log('Image: ' + this.uploadedImage.value);
+
+    this.uploadContent();
+  }
+
+  resetContentDetails():void{
+    this.contentTitle = document.getElementById('floatingName');
+    this.contentBody = document.getElementById('floatingTextarea');
+    this.selectedCategory = document.getElementById('floatingSelect');
+    this.uploadedImage = document.getElementById('formFile');
+    this.shortDescription = document.getElementById('shortDescription');
+
+    this.contentTitle.value = "";
+    this.contentBody.value = "";
+    this.selectedCategory.value = "";
+    this.uploadedImage.value = "";
+    this.shortDescription.value = "";
+  }
 
   ngOnInit(): void {
     this.getCategories();
