@@ -76,6 +76,9 @@ export class TopBarComponent implements OnInit {
 
 
     retrieveUsername(sessionKey: string): void {
+      if(!sessionKey){
+        return
+      }
       const url = `api/Sessions/FindUser?SessionKey=${sessionKey}`;
       this.requestService
         .sendRequest(url, 'GET')
