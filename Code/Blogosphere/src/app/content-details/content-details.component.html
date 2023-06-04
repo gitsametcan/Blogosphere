@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 
-                <div *ngIf="this.ID == -1" class="">
+                <div *ngIf="this.ID == -1 && (loggedInUser.userType == 'editor' || loggedInUser.userType == 'admin')">
                     <form class="row g-3">
                         <div class="col-md-12">
                           <div class="form-floating">
@@ -91,16 +91,22 @@
                         </div>
                         
                         <div class="col-md-4">
-                          <div class="form-floating mb-3">
+                          <div class="form-floating">
                             <select class="form-select" id="floatingSelect" aria-label="State">
                               <option *ngFor="let category of categoriess" value="{{category.categoryId}}">{{category.categoryTitle}}</option>
                             </select>
                             <label for="floatingSelect">Category</label>
                           </div>
                         </div>
+                        <div class="col-md-8">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" id="shortDescription" placeholder="Short Description">
+                              <label for="floatingName">Short Description</label>
+                            </div>
+                          </div>
                         <div class="text-center mb-3">
                           <button type="submit" class="btn btn-primary mx-3 text-white" (click)="clickUploadContentButton()">Submit</button>
-                          <button type="reset" class="btn btn-secondary mx-3 text-white">Reset</button>
+                          <button type="reset" class="btn btn-secondary mx-3 text-white" (click)="resetContentDetails()">Reset</button>
                         </div>
                       </form>
                 </div>
