@@ -2,7 +2,8 @@
     <section>
         <div style="background-color: #E3E3E3; margin-top: 60px;">
             <div class="container">
-                <div class="row align-items-top justify-content-center">
+                <div *ngIf="this.ID != -1" class="row align-items-top justify-content-center">
+                    <!--Content Detail Part-->
                     <div class="card align-items-center col-md-9">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{content.title}}</h5>
@@ -11,7 +12,6 @@
                         <p class="card-text">{{content.content1}}</p>
                     </div>
 
-                    
                     <!-- LIKE PART!!! -->
                     <div class="like-card d-flex justify-content-end border border-dark rounded col-md-9 bg-white">
                         <link rel="stylesheet"
@@ -36,8 +36,6 @@
                         </button>
                         <button *ngIf="userType=='admin'" id="block-btn" class="btn btn-lg"><i class="fa fa-ban fa-lg" aria-hidden="true" (click)="clickBlockContent()" onclick=""></i></button>
                     </div> <!--Ending LIKE PART!!! -->
-
-
 
                     <div class="container mt-5 mb-5"> <!-- Comment Part!!!-->
                         <div class="d-flex justify-content-center row">
@@ -70,8 +68,42 @@
                         </div>
                     </div>
                 </div>
-
-
+                
+                <div *ngIf="this.ID == -1" class="">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                          <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                            <label for="floatingName">Title</label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Upload Image</label>
+                            <div class="col-sm-10">
+                              <input class="form-control" type="file" id="formFile" accept=".jpg">
+                            </div>
+                          </div>
+                        <div class="col-12">
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 300px;"></textarea>
+                            <label for="floatingTextarea">Content Detail</label>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="State">
+                              <option *ngFor="let category of categoriess" value="{{category.categoryId}}">{{category.categoryTitle}}</option>
+                            </select>
+                            <label for="floatingSelect">Category</label>
+                          </div>
+                        </div>
+                        <div class="text-center mb-3">
+                          <button type="submit" class="btn btn-primary mx-3 text-white" (click)="clickUploadContentButton()">Submit</button>
+                          <button type="reset" class="btn btn-secondary mx-3 text-white">Reset</button>
+                        </div>
+                      </form>
+                </div>
 
             </div>
         </div>

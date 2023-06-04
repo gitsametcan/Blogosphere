@@ -39,6 +39,14 @@ interface Comment {
       }
 }
 
+interface Category{
+  categoryId: 0,
+  categoryTitle: string,
+  categoryDescription: string,
+}
+
+
+
 @Component({
   selector: 'app-content-details',
   templateUrl: './content-details.component.html',
@@ -80,12 +88,35 @@ export class ContentDetailsComponent implements OnInit {
       }
   };
 
+  categoryObj: Category = {
+    categoryId: 0,
+    categoryTitle: '',
+    categoryDescription: '',
+  };
+
+  categoriess: Category[] = [];
+  
+  getCategories():void {
+    this.requestService.sendRequest('api/Categorys/GetAll','GET')
+      .then(response => {
+        this.categoriess = response.data;
+      })
+      .catch(err => {
+        console.error("Error: " + err);
+      })
+  }
+
   comments: Comment[] = [];
 
   content!: ContentDetail;
 
   loggedInUser: any;
   createdComment: any;
+
+  contentTitle: any;
+  contentBody: any;
+  selectedCategory: any;
+  uploadedImage: any;
 
   ID=this.route.snapshot.params['id'];
   getContentsByID(): void {
@@ -442,8 +473,43 @@ checkBlockContent():void{
 
 }
 
+uploadContent(): void{
+ 
+  this.requestService.sendRequest('api/Contents/NewContent', 'POST', {
+    "contentId": 0,
+    "title": this.contentTitle.value,
+    "publishDate": "2023-06-04T13:30:31.443Z",
+    "content1": this.contentBody.value,
+    "shortDescription": "",
+    "imagePath": `api/Images/GetImage/${this.uploadedImage.value}`,
+    "authorId": this.loggedInUser.userId,
+    "categoryId": this.selectedCategory.value,
+    "visibility": 1
+  })
+  .then(response => {
+    console.log(response.message);
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
+
+clickUploadContentButton(){
+  this.contentTitle = document.getElementById('floatingName');
+  this.contentBody = document.getElementById('floatingTextarea');
+  this.selectedCategory = document.getElementById('floatingSelect');
+  this.uploadedImage = document.getElementById('formFile');
+
+  console.log('Title: ' + this.contentTitle.value);
+  console.log('Body: ' + this.contentBody.value);
+  console.log('Category: ' + this.selectedCategory.value);
+  console.log('Image: ' + this.uploadedImage.value);
+  
+  //this.uploadContent();
+}
+
   ngOnInit(): void {
-    
+    this.getCategories();
     this.getContentsByID();
     this.getCommentsByContentID()
     const sessionKey = this.cookieService.get('sessionKey'); // Replace with your session key retrieval logic
