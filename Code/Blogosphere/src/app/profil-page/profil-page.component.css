@@ -1264,6 +1264,7 @@
 
   .nav-hover:hover{
     background-color: #218920;
+    cursor:pointer;
   }
 
   .a-hover{

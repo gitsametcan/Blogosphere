@@ -68,6 +68,7 @@ export class TopBarComponent implements OnInit {
 
 
   ngOnInit(): void { 
+    console.log(this.loggedInUser)
       this.getCategories();
       const sessionKey = this.cookieService.get('sessionKey');    
       this.loggedInUser = this.retrieveUsername(sessionKey);
@@ -86,7 +87,7 @@ export class TopBarComponent implements OnInit {
           if (response.success && response.data) {
             // Save the user information in the shared service
             this.userService.setLoggedInUser(response.data);
-            this.loggedInUser = response.data.userName;
+            this.loggedInUser = response.data;
             this.userId = response.data.userId;
             this.shared.setLogUserId(response.data.userId);
             this.shared.setCurrentUserType(response.data.userType);

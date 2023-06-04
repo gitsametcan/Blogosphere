@@ -35,9 +35,13 @@
     <li *ngIf="loggedInUser">
       <a routerLink="/profil/{{userId}}" class="mr-60 username">
         <img src="../../assets/img/user.png" alt="" class="profile-img">
-        <span class="username">{{ loggedInUser }}</span>
+        <span class="username">{{ loggedInUser.userName }}</span>
       </a>
-      <ul>
+      <ul *ngIf="loggedInUser.userType=='editor'" class="editor-profile">
+        <li><a routerLink="" (click)="logout()">Sign Out</a></li>
+        <li><a routerLink="/content-details/-1" >New Content</a></li>
+      </ul>
+      <ul *ngIf="loggedInUser.userType!='editor'">
         <li><a routerLink="" (click)="logout()">Sign Out</a></li>
       </ul>
     </li>
