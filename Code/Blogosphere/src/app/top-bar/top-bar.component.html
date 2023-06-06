@@ -18,7 +18,7 @@
     <li><button class="button-trends" (click)="listTrends()" (click)='selectWhichTypeHasPriority("Trends")'><a href="">Trends</a></button></li>
     <li>
       <a>Categories <img src="../../assets/img/down-arrow.png" alt="" class="dropdown-img"></a>
-      <ul class="dropdown">
+      <ul class="dropdown" style="border-bottom: 0.2em solid white; border-left: 0.2em solid white; border-right: 0.2em solid white;">
         <div *ngFor="let item of categoriess">
           <li><button class="button-top-bar" (click)='changeCategory(item.categoryId)' (click)='selectWhichTypeHasPriority(item.categoryId.toString())'><a href="">{{item.categoryTitle}}</a> </button></li>
         </div>
@@ -37,17 +37,17 @@
         <img src="../../assets/img/user.png" alt="" class="profile-img">
         <span class="username">{{ loggedInUser.userName }}</span>
       </a>
-      <ul *ngIf="loggedInUser.userType=='editor'" class="editor-profile">
+      <ul *ngIf="loggedInUser.userType=='editor'" class="editor-profile" style="border-bottom: 0.2em solid white; border-left: 0.2em solid white; border-right: 0.2em solid white;">
         <li><a routerLink="" (click)="logout()">Sign Out</a></li>
         <li><a routerLink="/content-details/-1" >New Content</a></li>
       </ul>
-      <ul *ngIf="loggedInUser.userType!='editor'">
+      <ul *ngIf="loggedInUser.userType!='editor'" style="border-bottom: 0.2em solid white; border-left: 0.2em solid white; border-right: 0.2em solid white;">
         <li><a routerLink="" (click)="logout()">Sign Out</a></li>
       </ul>
     </li>
     <li *ngIf="!loggedInUser">
       <a routerLink="/login">Sign In</a>
-      <ul>
+      <ul style="border-bottom: 0.2em solid white; border-left: 0.2em solid white; border-right: 0.2em solid white;">
         <li><a routerLink="/register">Sign Up</a></li>
       </ul>
     </li>
