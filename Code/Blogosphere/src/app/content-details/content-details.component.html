@@ -1,15 +1,16 @@
 <main>
     <section>
-        <div style="background-color: #E3E3E3; margin-top: 60px;">
+        <div class="all-div-style-mark">
             <div class="container">
                 <div *ngIf="this.ID != -1" class="row align-items-top justify-content-center">
                     <!--Content Detail Part-->
                     <div class="card align-items-center col-md-9">
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{content.title}}</h5>
+                            <h2 class="card-title text-center title-content">{{content.title}}</h2>
+                            <h5 class="card-title text-center sub-title-content">{{content.shortDescription}}</h5>
                         </div>
-                        <img id="content-detail-img" src="" class="card-img-bottom content-img w-75" alt="...">
-                        <p class="card-text">{{content.content1}}</p>
+                        <img id="content-detail-img" src="" class="card-img-bottom content-img w-75 image-corner-rad" alt="...">
+                        <p class="card-text article-props">{{content.content1}}</p>
                     </div>
 
                     <!-- LIKE PART!!! -->

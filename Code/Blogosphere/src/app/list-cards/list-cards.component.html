@@ -1,6 +1,6 @@
 <main>
   <section>
-    <div class="cards-container" style="background-color: #E3E3E3;">
+    <div class="cards-container all-div-style-mark">
       <div class="container">
         <div class="row">
           <div class="col-md-4" *ngFor="let item of contents;">
@@ -21,7 +21,7 @@
                   <button
                   *ngFor="let item of pageNumbers"
                   (click)="changePage(item)"
-                  class="btn btn-outline-primary"
+                  class="btn btn-warning active"
                   [class.active]="item==selectedPage">
                   {{item}}
                   </button>

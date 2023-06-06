@@ -7,6 +7,13 @@
   background-color:#D6D6D6;
 }
 
+.all-div-style-mark {
+  background-image: url("../../assets/img/s.jpg");
+  background-attachment: fixed;
+  /*background-color: #E3E3E3; */
+  margin-top: 60px;
+}
+
 .card{
   height: 90%;
   padding: 30px;

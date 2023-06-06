@@ -6,6 +6,11 @@
   margin-top: 60px;
   }
 
+.all-div-style-mark {
+    background-image: url("../../assets/img/s.jpg");
+    background-attachment: fixed;
+}
+
   
 :root {
     scroll-behavior: smooth;
@@ -42,7 +47,7 @@
   #main {
     margin-top: 60px;
     padding: 20px 30px;
-    transition: all 0.3s;
+    transition: all 0.5s;
   }
   
   @media (max-width: 1199px) {
@@ -79,7 +84,7 @@
     width: 40px;
     height: 40px;
     border-radius: 4px;
-    transition: all 0.4s;
+    transition: all 0.5s;
   }
   
   .back-to-top i {
@@ -139,7 +144,7 @@
   .dropdown-menu .dropdown-item {
     font-size: 14px;
     padding: 10px 15px;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .dropdown-menu .dropdown-item i {
@@ -328,7 +333,7 @@
   
   .breadcrumb a {
     color: #899bbd;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .breadcrumb a:hover {
@@ -347,9 +352,11 @@
   /* Bordered Tabs */
   .nav-tabs-bordered {
     border-bottom: 2px solid #ebeef4;
+    
   }
   
   .nav-tabs-bordered .nav-link {
+    
     margin-bottom: -2px;
     border: none;
     color: #2c384e;
@@ -424,7 +431,7 @@
       box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
       background: white;
       z-index: 9999;
-      transition: 0.3s;
+      transition: 0.5s;
       visibility: hidden;
       opacity: 0;
     }
@@ -447,7 +454,7 @@
     border: 1px solid rgba(1, 41, 112, 0.2);
     padding: 7px 38px 7px 8px;
     border-radius: 3px;
-    transition: 0.3s;
+    transition: 0.5s;
     width: 100%;
   }
   
@@ -517,7 +524,7 @@
     display: flex;
     align-items: center;
     padding: 15px 10px;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .header-nav .notifications .notification-item i {
@@ -547,7 +554,7 @@
   
   .header-nav .messages .message-item {
     padding: 15px 10px;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .header-nav .messages .message-item a {
@@ -596,7 +603,7 @@
   .header-nav .profile .dropdown-item {
     font-size: 14px;
     padding: 10px 15px;
-    transition: 0.3s;
+    transition: 0.5s;
   }
   
   .header-nav .profile .dropdown-item i {
@@ -619,7 +626,7 @@
     bottom: 0;
     width: 300px;
     z-index: 996;
-    transition: all 0.3s;
+    transition: all 0.5s;
     padding: 20px;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -683,7 +690,8 @@
   }
   
   .sidebar-nav .nav-item {
-    margin-bottom: 5px;
+    border-radius: 10%;
+    margin-bottom: 1%;
   }
   
   .sidebar-nav .nav-heading {
@@ -700,7 +708,7 @@
     font-size: 15px;
     font-weight: 600;
     color: #4154f1;
-    transition: 0.3;
+    transition: 0.5;
     background: #f6f9ff;
     padding: 10px 15px;
     border-radius: 4px;
@@ -751,7 +759,7 @@
     font-size: 14px;
     font-weight: 600;
     color: #012970;
-    transition: 0.3;
+    transition: 0.5s;
     padding: 10px 0 10px 40px;
     transition: 0.3s;
   }
@@ -1263,15 +1271,19 @@
   }
 
   .nav-hover:hover{
+    border-radius: 0.5em;
     background-color: #218920;
     cursor:pointer;
+    transition: all 0.5s;
   }
 
   .a-hover{
+    border-radius: 0.5em;
     color: black;
   }
 
   .a-hover:hover{
+    border-radius: 0.5em;
     color: white;
     transition: all 0.3s;
   }

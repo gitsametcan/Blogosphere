@@ -17,19 +17,28 @@
 
  .like-card{
   padding: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 1%;
+  margin-right: 1%;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
+  height: 3.6em;
   float: left;
 } 
 
+.all-div-style-mark {
+  background-image: url("../../assets/img/s.jpg");
+  background-attachment: fixed;
+  /*background-color: #E3E3E3; */
+  margin-top: 60px;
+}
 
-
+.image-corner-rad {
+  border-radius: 1em;
+}
 
 body {
+
   background-color: #eee;
-  
 }
 
 .bdge {
@@ -52,7 +61,6 @@ cursor: pointer;
 height: 7px;
 width: 7px;
 margin-top: 3px;
-background-color: #bbb;
 border-radius: 50%;
 display: inline-block;
 }
@@ -66,6 +74,29 @@ button{
   outline: 0;
   color: #AAAAAA;
 
+}
+
+.sub-title-content {
+  color: #999;
+  font-family: "Gill Sans", sans-serif;
+  margin-bottom: 2%;
+}
+
+.title-content {
+  margin-top: 2%;
+  margin-bottom: 1%;
+  color: #151515;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.article-props {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 1em;
+  line-height: 1.7em;
+  white-space: pre-line;
 }
 
 .btn:focus {

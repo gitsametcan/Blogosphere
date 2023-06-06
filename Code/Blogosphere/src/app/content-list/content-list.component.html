@@ -16,7 +16,7 @@
           <button
           *ngFor="let item of pageNumbers"
           (click)="changePage(item)"
-          class="btn btn-outline-success"
+          class="btn btn-outline-success" aria-pressed="true"
           [class.active]="item==selectedPage">
           {{item}}
           </button>
