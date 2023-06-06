@@ -59,9 +59,9 @@
                                     <div class="commented-section mt-2">
                                         <div class="d-flex flex-row align-items-center commented-user">
                                             <h5 class="mr-2">{{item.user.userName}}</h5><span class="dot mb-1"></span><span
-                                                class="mb-1 ml-2">{{item.comment.publishDate}}</span>
+                                                class="mb-1 ml-2" style="margin-right: 0px;margin-left: auto;">{{item.comment.publishDate.replaceAll("T"," ").replaceAll("-", "/").slice(0, -4)}}</span>
                                         </div>
-                                        <div class="comment-text-sm"><span>{{item.comment.commentContent}}</span></div>
+                                        <div class="comment-text-sm" style="border-bottom: 0.1em solid rgb(200, 200, 200); padding-bottom: 2.1em;"><span>{{item.comment.commentContent}}</span></div>
                                     </div><br>
                                 </div>
                                 </div> <!-- Comment Part!!!   End-->
