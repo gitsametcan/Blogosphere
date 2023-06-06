@@ -1,24 +1,414 @@
-insert into Categories values('Nesli Tükenen Hayvanlar', 'Nesli tükenen hayvanlar konulu yazılar.')
-insert into Categories values('Küresel Isınma', 'Küresel ısınma konulu yazılar.')
-insert into Categories values('Bodur Bitkiler', 'Bodur bitkiler konulu yazılar.')
-insert into Categories values('Sağlıklı Beslenme', 'Nasıl sağlıklı beslenirim konulu yazılar.')
+insert into Categories values('Gardening', 'Topics about gardening.')
+insert into Categories values('Animals', 'Topics about animals.')
+insert into Categories values('Foods', 'Topics about foods.')
+insert into Categories values('Cities', 'Topics about citites.')
+insert into Categories values('Plants', 'Topics about plants.')
+insert into Categories values('Sky', 'Topics about sky.')
+insert into Categories values('Pollution', 'Topics about pollution.')
+go
+insert into Users values('admin', 'admin@admin.com', 'kkistifaet', 0, 'admin')
+insert into Users values('editor', 'editor@editor.com', 'editoristifa', 0, 'editor')
+insert into Users values('user3', 'email3@mail.com', 'sifresifresifre', 0, 'member')
+insert into Users values('user4', 'email4@mail.com', 'sifresifresifre', 0, 'member')
+insert into Users values('user5', 'email5@mail.com', 'sifresifresifre', 0, 'member')
+insert into Users values('user6', 'email6@mail.com', 'sifresifresifre', 0, 'member')
 go
 
-insert into Users values('user1', 'email1@mail.com', 'sifresifresifre', 0, 'member')
-insert into Users values('user2', 'email2@mail.com', 'sifresifresifre', 0, 'member')
-go
+----------------------------
 
-insert into Contents values('Pandalar ölüyor mu?', SYSUTCDATETIME(), 'Evet, her canlı gibi onlar da ölüyor!', 'Evet...','api/Images/GetImage/panda.jpg', 1, 1, 1)
-insert into Contents values('Ortalama sıcaklıklar son 10 yılda 1 derece arttı!', SYSUTCDATETIME(), 'Evet, doğru duydunuz! tam 1 derece!', 'Evet, doğru duydunuz!..','api/Images/GetImage/gunes.jpg', 2, 2, 1)
-insert into Contents values('Havucun muhtemelen bilmediğiniz 2 faydası!!', SYSUTCDATETIME(), 'Tupturuncu bir havuç çok lezzetlidir ve kök halinde toprağın altında yetişir.','Tupturuncu bir havuç...' ,'api/Images/GetImage/havuc.jpg', 1, 4, 1)
-go
+insert into Contents values('Thinking About a Holistic Approach in Garden Design', SYSUTCDATETIME(), 'In permaculture garden design, we often talk about the importance of taking a holistic approach. But if you are unfamiliar with this phrase, then you may question what exactly it means. ' + CHAR(13)+CHAR(10) + '
+Even if you are well aware of the definition, you may still question how to implement this idea in your garden design and not really see clearly the reasons why taking this sort of approach is the best idea. ' + CHAR(13)+CHAR(10) + '
 
-insert into Likes values(1, 1, 0, SYSUTCDATETIME())
-insert into Likes values(1, 3, 0, SYSUTCDATETIME())
-insert into Likes values(2, 3, 0, SYSUTCDATETIME())
-go
+So I thought it might be helpful to delve into the topic and talk about the various elements of a holistic approach. ' + CHAR(13)+CHAR(10) + '
 
-insert into Comments values(1, 1, 'PANDALAR ÖLMESİN!', SYSUTCDATETIME())
-insert into Comments values(2, 2, 'NASIL OLUR?? DAHA DÜN DÜŞÜYOR DİYORDUNUZ!!!', SYSUTCDATETIME())
-insert into Comments values(2, 3, 'OLAMAZ MAVİ DEĞİLMİŞ!', SYSUTCDATETIME())
+What is Meant By a "Holistic Approach"?' + CHAR(13)+CHAR(10) + '
+When we talk about taking a holistic approach, we are talking primarily about "complete system thinking." About thinking in a joined-up manner about the ways in which we design our gardens or other spaces and bring people, ideas, and the plants that we grow together rather than keeping them apart.' + CHAR(13)+CHAR(10) + '
+
+By looking at complete system thinking, joined-up thinking, and integrating, not segregating, we can begin to build up a picture of why a holistic approach is such an important part of successful garden design. ' + CHAR(13)+CHAR(10) + '
+
+Complete System Thinking ' + CHAR(13)+CHAR(10) + '
+Looking at the whole wood is important—a concept you may recognize from the famous adage of not seeing the wood for the trees. When we do not look at the big picture first, then we cannot hope to get things right when it comes to the details. ' + CHAR(13)+CHAR(10) + '
+
+In gardens, and other natural systems, or ecosystems, thinking about whole systems rather than zoning in too prematurely on the details can be especially important. ' + CHAR(13)+CHAR(10) + '
+
+It is almost a cliché to talk about how everything is connected, but it is important to recognize not only individual plants and animals but also the connections between them. If we fail to do so, then we miss a huge part of the picture and will quite simply not be as successful in our growing efforts. ' + CHAR(13)+CHAR(10) + '
+
+This type of system, or ecosystem, thinking helps us to avoid common pitfalls and to work through many potential problems in a garden before they even arise. ' + CHAR(13)+CHAR(10) + '
+
+Joined-Up Thinking' + CHAR(13)+CHAR(10) + '
+Complete system or ecosystem thinking is not quite the same as, but certainly related to, joined-up thinking. Joined-up thinking is another element that goes into the meaning of taking a holistic approach. ' + CHAR(13)+CHAR(10) + '
+
+As with complete system thinking, joined-up thinking means looking at the garden, and its system or systems, as a whole. ' + CHAR(13)+CHAR(10) + '
+
+But rather than looking at the different elements within the system and how they are connected, joined-up thinking is about thinking through how we might respond to the strengths, weaknesses, opportunities, and challenges that a space might generate for us. And how we might link together the information we have pieced together about the site with the correct procedures, practices, and other choices we make. ' + CHAR(13)+CHAR(10) + '
+
+Thinking about a design big-picture, recognizing the importance of looking at ecosystems and other systems rather than just plants is not enough. A holistic approach is also about making sure that our thoughts and ideas for the space are as well-integrated and connected as any plant or animal within a functioning ecosystem. Integration, Not Segregation
+In any design, we always have to recognize that each plant, animal, or other element is not only to be viewed in isolation but is also part of the whole. Bringing elements together with one another can also, it must be remembered, bring about something that is far greater than merely the sum of its parts.' + CHAR(13)+CHAR(10) + ' 
+
+By integrating rather than segregating elements in a garden (a concept that also links back into holistic design), we can gain from their interaction and relationships and benefit from the combination in ways that we would not necessarily have gained from the elements in isolation. ' + CHAR(13)+CHAR(10) + '
+
+Unless we have taken a holistic approach and looked at everything from a higher vantage point, as it were, we cannot hope to integrate the different elements correctly nor understand the connections that might be made between different plants or features that we decide to place in our gardens. ' + CHAR(13)+CHAR(10) + '
+
+Whether or not you struggle with a holistic approach to garden design may depend on whether you are a big-picture or detail-orientated person. Of course, some of us may be a combination of both. Whichever you are, it is important to begin with a high-up overview before you begin to hone in on the details. ', 'If we fail to think holistically, we miss a huge part of the picture and will not be as successful in our growing efforts.','api/Images/GetImage/holistic-approach.jpg', 2, 1, 1)
+
+------------------------------------------------------
+
+insert into Contents values('6 Essential, Sustainable Shortcuts in the Kitchen', SYSUTCDATETIME(), 'In my days of homemade butter and baking bread from scratch (read: before children), I bristled at the memory of my generations regular subjection to last centurys number-one secret ingredient (canned cream of mushroom soup) and the regular reliance on frozen vegetables. Two kids and a full-time job later, I’m thinking, wow, a can of soup fixes everything, and by the way, where can I fit in another freezer around here?' + CHAR(13)+CHAR(10) + '
+Sustainability influencers often tout their cooked-from-scratch creations—but lets be honest, its not practical for everyone. Yes, cooking from scratch gives you control over the ingredients and allows you to opt for, say, organic or non-GMO products if you desire. Cooking from scratch often allows for more locally produced foods and way less packaging. It also gives you control over how you employ your food waste—you can be sure it gets used up or composted, which is more than can be said for many large food manufacturers.' + CHAR(13)+CHAR(10) + '
+
+But, it can take time—a valuable asset that not everyone can spare. Fortunately, you need not surrender to processed convenience foods to save time and money in the kitchen. Even if spending time in the kitchen is one of your favorite pastimes, spending less of it on mundane chores will leave you more time for the pleasurable tasks at hand, like eating and drinking.
+Here are six places to start:' + CHAR(13)+CHAR(10) + '
+
+1. Master Some Signature Sauces' + CHAR(13)+CHAR(10) + '
+In The Art of Simple Food, Alice Waters recommends four essential sauces that you can practically make in your sleep: vinaigrette, salsa verde, aioli, and herb butter. I couldn’t agree more. Having a stash of sauces and condiments at your beck and call can whittle kitchen time by allowing you to deftly dress up simple preparations, and homemade sauces are free of ingredients that require a science degree to understand. There is no small joy in whipping up a sauce without the mess and headache that comes with holding the cookbook open with one while trying to measure and stir with the other.' + CHAR(13)+CHAR(10) + '
+Try one of Waters’ sauces, or learn a pesto by heart. Pesto is versatile way beyond pasta; it can be used on vegetables, sandwiches, soups, dips, spreads, marinades, eggs, you name it. And once you master pesto, you can play around with other herbs, nuts, and flavors in the mix as well; my go-to pesto is always spiked with jalapeno. ' + CHAR(13)+CHAR(10) + '
+
+Quick and Simple Pesto: Place 2 large cloves of garlic in the bottom of a blender or food processor. Add 3 cups very firmly packed fresh basil leaves, 2 tablespoons grated Parmesan cheese, and 1 cup olive oil. Process for 10 seconds. Add 1⁄2 cup pine nuts, briefly process, and season to taste with salt and pepper. [Note: Pine nuts are currently exorbitant in price; almonds and cashews are great replacements, as are most nuts.] ' + CHAR(13)+CHAR(10) + '
+
+2. Make the Freezer Your Friend' + CHAR(13)+CHAR(10) + '
+Frozen food has gotten a bum rap, but all frozen food need not be equated only with TV Dinners and petrified pizza. I know many a chef who secretly (and not so secretly) swear by frozen peas over fresh ones. I have found the freezer to be an invaluable tool in preserving local produce because me and canning, sadly, dont get along very well.
+The freezing process itself does not destroy nutrients, and although the texture of some items, like berries, might not translate exactly the same after thawing, the flavor alone of farm-stand strawberries in the middle of winter is a thing of sheer beauty. By preserving local products, you cut down on imported produce off-season, which means cutting down on your food miles and skipping the extra cost of imported produce. And it means having food prepped and ready to go when you need it.' + CHAR(13)+CHAR(10) + '
+
+3. Quicken Kitchen Clean Up' + CHAR(13)+CHAR(10) + '
+I am engulfed by a recurring fantasy after each and every dinner party; it involves not a romance-novel heartthrob, but throwing every last plate, pan, and spoon in the trash; just tossing the whole shebang. Instead, alas, it’s a more prudent plan to keep “clean” in mind when cooking. Clean as you go, even if that just means scraping and putting dirty items neatly in the sink (bonus points for getting them in the dishwasher). Also, look at your gameplan and figure out which pans, pots, and bowls you can use more than once without cleaning in-between (use the scrambled egg bowl for pancake batter; steam broccoli in the pasta pot, etc.) to reduce items requiring cleaning.' + CHAR(13)+CHAR(10) + '
+In terms of dishwashing, save time and water by skipping the rinse; simply scrape instead. Most people pre-rinse dishes before loading them into the dishwasher, yet modern dishwashers—certainly those purchased within the last 5 to 10 years—do a superb job of cleaning even heavily soiled dishes. Many manufacturers, in fact, recommend not rinsing. (This, I know, is a contentious topic! Let your machines owners manual be the final judge—all of mine have instructed to simply scrape.)' + CHAR(13)+CHAR(10) + '
+Also to save time and water, wash only full loads. The dishwasher uses the same amount of water whether it’s half-full or completely full. Putting dishes in the dishwasher throughout the day and running it once in the evening will use less water and energy than washing dishes by hand throughout the day.' + CHAR(13)+CHAR(10) + '
+
+4. Pre-Prep Your Produce' + CHAR(13)+CHAR(10) + '
+After a big grocery or farmers market shop, wash and prepare all of your produce in one fell swoop. This sets you up for the week and means you only have one round of veggie-prepping clean-up rather than a bout after each meal–while saving you money on pre-packaged produce.' + CHAR(13)+CHAR(10) + '
+For leafy greens, rinse very well and dry in a salad spinner. I wrap them in a tea towel and store them in the crisper drawer. Cut produce in the way in which you are most likely to use it: dice carrots, make celery sticks, slice cucumbers, cut broccoli into florets—whatever will work for you.' + CHAR(13)+CHAR(10) + '
+In terms of peeling, if you buy organic produce you don’t need to remove the peel from thin-skinned fruits and vegetables. Pass the peeling on apples, tomatoes, eggplant, pears, potatoes, cucumbers, and most fruits and vegetables where the skin is thin or edible. Much of the insoluble fiber and many of the antioxidants and vitamins are located in the skin.
+If you have small children, prepare some of the produce with the aim of freezing it to use as a "cool-down tool." Freeze rinsed blueberries, sliced bananas, or diced strawberries to add to piping hot oatmeal–they defrost and quickly bring the oatmeal to eating temperature. The same thing can be done to peas and other vegetables to be added to pasta, soups, etc.' + CHAR(13)+CHAR(10) + '
+
+5. Become a Mix Master, Make Your Own Baking Mixes' + CHAR(13)+CHAR(10) + '
+Unbeknown to many, there is a happy place located somewhere between the box of Bisquick and the chaos of a baking mess. Welcome to the homemade mix. There are a number of pancake/muffin/waffle mix recipes floating around the Internet, but this “Fauxquick” one is great because you can use it for any Bisquick recipe.' + CHAR(13)+CHAR(10) + '
+6 cups all-purpose flour (swap out any portion of this for whole wheat flour)' + CHAR(13)+CHAR(10) + '
+3 Tbsp baking powder' + CHAR(13)+CHAR(10) + '
+1 Tbsp baking soda' + CHAR(13)+CHAR(10) + '
+3 Tbsp sugar' + CHAR(13)+CHAR(10) + '
+1 Tbsp salt' + CHAR(13)+CHAR(10) + '
+1 cup vegetable shortening (opt for one that is free of hydrogenated oils and has no trans-fats)' + CHAR(13)+CHAR(10) + '
+Sift everything except shortening into a mixing bowl. Add shortening and mix with a hand mixer until the mixture is fine and free of lumps. Store in an airtight container in your refrigerator for up to two months.' + CHAR(13)+CHAR(10) + '
+
+6. Tout Your Tools ' + CHAR(13)+CHAR(10) + '
+I’ve never been much of an Inspector Gadget in the kitchen, but there are a handful of tools that I live and die by–they end up saving a surprising amount of time and a load of agita. I know a lot of people can get by with a good knife and cutting board, but these durable and versatile tools get my vote.' + CHAR(13)+CHAR(10) + '
+Tongs. A simple pair of kitchen tongs can become an extension of your hand, like very fragile fingers that can take extreme heat. I feel like Edward Scissorhands with mine. Use your tongs for everything from getting pizza out of the oven, to tossing salad, roasting peppers on the burner, stirring pasta, or whatever you don’t want to do with your fingers.' + CHAR(13)+CHAR(10) + '
+A good garlic press. If you use a lot of garlic and don’t have a good garlic press? Poor you! You don’t know how badly you need one. I seldom recommend specific brands, but she’s a beaut: the Rosle Garlic Press. This high-tech stainless-steel presses unpeeled cloves into smithereens, and unlike other presses, it doesn’t leave any garlic left in the press, just the skin that you didn’t have to peel! (Also washes wonderfully clean in the dishwasher.)' + CHAR(13)+CHAR(10) + '
+A good vegetable peeler. I know I said to skip peeling most of your produce, but there will be times you want to peel, and a bad vegetable peeler is an exercise in futility and frustration. A good vegetable peeler is a dream.' + CHAR(13)+CHAR(10) + '
+Ceramic ginger grater. This very low-tech tool is one of my all-time favorites. It’s a little bumpy slip of porcelain, and it pretty much performs miracles. No more peeling and fine-dicing ginger. Just rub it, unpeeled, on this grater, and voila, an easy perfect mound of chunky ginger puree. I have also adopted it for grating nutmeg and recently found that it can stand in as a citrus zester.' + CHAR(13)+CHAR(10) + '
+
+Box grater. I dedicated a whole story to this friend: 18 Great Uses for the Glorious Box Grater.' + CHAR(13)+CHAR(10) + '
+Rice cooker. This always seemed to me like an utterly unnecessary tool for anyone in possession of a pot and a stove. But then I was given one, and it’s been true love ever since. It is an extraordinary multitasker, it can make the best oatmeal, be used as a one-pot meal steamer; make poached fruit or applesauce; make slow-cooking soups; make stir-free risotto, and so much more. And lest we forget, it makes perfect rice.', 'Cooking from scratch is often the greenest option, but time can be an issue. These shortcuts can help.','api/Images/GetImage/sustainable-shortcuts.jpg', 2, 3, 1)
+
+------------------------------------------------
+
+insert into Contents values('How to Build Community Resilience', SYSUTCDATETIME(), 'How resilient is your community? Together, can you rise to the challenges that the future will bring? Or is there fragility within the systems that surround you that may make future challenges harder to overcome? ' + CHAR(13)+CHAR(10) + '
+
+When you think about resilience, you may well think first of all of your own personal resilience and, perhaps secondly, about household resilience. But community resilience is something that should not be overlooked. ' + CHAR(13)+CHAR(10) + '
+
+Sadly, in this day and age, communities are more fractured and disparate than they often were in the past. ' + CHAR(13)+CHAR(10) + '
+
+Neighbors often do not even know neighbors, and it is common for those who live just feet away from one another to barely recognize one another if they do at all. Many of us have better relationships with strangers online than we do with those we might pass on our street every day. ' + CHAR(13)+CHAR(10) + '
+
+Yet many of the problems that we are likely to face in the future, we and our neighbors will be facing together. It simply makes sense for us to aim for more cohesion and connection with those who live close by—to aim to make our communities more resilient in the face of the changes that may come. ' + CHAR(13)+CHAR(10) + '
+
+In my opinion, resilience in a community comes down to three core things:' + CHAR(13)+CHAR(10) + '
+
+Self-Reliance: A community is more resilient when it can meet its own basic needs closer to home.' + CHAR(13)+CHAR(10) + '
+Diversity: The more diverse a community, in a range of different ways, the more it can benefit from the strengths of the individuals within it and the more resilient it can be. 
+Connection: A community can boost its resilience by strengthening the connections between its members and by forging strong connections with neighboring communities and within the wider world. ' + CHAR(13)+CHAR(10) + '
+
+Think How Your Community Might Meet Its Basic Needs Closer to Home' + CHAR(13)+CHAR(10) + '
+Becoming less reliant on external resources allows a community to meet more of its own basic needs and boosts its resilience.' + CHAR(13)+CHAR(10) + '
+
+This not only means that financially, a community as a whole is more likely to be able to stand on its feet. It also means that a community is not reliant on the fragile systems that all too often surround us in the modern world. ' + CHAR(13)+CHAR(10) + '
+
+When a community is responsible for its own water supply, food, energy generation, and so forth, it can better withstand whatever challenges may arise in the years to come. ' + CHAR(13)+CHAR(10) + '
+
+Meeting community needs closer to home might involve communal electricity generation systems using renewable power sources.' + CHAR(13)+CHAR(10) + '
+
+It might involve growing food in community farms and gardens and empowering individual households within the community to grow their own too. ' + CHAR(13)+CHAR(10) + '
+
+It might involve safeguarding watersheds and water sources, and taking steps together to conserve water in neighborhoods. ' + CHAR(13)+CHAR(10) + '
+
+It also involves making sure that the skills and knowledge needed for this greater level of self-reliance are available within the community and are fostered in its members. ' + CHAR(13)+CHAR(10) + '
+
+Strengthen Diversity of All Kinds' + CHAR(13)+CHAR(10) + '
+Another important way that we can boost community resilience is by ensuring that we aim for as much diversity as possible—both in natural systems in the area and in human society. ' + CHAR(13)+CHAR(10) + '
+
+Diversity in both nature and society is beneficial not only for what each individual can bring to the whole but also for the fact that diversity helps to ensure that there is both built-in redundancy (multiple elements to fulfill each function) and insurance (we cannot lose entirely if we make sure we dont put all of our eggs in one basket). ' + CHAR(13)+CHAR(10) + '
+
+Diversity in natural systems and human communities increases the number of beneficial links, thereby strengthening the system as a whole. ' + CHAR(13)+CHAR(10) + '
+
+The most resilient communities are those set within functioning ecosystems, with people of all ages, genders, disparate occupations and mindsets, ethnicities, religions, sexual orientations, etc.' + CHAR(13)+CHAR(10) + '
+
+We are strongest of all when we come together because of our differences, not in spite of them, and when we can value each other even when we do not always agree. ' + CHAR(13)+CHAR(10) + '
+
+Forge New Connections' + CHAR(13)+CHAR(10) + '
+Ecosystems that are more biodiverse have more beneficial connections between species, and these connections forge stronger bonds, and make an ecosystem more likely to remain stable yet flexible and stand the test of time. ' + CHAR(13)+CHAR(10) + '
+
+The same is true of the social systems of humanity. A strong community will always be one which has forged strong connections between individuals within it, as well as with the natural world. ' + CHAR(13)+CHAR(10) + '
+
+There are plenty of ways to forge new connections in communities where these links have not existed or have been lost. It begins with simply creating forums and events where people can meet, and new connections can form.', 'More cohesion and connection with those who live close by is increasingly important, given the challenges the future may bring.','api/Images/GetImage/community-resilience.jpg', 2, 4, 1)
+
+----------------------------------------------------
+
+insert into Contents values('14 Foods to Cook in a Cast Iron Skillet', SYSUTCDATETIME(), 'Cast iron cookware has made an incredible comeback over the last few years, which is great news. With the introduction of nonstick cookware in the 1960s, many cast iron skillets got sent to live in the garage with the camping gear. But as the infatuation with nonstick cookware started to fade, people started singing the praises of cast iron once again.' + CHAR(13)+CHAR(10) + '
+
+So why do we love cast iron so much? For one thing, it skips the whole toxic-chemical-coatings business, so thats good. And unlike nonstick cookware, cast iron will live forever, which is kinder to your wallet and the planet. And, of course, theres the performance. Cast iron can go from stovetop to oven to combine searing and baking, and it is one of the best materials for maintaining high heat. Its a dream to cook with and also exceedingly versatile, as you can see in the following suggestions.' + CHAR(13)+CHAR(10) + '
+
+(A helpful reminder: Do not forget that a cast iron skillet gets very hot—keep your oven mitts handy.)' + CHAR(13)+CHAR(10) + '
+
+1. Crispy Pan Pizza' + CHAR(13)+CHAR(10) + '
+Pizza usually asks to be cooked on a stone in a high-heat oven, and getting the crust just right is an art. But I started making pizza in a cast iron pan (photo above), and theres just no going back. If you, too, want the easiest recipe that makes the worlds best pizza, read this: The Cast-Iron Pizza Recipe That Changes Everything.' + CHAR(13)+CHAR(10) + '
+
+2. Baked Pasta' + CHAR(13)+CHAR(10) + '
+"Skillet macaroni and cheese," what else needs to be said? This Epicurious recipe doesnt even require a bowl. And really, if you like crispy-edged baked pasta dishes, cooking them in a cast-iron skillet is a fun way to do it—think lasagna, baked ziti, et cetera.' + CHAR(13)+CHAR(10) + '
+
+3. Cornbread' + CHAR(13)+CHAR(10) + '
+Cornbread is a cast iron classic, there is even a whole genre of cast iron pans for baking corn-shaped cornbread sticks—thats how serious this is. And it makes perfect sense; cast iron gives cornbread the beautiful crisp edge and moist middle that makes it so delicious.' + CHAR(13)+CHAR(10) + '
+
+4. Crispy Tofu' + CHAR(13)+CHAR(10) + '
+Tofu is not foolproof; when not cooked in a way that brings out its best, it can be bland and insipid in texture. Which is where the cast iron pan comes in to play. Minimalist Baker shows the magic in the video above; you can find the recipe here: Quick and Easy Crispy Tofu.' + CHAR(13)+CHAR(10) + '
+
+5. Roasted Vegetables' + CHAR(13)+CHAR(10) + '
+We are all about the roasted vegetables over here. The heat of the oven concentrates their flavors and gives them a miraculous texture, bringing out their best selves. My secret trick is glazing them, Katherines is using a cast iron skillet:' + CHAR(13)+CHAR(10) + '
+
+Glazing roasted vegetables makes them even better' + CHAR(13)+CHAR(10) + '
+Why you should roast vegetables in a cast iron pan' + CHAR(13)+CHAR(10) + '
+
+6. Dolsot Bibimbap' + CHAR(13)+CHAR(10) + '
+The Korean rice dish dolsot bibimbap is traditionally cooked in a sizzling hot stone bowl; the result is a hot and crunchy bottom that is one of the most addictive things to have ever happened to rice. Not having a stone bowl on hand, I wondered if it could be done in a cast iron skillet, and sure enough, I came across this recipe at My Korean Kitchen. This is a wonderful dish that serves as a superb way to use up leftover rice and various vegetables you may have on hand.' + CHAR(13)+CHAR(10) + '
+
+7. Vegan Shepherds Pie' + CHAR(13)+CHAR(10) + '
+Heres a super simple recipe for vegan shepherds pie; to make something like this in a cast iron skillet, simply saute the vegetables in the skillet, then add the potatoes on top and bake.' + CHAR(13)+CHAR(10) + '
+
+8. Baked Polenta' + CHAR(13)+CHAR(10) + '
+We make this lasagna polenta pizza casserole thing (above) that we have shoehorned into the silly portmanteau of "lagritzza." It kind of merges the best worlds of skillet pizza and skillet cornbread; it has a crispy edge, but the polenta (aka grits) doesnt get dried out. I doubt theres a recipe, this came about as a way to use up leftovers, but its easy: Olive oil in the pan, cooked polenta, tomato sauce, and whatever leftovers you want to add (we used the rest of some ricotta, some dabs of pesto, and some other various bits of cheese). Bake at 350F until golden on top, around 30 minutes.' + CHAR(13)+CHAR(10) + '
+
+9. Dutch Baby Pancake' + CHAR(13)+CHAR(10) + '
+All hail the Dutch baby! This big fluffy child is easily the easiest of the pancake family to create, and the cast iron skillet makes it perfection, giving it a crisp airy shell and an almost custardy middle. For the one pictured above: Preheat oven to 425. Mix well in a blender or a bowl: three eggs with 1/2 cup of milk, 1/2 cup of flour (I mix all-purpose with white whole wheat), 1 tablespoon of maple syrup, and a pinch of nutmeg. Add four tablespoons butter to a 10-inch cast iron skillet and put it in the oven. Once the butter has melted, add the batter. Cook for 20 minutes, then turn the temperature to 300F and cook for another five minutes. Remove, garnish, devour.' + CHAR(13)+CHAR(10) + '
+
+10. Vegan Brooklyn Baby Pancake' + CHAR(13)+CHAR(10) + '
+This is my vegan Dutch baby fail that is so good I rebranded it as the Brooklyn baby. It really does not turn into a voluminous creature like its cousin does, but rather a denser crisp pastry that somehow tastes like funnel cake; true story! Preheat oven to 425. Mix well in a blender: One banana with 2/3 cup oat milk, 1/2 cup of flour, 1 tablespoon of maple syrup, 1/4 teaspoon vanilla extract, a pinch of salt, and a bit of nutmeg. Add three tablespoons of coconut oil to a 10-inch cast iron skillet and put it in the oven. Once the oil has melted, add the batter. Cook for 20 minutes, then turn the temperature to 300F and cook for another five minutes.' + CHAR(13)+CHAR(10) + '
+
+11. Fruit Desserts' + CHAR(13)+CHAR(10) + '
+The world of baked fruit desserts is a beautifully quirky place where one can find dishes such as betties, buckles, grunts, slumps, and pandowdies, in addition to better-known friends like crisps, crumbles, and cobblers. They can all be made (and made better!) in a cast iron skillet, which makes for a lovely rustic serving dish as well. See: "Crisps, Betties, Buckles, and Slumps: The Who’s Who of Fruit Desserts."' + CHAR(13)+CHAR(10) + '
+
+12. Tarte Tatin' + CHAR(13)+CHAR(10) + '
+The French apple tarte tatin is a bit more elegant than the fruit desserts previously mentioned, but it has a rustic side too. The famed caramelized, upside-down apple tart is often baked in a fancy, specialized pan—but all you need is a cast-iron skillet. The Guardian has a terrific guide to making the perfect tarte tatin, which calls for a "heavy-based ovenproof frying pan"—ding ding ding! You can see two phases of a tarte tatin above; unfortunately, the photo of the beautiful reveal—the whole point of a tarte tatin!—was eaten by my camera. But you can see plenty of beautiful examples in the Guardian story.' + CHAR(13)+CHAR(10) + '
+
+13. Skillet Brownies or Cookies' + CHAR(13)+CHAR(10) + '
+This is just a very fun way to make and serve brownies and cookies—I have taken regular cookie recipes and just spread it out in a skillet and baked as usual. The whole thing can then be taken to the table, warm from the oven.' + CHAR(13)+CHAR(10) + '
+
+14. Leftovers' + CHAR(13)+CHAR(10) + '
+There are a lot of ways to reheat leftover food, but doing so in your cast iron skillet may be amongst the most unsung of options. Katherine explains it all in This Is the Best Way to Reheat Leftovers.', 'From bibimbap and brownies to pancakes and pizza, few kitchen tools are as versatile and sustainable as cast iron cookware.','api/Images/GetImage/14-foods.jpg', 2, 3, 1)
+
+----------------------------------------------------
+
+insert into Contents values('How I Deal with ‘Bolting’ Crops in My Garden', SYSUTCDATETIME(), 'If you are unfamiliar with the term, "bolting" is the name given to the phenomenon when plants rush prematurely to flower and set seed. Bolting is, in essence, the process of plants hurrying to enter the reproductive phase of their growth. 
+In the case of certain crops in your garden, bolting can be undesirable because this brings an end to productive harvest from the plant. Oftentimes, plants flowering and going to seed early is something that we wish to avoid. ' + CHAR(13)+CHAR(10) + '
+
+However, when dealing with bolting crops in my garden, I also recognize that there are times when a plant rushing to flower and set seed early is not necessarily a bad thing. Sometimes, we can take advantage of this phenomenon and gain from it. ' + CHAR(13)+CHAR(10) + '
+
+So when I am dealing with bolting crops in my garden, the first thing that I always have to ask myself is whether or not this will be beneficial. The answer, of course, will depend on which plants we are looking at. ' + CHAR(13)+CHAR(10) + '
+
+When Bolting is Undesirable' + CHAR(13)+CHAR(10) + '
+When bolting is not something that we want, because it will lead to the end of the harvesting period, the first thing that we need to think about is why the plants bolt in the first place, and what we might do to prevent this from happening. ' + CHAR(13)+CHAR(10) + '
+
+Plants that we do not want to bolt include:' + CHAR(13)+CHAR(10) + '
+
+lettuces' + CHAR(13)+CHAR(10) + '
+spinach' + CHAR(13)+CHAR(10) + '
+various leafy herbs used for culinary purposes. ' + CHAR(13)+CHAR(10) + '
+Bolting generally occurs in the first place due to a sudden change in the environment. Commonly, it can be caused by a sudden cold spell or sudden high temperatures. ' + CHAR(13)+CHAR(10) + '
+
+Changes in day length and light levels can also initiate this behavior. Likewise, when plants are under stress, due to water shortage, for example, this can also lead them to bolt prematurely. ' + CHAR(13)+CHAR(10) + '
+
+So preventing bolting can involve providing shelter and cover of some kind if a cold snap threatens and providing shade and good ventilation during the heat. Simple steps like these can help to keep these kinds of crops tasting good for longer. ' + CHAR(13)+CHAR(10) + '
+
+When we choose to sow and plant out is also important. Timing things correctly can help you to make sure that your plants will not bolt too early and deprive you of a worthwhile harvest.
+When Bolting is Less of an Issue' + CHAR(13)+CHAR(10) + '
+The truth of the matter is that with many different crops, bolting is not really an issue. While some plants like lettuce and spinach will taste more bitter after they have flowered and begun to set seed, others will taste more or less the same. ' + CHAR(13)+CHAR(10) + '
+
+Cut off the flowers when they form on bok choi, beet leaves, chard, parsley, or basil, and these plants will continue to produce leaves that taste great and which are no different from the leaves before the plant flowered. ' + CHAR(13)+CHAR(10) + '
+
+It is a good idea to cut off the flowering stems in order to focus the plant on leafy growth rather than its reproductive cycle, but if you do so, the leaves you can continue to harvest will largely be unaffected.' + CHAR(13)+CHAR(10) + ' 
+
+In the case of bok choi, like other related brassicas, the flowering stems and flowers or their buds are also edible and are great in a stir fry. ' + CHAR(13)+CHAR(10) + '
+
+Edible Flowers' + CHAR(13)+CHAR(10) + '
+You might be surprised by how many flowers are not only edible but also delicious. Beyond nasturtium blossoms and rose petals, a surprising number of blooms are a true delight to eat. Learn about which flowers are edible and best practices here: 42 Flowers You Can Eat.' + CHAR(13)+CHAR(10) + '
+
+When Bolting is Beneficial ' + CHAR(13)+CHAR(10) + '
+You might be surprised to learn that in my garden, I sometimes actively encourage some plants to bolt. This is not only not an issue, but can also be actively beneficial. ' + CHAR(13)+CHAR(10) + '
+
+First of all, sometimes bolting is a prelude to a harvest, if you are going to harvest the seed pods (as with radishes) or the seeds (as with mustards, coriander, or dill). So bolting might sometimes simply mean that you can enjoy a harvest a little earlier. ' + CHAR(13)+CHAR(10) + '
+
+However, even when we are not able to harvest after a plant bolts, sometimes it can still be beneficial to allow them to do so. ' + CHAR(13)+CHAR(10) + '
+
+For example, I often leave a brassica and allow it to flower in my garden because the flowers are a wonderful boon for pollinators and predatory insects that help keep pest numbers down. And once the plants begin to set seed, those seeds can often be a valuable food source for seed-eating birds and other wildlife that might share your garden. ' + CHAR(13)+CHAR(10) + '
+
+Learning to let nature take its course from time to time can be a good lesson to learn as an organic gardener. But of course, we want to get the balance right and make sure that, where necessary, we prevent premature bolting to make sure we still obtain a worthwhile yield.', 'Preventing bolting will extend your harvest, but there are times when early flowering and going to seed can be beneficial.','api/Images/GetImage/dealing-with-bolting.jpg', 2, 1, 1)
+
+----------------------------------------------------
+
+insert into Contents values('Do Plants Have Feelings? A Science Explainer', SYSUTCDATETIME(), 'One of the main distinctions between plants and animals is how they respond to stimuli. Humans have brains, where stimuli are understood and responses formed. “Emotional” responses are merely complex responses to complex social stimuli.' + CHAR(13)+CHAR(10) + '
+
+Plants lack a central nervous system but are still capable of processing information from external sources and responding to them. While plants dont have the same “feelings” that we do, they often remember stimuli and communicate with other plants about them.' + CHAR(13)+CHAR(10) + '
+
+Plant vs. Animal Feelings' + CHAR(13)+CHAR(10) + '
+Animals have neurons that transmit sensory feelings to a central nervous system (the brain). In humans, if your brain determines that those feelings are negative and dangerous, it sends a message back to their point of origin, causing you to react to avoid the continuation of that pain.' + CHAR(13)+CHAR(10) + '
+
+Animals like us have memories that allow us to avoid future pain. Memories of previous injuries dont trigger our bodies to produce adrenaline when the memory of that event returns.' + CHAR(13)+CHAR(10) + '
+
+Without a central nervous system, plants dont process sensations that way. But plants do react to negative or unpleasant sensations. Touch the leaves of the aptly named sensitive plant, Mimosa pudica, and it will close them. Prune a shrub, and the shrub will produce a callous around the wound, and likely stimulate new growth below the cut.' + CHAR(13)+CHAR(10) + '
+
+Plants retain memories of these events—not in a centralized brain, but distributed throughout the plant, closer to where the memory is needed. This is not merely a biophysical response to stimuli. Touch the leaves of a sensitive plant repeatedly, and the plant will no longer close its leaves. It has learned that the sensation is not a threat, and will retain that knowledge for up to 40 days.' + CHAR(13)+CHAR(10) + '
+
+Likewise, perennial flowering plants remember when to begin growing again in spring. Blooming before pollinators have re-emerged from winter will be unproductive. Blooming while its still too cold could cause injury, even death. So many plants produce proteins that allow them to remember how many days it has been since they were last exposed to the cold, and only begin growing against when they deem it safe.' + CHAR(13)+CHAR(10) + '
+
+Interspecies Communication' + CHAR(13)+CHAR(10) + '
+One of the most important and frequent inter-species relationships on Earth is the mycorrhizal association between fungi and plant roots—a relationship common to some 90% of plant species.' + CHAR(13)+CHAR(10) + '
+
+Through these networks, plants communicate with fungi and other plants, transferring nutrients and sending stress signals. Plants share important chemicals like nitrogen, carbon, and phosphorus through fungal networks. Aloe plants, tomatoes, and other plants notify each other with electrical signals as well—the plant equivalent of electronic communication—in order to induce plant growth, improve wound healing, among other reasons. This vast neural network underground puts the Internet to shame.' + CHAR(13)+CHAR(10) + '
+
+Plants also signal stress chemically through their leaves. When a herbivore nibbles on a sagebrush plant or an acacia tree, the plant emits toxins not only to ward off the nibbler but to signal to neighbor plants, who also begin emitting toxins.' + CHAR(13)+CHAR(10) + '
+
+Plants Listen to Each Other' + CHAR(13)+CHAR(10) + '
+Like many animals, some plants also communicate using sound. Sound is nothing more than vibrations in airwaves, something plant cells can evolve to produce and plant fibers to detect.' + CHAR(13)+CHAR(10) + '
+
+Recent studies of plant communication show that some plants emit high-frequency sound waves. Tomato and tobacco plants produce sounds during droughts or when their leaves are cut.' + CHAR(13)+CHAR(10) + '
+
+Plants can also be good listeners. Pea plants send their roots toward the sound of moving water—even if the sound is recorded and no water is actually present.10 And primrose flowers produce sweeter nectar when exposed to the sound (artificial or natural) of bees buzzing.' + CHAR(13)+CHAR(10) + '
+
+Life Underground' + CHAR(13)+CHAR(10) + '
+Most of a plants life is lived underground. This is where plants do their thinking, in a decentralized network of sensory and memory cells—a nervous system that might contain over a trillion cells, about the same as in a human brain.12 Sadly, humans prize plants primarily for their reproductive organs—their flowers, fruits, and seeds—rather than their thinking and feeling parts. Like us, they use both to survive.', 'Turns out they do. Now the question is, how complex?','api/Images/GetImage/plants-feelings.jpg', 2, 5, 1)
+
+----------------------------------------------------
+
+insert into Contents values('Its Time to Ban Cigarette Filters', SYSUTCDATETIME(), 'We thought plastic straws were bad? Cigarette filters would like a word. Unlike the very obvious litter impact of single-use plastic straws, shopping bags, or bottles, cigarette butts seem unassuming. How bad could they be?' + CHAR(13)+CHAR(10) + '
+
+Well, we already know from numerous studies that cigarette filters are the world’s most common form of litter. But now, a study from the University of Gothenburg adds a new level of urgency to the need to address the scourge. The researchers found that filters leaching thousands of toxic chemicals and plastic fibers into the environment further harm aquatic animals.' + CHAR(13)+CHAR(10) + '
+
+The Rise of the Filter Tip Cigarette' + CHAR(13)+CHAR(10) + '
+Prior to 1950, less than 1% percent of cigarettes were filtered. But in the early 1950s, links between smoking and cancer were established, sparking the tobacco industry to create filters to make “safer” cigarettes.1 As explained in a Surgeon Generals report published by the CDC in 2010, "the increasing lay press coverage of the potential dangers of smoking led to an explosion of filter development and marketing."' + CHAR(13)+CHAR(10) + '
+
+Vintage cigarette ads extolling the virtues of filters' + CHAR(13)+CHAR(10) + '
+Public Domain' + CHAR(13)+CHAR(10) + '
+
+In fact, in an attempt to counter the market impact of smokings health risks, the industry launched a flood of cigarette filters and no small amount of spin. Advertising spending went from $55 million in 1952 to approximately $150 million in 1959.' + CHAR(13)+CHAR(10) + '
+
+By 1960, filtered cigarettes represented 51% of the cigarette market. By 2005, they represented almost all of the market.' + CHAR(13)+CHAR(10) + '
+
+The Problems With Filters' + CHAR(13)+CHAR(10) + '
+Filters Create More Health Hazards, Not Fewer' + CHAR(13)+CHAR(10) + '
+If filters made smoking safer, that would be one thing. But they dont.' + CHAR(13)+CHAR(10) + '
+
+In the 1960s, agencies assessed tar and nicotine yields based on a uniform machine-based test method for measurement, which in the end, didnt correspond to the tar and nicotine yields that actual smokers were (and are) getting. As the Surgeon Generals report notes, the data and evidence do not demonstrate that "efforts to lower machine-measured tar and nicotine yields actually decreased the health risks of smoking, primarily because these changes did not reduce smokers’ actual exposure to tobacco toxicants." The report goes on to detail how filters make smoking even more addictive and dangerous.' + CHAR(13)+CHAR(10) + '
+
+Meanwhile, an opinion piece was written by study author Bethanie Carney Almroth, Professor of Ecotoxicology at the University of Gothenburg, and other experts. They explain that filters can splinter, causing smokers to inhale plastic fibers. (Cigarette filters are made of the plastic cellulose acetate.) The authors also corroborate that filters never made smoking safer but instead created more health hazards. "Despite these issues, the majority (>90 %) of cigarettes today are sold with a single-use plastic filter composed of a collection of cellulose acetate fibers and various additives."' + CHAR(13)+CHAR(10) + '
+
+Cigarette Butts are Everywhere' + CHAR(13)+CHAR(10) + '
+Cigarettes are one of the most commonly found litter items in public spaces and one of the most frequently found litter items at beaches worldwide. While sales of cigarettes in the United States have been declining for decades, there were still 203.7 billion cigarettes sold in 2020.4 Globally, an estimated 4.5 trillion used cigarette filters enter the environment each year.' + CHAR(13)+CHAR(10) + '
+
+The Gothenburg study discusses behavior around cigarette litter—and it helps to explain why so many people find it surprising that cigarette butts are problematic. The authors note that cigarette littering occurs more frequently compared to littering of other items. In fact, the littering rate for cigarettes is 65%, but only 17% for general litter. From the study:' + CHAR(13)+CHAR(10) + '
+
+Smokers seem to have unrealistic perception of their behaviour and its harmfulness. Although smokers think they litter one out of 10 cigarettes, littering observations revealed that smokers littered two out of three cigarettes. Most importantly, studies from the US and Germany confirmed that the majority of smokers do not know that cigarette filters are made from plastic material. This was also the case among adolescents and young adults that were considered to be part of a more eco-conscious generation.' + CHAR(13)+CHAR(10) + '
+Filters are Filled With Plastic' + CHAR(13)+CHAR(10) + '
+The authors of the opinion piece note that "each cigarette filter contains approximately 15,000 microplastic fibers and can shed these at a rate of around 100 microplastic fibers per day into water."' + CHAR(13)+CHAR(10) + '
+
+Filters are Filled With Chemicals' + CHAR(13)+CHAR(10) + '
+With so many butts strewn about, cigarette filters eventually end up in aquatic environments through wind, rain, and drainage systems or stormwater sewers. From the study:' + CHAR(13)+CHAR(10) + '
+
+Once there, cigarette filter litter can leach multiple chemicals that derive from tobacco harvesting and processing (e.g. pesticide residuals), from the filter production (e.g. titanium dioxide, triacetin), or the combustion process (e.g. metals). Smoked cigarette filters can leach polycyclic aromatic hydrocarbons (PAHs)- especially naphthalene, nicotine, ethylphenol, benzene, toluene, ethylbenzol, xylene (BTEX), and heavy metals into water. In turn, dissolved PAHs, nicotine, BTEX and heavy metals can accumulate in the tissue of aquatic biota. Overall, cigarette filter litter is classified as hazardous waste with a long-term hazardous potential, under the EU Waste Framework Directive' + CHAR(13)+CHAR(10) + '
+“The filter is full of thousands of toxic chemicals and microplastic fibres, so it’s not just any piece of plastic that’s being discarded into the environment. It’s hazardous waste,” says Almroth.' + CHAR(13)+CHAR(10) + '
+
+A Threat to Animals & Ecosystems' + CHAR(13)+CHAR(10) + '
+The Gothenburg researchers tested the effects of this toxic soup on aquatic mosquito larvae, finding that the toxins lead to a 20% higher mortality rate among mosquito larvae. (Sure, some may rejoice to hear this—but mosquitoes arent the point!) Earlier research reveals that the toxins in the filters are harmful to many other aquatic organisms.' + CHAR(13)+CHAR(10) + '
+
+"For example," write the authors, "fish can die if they are exposed to concentrations corresponding to the toxins exuded by barely two cigarette butts in one liter of water for four days." Since 2006, nearly three dozen studies have looked at the toxicity of cigarette filters in plants and animals in both aquatic and terrestrial habitats, documenting an array of lethal and harmful impacts.' + CHAR(13)+CHAR(10) + '
+“Cigarette filters are also a major source of the microplastics that find their way into our environment—something we know has a major negative impact on biological life,” says Almroth.' + CHAR(13)+CHAR(10) + '
+
+Banning Plastic Cigarette Filters' + CHAR(13)+CHAR(10) + '
+Almroth and the others are calling for a ban on cigarette filters, calling them hazardous, low-hanging fruit with no benefit to society.' + CHAR(13)+CHAR(10) + '
+
+"We stand at a crossroads where the quantity of plastics and other novel entities exceeds planetary boundaries and threatens the stability of Earth systems ... Cigarette filters are a marketing tool, not a protective health device, that pose both health and ecological concerns; thus, restricting them benefits both public and environmental health," write the authors.
+' + CHAR(13)+CHAR(10) + '
+Actress Rita Hayworth' + CHAR(13)+CHAR(10) + '
+Hey smokers, dont fret. Theres always reusable filters. Bettmann Archive / Getty Images' + CHAR(13)+CHAR(10) + '
+“[T]hey have to be taken off the market entirely,” says Almroth. “It’s not the right approach to focus on making tobacco producers pay for cleaning up the filters. The problem should be prevented in the first place, rather than cleaned up later.”' + CHAR(13)+CHAR(10) + '
+
+Given the strength of the industry and the fact that Big Tobacco would have to undo 60 years worth of marketing touting filters as a healthful add-on, one can imagine thered be much resistance. What are they going to say? "Whoops, filters were actually more harmful to smokers, and theyre wreaking toxic plastic havoc on the planet"?' + CHAR(13)+CHAR(10) + '
+
+Nonetheless, as the opinion authors say of an outright ban on cigarette filters, it would be "a relatively minor institutional change that would reduce pollution and minimize an all-too-common form of single-use plastic debris containing multiple toxic chemicals."' + CHAR(13)+CHAR(10) + '
+
+"Banning plastic filters would facilitate the transition towards more sustainable consumption," they add, "and as such, aligns with the principles of Earth stewardship as well as the broad international mandate to develop a UN Treaty to end plastic pollution."' + CHAR(13)+CHAR(10) + '
+
+ The study, "Smokers´ behaviour and the toxicity of cigarette filters to aquatic life: a multidisciplinary study," was published in the scientific journal Microplastics and Nanoplastics.', 'The worlds most common type of litter, cigarette filters leach thousands of toxic chemicals and microplastics into the environment.','api/Images/GetImage/cigarettes.jpg', 2, 7, 1)
+
+----------------------------------------------------
+
+insert into Contents values('What to See in the Night Sky for May 2023', SYSUTCDATETIME(), 'While this month’s celestial events may not be as numerous as others on the calendar, May’s promise of warm evenings and floral bouquets will nonetheless make you want to dust off that outdoor blanket, grab a sweatshirt, and look up. Wishing you clear skies! ' + CHAR(13)+CHAR(10) + '
+
+Take in the Beauty of the Full ‘Flower’ Moon (May 5) ' + CHAR(13)+CHAR(10) + '
+May’s full moon, nicknamed the "Flower Moon’’ after the copious springtime blooms, reaches its peak fullness on the evening of May 5. Other names include the “Frog Moon,” “Egg-Laying Moon,” and “Leaf Budding Moon,” with many originating from Indigenous Peoples in North America. ' + CHAR(13)+CHAR(10) + '
+
+May’s full moon will also feature a prenumbral eclipse for those in Europe, Asia, Australia, and Africa. This type of lunar eclipse occurs when the moon passes deep into the outer part of Earth’s shadow (known as the penumbra), resulting in a darker-than-usual shade of gray across the Moon’s surface. This is different from the dramatic transformation of the lunar surface that occurs during a full lunar eclipse when the moon travels through the inner part of the Earth’s shadow (known as the umbra) and turns a ruddy red. ' + CHAR(13)+CHAR(10) + '
+
+Gaze Upon a (More Brilliant) Eta-Aquariids Meteor Shower (May 6)' + CHAR(13)+CHAR(10) + '
+An illustration shows the constellation of Aquarius' + CHAR(13)+CHAR(10) + '
+Look to the eastern horizon a bit before 4 a.m. EDT on May 6 for some Eta-Aquariids.' + CHAR(13)+CHAR(10) + '
+Stellarium' + CHAR(13)+CHAR(10) + '
+
+The Eta-Aquariids, triggered by debris from Halley’s Comet entering our atmosphere, will reach their peak between May 5-6th. While this annual shower favors those living in the Southern Hemisphere, early risers in the Northern Hemisphere will still have an opportunity to see some shooting stars. ' + CHAR(13)+CHAR(10) + '
+
+Despite interference from a full moon, Space.com reports that this year’s shower could be more spectacular than usual. According to Bill Cooke, the lead for the Meteoroid Environment Office at NASAs Marshall Space Flight Center, this year’s shower originates from particles ejected from Comet Halley in 390 BC; with the potential for more than double the standard rate of 50 shooting stars per hour! ' + CHAR(13)+CHAR(10) + '
+
+This shower gets its name from the constellation Aquarius, where the meteors appear to radiate from. On the morning of May 6th, Aquarius will rise above the eastern horizon just after 3:30 a.m. EDT. According to NASA, the peak of the shower will arrive at 4 a.m., creating a small viewing window before dawn crashes the party. Should the weather not cooperate, mornings before and even after the peak should still display a decent amount of Eta-Aquariids. ' + CHAR(13)+CHAR(10) + '
+
+View a Lunar Occultation of Jupiter (May 17)' + CHAR(13)+CHAR(10) + '
+Following up on the occultation of Uranus back in January, the next planet to be concealed behind the Moon will be Jupiter on May 17th. Despite taking place after dawn for a good portion of the U.S., those on the east coast should still be able to see Jupiter as its eclipsed by a thin crescent moon around 7:45 a.m. EST. By the time it reemerges (around 8:52 a.m. EST), sunlight will spoil the finer details, but it’s likely you’ll still be able to pick out the pair with some binoculars or a small telescope. As always, be mindful of where you’re looking: Even a brief, fleeting glance at the Sun through these instruments can result in permanent blindness. ' + CHAR(13)+CHAR(10) + '
+
+If you’re in a spot where encroaching daylight is a problem, think of this year’s event as a practice run for Oct. 6, 2026. On this date, a rare occulatation of Jupiter will take place before dawn, ensuring (as long as weather doesn’t spoil the view) a dark backdrop for this spectacular event. ' + CHAR(13)+CHAR(10) + '
+
+For a full list of times for the occultation of Jupiter on May 17th from your location, jump here. ' + CHAR(13)+CHAR(10) + '
+A New Moon Welcomes Dark Skies (May 19)
+Just like last month, we’re kicking off May with a New Moon and exceptionally dark skies. For a few days leading up to and after May 1, you can train your eyes, binoculars, or telescope and be treated to pristine views of galaxies, shooting stars, and other wonders otherwise dimmed by moonlight. ' + CHAR(13)+CHAR(10) + '
+
+The Needle Galaxy (NGC 4565)' + CHAR(13)+CHAR(10) + '
+The Needle Galaxy (NGC 4565).' + CHAR(13)+CHAR(10) + '
+Ken Crawford / Wikimedia' + CHAR(13)+CHAR(10) + '
+
+Need a target? This month, we’re recommending the Needle Galaxy (NGC 4565), so-named for its narrow profile and located 40 million light years away. One of the more stunning galaxies to search for, the Needle is beloved for its luminous, round core and colorful dust lanes. Look for it through an 8-inch or larger scope by focusing on the constellation Coma Berenices.' + CHAR(13)+CHAR(10) + '
+
+
+Keep Tabs on the Northern and Southern Lights (All Month)' + CHAR(13)+CHAR(10) + '
+Solar maximum, the point when the Suns magnetic field reaches its pinnacle of strength and turbulence, resulting in heightened levels of solar activity, is expected to occur as early as next year. While increased solar activity can spell trouble for radio communications and even the power grid, it also means a greater chance of stunning aurora activity at lower latitudes around the globe. On April 23/24, a solar flare directed squarely at Earth kicked off auroras above as many as 30 states—stretching from Washington to Maine, and as far south as Kansas. ' + CHAR(13)+CHAR(10) + '
+
+In the coming months and years, as we move ever closer towards solar maximum, opportunities to catch this colorful phenomenon will hopefully increase. Knowing when, however, skies are primed for aurora activity can be challenging. If you’re into Twitter, following the account Space Weather Watch, managed by a space physicist, is one way to score alerts. If you prefer the smartphone route, the app SpaceWeatherLive offers another, with notifications and detailed reports of auroral activity at your fingertips. Happy aurora seeking! ', 'A brilliant meteor shower, eclipse of Jupiter, and dark skies welcome the return of green and warmth to the Northern Hemisphere.','api/Images/GetImage/purple-night.jpg', 2, 6, 1)
+
+----------------------------------------------------
+
+insert into Contents values('Elephants Have Lost Nearly Two-Thirds of Their Habitat Across Asia', SYSUTCDATETIME(), 'The largest living land animal in Asia, Asian elephants once roamed the grasslands and rainforests that spanned the continent. Prior to the 1700s, habitats for the now-endangered pachyderms were relatively stable. But now, a new study looking at land-use data from the years 850 to 2015 reveals a bleak situation in which the researchers estimate more than 64% of historic suitable elephant habitat across Asia has been lost.' + CHAR(13)+CHAR(10) + '
+
+"Colonial-era land-use practices in Asia, including timber extraction, farming and agriculture, cut the average habitat patch size more than 80%, from 99,000 to 16,000 square kilometers," explains the University of California at San Diego (UCSD). Noting the loss of traditional systems of land management, the university continues, "Habitats suitable for Asian elephants (Elephas maximus) across Asia have decreased by over 64%—equating to 3.3 million square kilometers [1,274,137 square miles] of land—since the year 1700."' + CHAR(13)+CHAR(10) + '
+
+Shermin de Silva, a UCSD faculty member who led the research team, and his colleagues looked at the change in the spread and fragmentation of elephant ecosystems in 13 countries between 850 and 2015 and calculated the change in suitable habitat from 1700 to 2015.' + CHAR(13)+CHAR(10) + '
+
+Their findings suggest that mainland China, India, Bangladesh, Thailand, Vietnam, and Sumatra have each lost more than half of their suitable elephant habitat range, with the greatest declines in China (around 94% of suitable habitat lost) and India (around 86% of suitable habitat lost).' + CHAR(13)+CHAR(10) + '
+
+The global space available for Asian elephant habitats has been in rapid decline since the 1700s.' + CHAR(13)+CHAR(10) + '
+The global space available for Asian elephant habitats has been in rapid decline since the 1700s.' + CHAR(13)+CHAR(10) + '
+Report co-authors' + CHAR(13)+CHAR(10) + '
+
+With the remaining elephant populations not having adequate habitat, there is increased potential for human-elephant conflict—a problem we see with wildlife across the globe.' + CHAR(13)+CHAR(10) + '
+
+“In the 1600s and 1700s there is evidence of a dramatic change in land use, not just in Asia, but globally,” said de Silva, who is also the founder of the nonprofit Trunks & Leaves. “Around the world we see a really dramatic transformation that has consequences that persist even to this day.”' + CHAR(13)+CHAR(10) + '
+
+The authors conclude that it is important to consider the history of the landscape to understand the distribution of elephants in Asia and to help develop more sustainable land-use and conservation strategies to meet the needs of both elephants and people.' + CHAR(13)+CHAR(10) + '
+
+“We used present-day locations where we know there are elephants, together with the corresponding environmental features based on the LUH data sets, to infer where similar habitats existed in the past,” said de Silva. “In order for us to build a more just and sustainable society, we have to understand the history of how we got here. This study is one step toward that understanding.”' + CHAR(13)+CHAR(10) + '
+
+The study "Land-use change is associated with multi-century loss of elephant ecosystems in Asia," was published n Scientific Reports.', 'Asian elephant habitat loss coincides with colonial-era use of land and subsequent agricultural intensification, scientists say.','api/Images/GetImage/elephants.jpg', 2, 2, 1)
 go
