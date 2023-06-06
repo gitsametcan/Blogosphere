@@ -1,0 +1,12 @@
+select
+    'Server=' + @@servername +
+    ';Database=' + db_name() +
+    case type_desc
+        when 'WINDOWS_LOGIN' 
+            then ';Trusted_Connection=true;TrustServerCertificate=True;'
+        else
+            ';user id=' + suser_name() + ';password=YourPassword' + ';TrustServerCertificate=True;'
+    end
+    as ConnectionString
+from sys.server_principals
+where name = suser_name()
