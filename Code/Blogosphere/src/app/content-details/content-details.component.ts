@@ -393,7 +393,7 @@ export class ContentDetailsComponent implements OnInit {
       .then(response => {
         console.log('like: ' + response.data);
         const likeButton = document.getElementById('green');
-        likeButton!.innerHTML = `<i class="fa fa-thumbs-up fa-lg" aria-hidden="true">` + response.data;
+        likeButton!.innerHTML = `<i class="fa fa-thumbs-up fa-lg" aria-hidden="true" style="font-family: "Gill Sans", sans-serif;"> ` + response.data;
       })
       .catch(err => {
         console.error(err);
@@ -402,7 +402,7 @@ export class ContentDetailsComponent implements OnInit {
       .then(response => {
         console.log('dislike: ' + response.data);
         const likeButton = document.getElementById('red');
-        likeButton!.innerHTML = `<i class="fa fa-thumbs-down fa-lg" aria-hidden="true">` + response.data;
+        likeButton!.innerHTML = `<i class="fa fa-thumbs-down fa-lg" aria-hidden="true" style="font-family: "Gill Sans", sans-serif;"> ` + response.data;
       })
       .catch(err => {
         console.error(err);
