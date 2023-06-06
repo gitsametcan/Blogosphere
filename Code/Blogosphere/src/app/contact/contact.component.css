@@ -3,3 +3,10 @@
     margin-bottom: 75px;
     border-radius: 25px;
 }
+
+.all-div-style-mark {
+    background-image: url("../../assets/img/s.jpg");
+    background-attachment: fixed;
+    /*background-color: #E3E3E3; */
+    margin-top: 60px;
+  }
