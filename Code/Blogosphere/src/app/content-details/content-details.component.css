@@ -34,6 +34,7 @@
 
 .image-corner-rad {
   border-radius: 1em;
+  border: 0.3em solid rgb(50,50,50);
 }
 
 body {
