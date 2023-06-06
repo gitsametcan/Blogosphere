@@ -45,7 +45,7 @@
                                     class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" style="border-top-left-radius: 1em; border-top-right-radius: 1em;">
                                     <div class="d-flex flex-column ml-3">
                                         <div class="d-flex flex-row post-title">
-                                            <h5 style="margin-top: 0.3em;">Comments &nbsp;</h5><span class="ml-2" style="margin-top: 0.4em;">({{loggedInUser.userName}})</span>
+                                            <h5 style="margin-top: 0.3em; color: rgb(70,70,70);">Comments &nbsp;</h5><span class="ml-2" style="margin-top: 0.4em;">({{loggedInUser.userName}})</span>
                                         </div>
                                     </div>
                                 </div>
@@ -58,10 +58,10 @@
                                 <div *ngFor="let item of comments">       
                                     <div class="commented-section mt-2">
                                         <div class="d-flex flex-row align-items-center commented-user">
-                                            <h5 class="mr-2">{{item.user.userName}}</h5><span class="dot mb-1"></span><span
-                                                class="mb-1 ml-2" style="margin-right: 0px;margin-left: auto;">{{item.comment.publishDate.replaceAll("T"," ").replaceAll("-", "/").slice(0, -4)}}</span>
+                                            <h5 class="mr-2" style="color: rgb(55,55,55);">{{item.user.userName}}</h5><span class="dot mb-1"></span><span
+                                                class="mb-1 ml-2" style="color: rgb(200,200,200);margin-right: 0px;margin-left: auto;">{{item.comment.publishDate.replaceAll("T"," ").replaceAll("-", "/").slice(0, item.comment.publishDate.lastIndexOf(":"))}}</span>
                                         </div>
-                                        <div class="comment-text-sm" style="border-bottom: 0.1em solid rgb(200, 200, 200); padding-bottom: 2.1em;"><span>{{item.comment.commentContent}}</span></div>
+                                        <div class="comment-text-sm" style="color: rgb(70,70,70);border-bottom: 0.1em solid rgb(240, 240, 240); padding-bottom: 2.1em;"><span>- {{item.comment.commentContent}}</span></div>
                                     </div><br>
                                 </div>
                                 </div> <!-- Comment Part!!!   End-->
